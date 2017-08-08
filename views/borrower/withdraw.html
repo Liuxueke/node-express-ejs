@@ -1,0 +1,116 @@
+<% include common/header.html %>
+<% include common/position.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <div class="withdrawMain">
+        <div class="withdrawMoney">可提现金额（元）：<span><%= bankCard[0].cashAmount %></span></div>
+        <div class="rechargeMain">
+            <% if(bankCard == null){ %>
+                <div class="changeTips add">如需更添加银行卡，请联系对接业务员进行添加</div>
+                <div class="addBankCard">添加银行卡</div>
+            <% }else{ %>
+                <div class="changeTips">如需更换银行卡，请联系对接业务员进行更换</div>
+                <% bankCard.forEach(function(item){ %>
+                    <div class="bankCard">
+                        <div class="bankCardInfor">
+                            <span><i></i><%= item.bankName %>(尾号<font class="bankCardId" data-id="<%= item.bankCardId %>"><%= item.bankCardNo %></font>）</span>
+                            <p>银行预留手机：<font class="userTel"><%= item.phone.substr(0, 3) +'****' +item.phone.substr(7, 11) %></font></p>
+                            <p>限额：<%= item.paymentLimit %></p>
+                        </div>
+                        <div class="useThis"><i></i>使用该卡支付</div>
+                    </div>
+                <% }) %>
+            <% } %>
+            <div class="writeWithdraw">
+                <h4>填写提现金额</h4>
+                <form id="withdrawForm" method="get" action="">
+                    <ul>
+                        <li>
+                            <p>您当前可提现金额：</p>
+                            <span><%= bankCard[0].cashAmount %></span>
+                        </li>
+                        <li>
+                            <p>提现金额：</p>
+                            <input type="text" placeholder="请输入提现金额" id="amount" name="amount">
+                            <span>元</span>
+                        </li>
+                        <li>
+                            <input type="hidden" value="<%= fee.cash_count %>" id="withdrawNumber">
+                            <p>手续费：</p>
+                            <span id="cashfee">
+                            <% if(fee.cash_count==0){ %>
+                                <em id="withdrawFees"><%= fee.cash_fees %></em> %
+                            <% }else{ %>
+                                0.00
+                            <% } %>
+                        </span>
+                            <div class="feeTips"><font><%= config.withdrawTip %></font></div>
+                        </li>
+                        <li>
+                            <p>实际到账金额：</p>
+                            <span id="actualAmount">0.00</span>
+                        </li>
+                        <li>
+                            <p>预计到账日期：</p>
+                            <span>T+1日到账 如遇法定节假日，顺延</span>
+                        </li>
+                        <li>
+                            <input type="submit" value="确认提现" id="withdrawSub">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="rechargeTip">
+                <span>温馨提示：</span>
+                <ul>
+                    <li>1、当天充值金额，下一个工作日(节假日顺延)才可提现。</li>
+                    <li>2、每位投资者每天享有两笔免费提现机会，超出两笔后按提现金额的0.3%（千分之三）收取手续费，最低3元/笔。</li>
+                    <li>3、工作日12点前提交提现申请，我们将在T+0个工作日内打款，工作日12点后提交提现申请，我们将在T+1个工作日内打款， 到账时间因各个银行不同，以实际银行到账为准。</li>
+                    <li>4、为保障您的账户资金安全，您选择的银行卡开户名必须与您妙资账户实名认证一致，否则提现申请将无法成功。</li>
+                    <li>5、如果提现金额没有到账，请联系客服。（客服热线：400-757-8888)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<% include common/footer.html %>
+<div class="mask">
+    <div class="maskBg"></div>
+    <div class="withdrawMask">
+        <div class="withdrawMaskTit">确认提现信息</div>
+        <div class="withdrawMaskMain">
+            <form action="" method="post" id="withdrawConfirm">
+                <div class="form_input">
+                    <span class="text">提现至：</span>
+                    <label class="bankLogo"><img id="bank_icon" src="" class="inline"></label>
+                </div>
+                <div class="form_input">
+                    <span class="text">提现金额：</span>
+                    <label id="amount2"></label>
+                </div>
+                <div class="form_input">
+                    <span class="text">手续费：</span>
+                    <label id="cashFees"></label>
+                </div>
+                <div class="form_input">
+                    <span class="text">实际到账金额：</span>
+                    <label id="moneyOrder"></label>
+                    <font>元</font>
+                </div>
+                <div class="form_input">
+                    <span class="text">预计到账日期：</span>
+                    <label>T+1日到账 <span>如遇法定节假日，顺延</span></label>
+                </div>
+                <div class="form_input">
+                    <span class="text">交易密码：</span>
+                    <input type="password" placeholder="请输入您的交易密码" name="payPassword" id="payPassword">
+                </div>
+                <div class="form_input"><a href="">忘记交易密码？</a></div>
+                <input type="submit" value="确认提现">
+            </form>
+        </div>
+        <div class="close"></div>
+    </div>
+</div>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="../../public/js/common/common.utils.js"></script>
+<script src="../../public/js/borrower/withdraw.js"></script>

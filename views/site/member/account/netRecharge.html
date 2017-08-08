@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/public/js/common/skin/layer.css">
+<link rel="stylesheet" href="/public/css/s_netRecharge.min.css">
+<% include ../../common/paymentTopBar.html %>
+<% if(!error){ %>
+<div class="containtBox">
+    <h3 class="title">
+        <span>账户充值</span>
+    </h3>
+    <div class="containt">
+        <div class="payBox">
+            <p>网银支付</p>
+            <span>支付<em><%= netRechargeInfo.amt %></em>元</span>
+        </div>
+        <form action="<%= config.rechargeActions %>" method="post" target="_blank">
+            <input type="hidden" name="version" value="<%= netRechargeInfo['version'] %>">
+            <input type="hidden" name="oid_partner" value="<%= netRechargeInfo['oid_partner'] %>">
+            <input type="hidden" name="user_id" value="<%= netRechargeInfo['user_id'] %>">
+            <input type="hidden" name="sign_type" value="<%= netRechargeInfo['sign_type'] %>">
+            <input type="hidden" name="sign" value="<%= netRechargeInfo['sign'] %>">
+            <input type="hidden" name="busi_partner" value="<%= netRechargeInfo['busi_partner'] %>">
+            <input type="hidden" name="no_order" value="<%= netRechargeInfo['no_order'] %>">
+            <input type="hidden" name="dt_order" value="<%= netRechargeInfo['dt_order'] %>">
+            <input type="hidden" name="name_goods" value="<%= netRechargeInfo['name_goods'] %>">
+            <input type="hidden" name="info_order" value="<%= netRechargeInfo['info_order'] %>">
+            <input type="hidden" name="notify_url" value="<%= netRechargeInfo['notify_url'] %>">
+            <input type="hidden" name="url_return" value="<%= netRechargeInfo['url_return'] %>">
+            <input type="hidden" name="userreq_ip" value="<%= netRechargeInfo['userreq_ip'] %>">
+            <input type="hidden" name="url_order" value="<%= netRechargeInfo['url_order'] %>">
+            <input type="hidden" name="money_order" value="<%= netRechargeInfo.amt %>">
+            <input type="hidden" name="valid_order" value="<%= netRechargeInfo['valid_order'] %>">
+            <input type="hidden" name="bank_code" value="<%= netRechargeInfo['bank_code'] %>">
+            <input type="hidden" name="pay_type" value="<%= netRechargeInfo['pay_type'] %>">
+            <input type="hidden" name="timestamp" value="<%= netRechargeInfo['timestamp'] %>">
+            <input type="hidden" name="risk_item" value="<%= netRechargeInfo['risk_item'] %>">
+            <input type="hidden" name="id_type" value="<%= netRechargeInfo['id_type'] %>">
+            <input type="hidden" name="id_no" value="<%= netRechargeInfo['id_no'] %>">
+            <input type="hidden" name="acct_name" value="<%= netRechargeInfo['acct_name'] %>">
+            <input type="hidden" name="flag_modify" value="<%= netRechargeInfo['flag_modify'] %>">
+            <input class="submitBtn" type="submit" value="登录网银支付">
+        </form>
+        <a href="/member/account/recharge">选择其他支付方式</a>
+    </div>
+</div>
+<div id="modalBox">
+    <p>· 请您在新打开的第三方支付页面上完成前请不要关闭此窗口</p>
+    <p> · 完成充值后请根据您的情况点击下面的按钮</p>
+    <div class="btnBox">
+        <a href="/member/account/rechargeSuccess/<%= netRechargeInfo.orderNo %>">充值遇到问题</a>
+        <a href="/member/account/rechargeSuccess/<%= netRechargeInfo.orderNo %>" class="finished">已经完成充值</a>
+    </div>
+    <div>
+        <a href="/member/account/recharge" class="goBackBtn"> >> 返回重新选择银行 </a>
+    </div>
+</div>
+<% }else{ %>
+<div class="containtBox">
+    <h3 class="title">
+        <span>账户充值</span>
+    </h3>
+    <div class="containt">
+        <div class="networkErrorBox">
+            <p>网络开小差啦，请刷新页面试试吧~</p>
+            <a href="/member/account/netRecharge">刷新页面</a>
+        </div>
+    </div>
+</div>
+<% } %>
+<% include ../../common/memberFooter.html %>
+<script src="/public/js/common/layer.js"></script>
+<script src="/public/js/s_netRecharge.js"></script>

@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/public/css/common/s_membnerLeftNav.min.css">
+<!--个人中心左侧导航-->
+<div class="containt-left">
+    <ul class="menu-box menu">
+        <% config['memberNav'].forEach(function (item,index){ %>
+            <li <% if( !item.containt && index == memberIndex[0] ){ %>class="active"<% } %> >
+                <% if( item.containt ){ %>
+                    <a href=<%= item.src %> class="first-menu hasChildMenu"><%= item.menu %><em></em></a>
+                    <ul class="menu-box">
+                        <% item['containt'].forEach(function (value,i){ %>
+                            <li <% if(index == memberIndex[0] && i == memberIndex[1]){ %>class="active"<% } %> >
+                                <a href=<%= value.src %> ><i></i><%= value.menu %></a>
+                            </li>
+                        <% }) %>
+                    </ul>
+                <% }else{ %>
+                    <a href=<%= item.src %> class="first-menu" ><i></i><%= item.menu %></a>
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
+</div>
+<!--个人中心左侧导航-->

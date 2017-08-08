@@ -1,0 +1,26 @@
+<% include common/header.html %>
+<% include common/position.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <div class="successCenter">
+        <div class="successTop">
+            <% if(info.status == 0){ %>
+                <i class="icon-error"></i><strong>未还款</strong>
+            <% }else if(info.status == 1){ %>
+                <i class="icon-dealing"></i><strong>还款申请处理中</strong>
+            <% }else if(info.status == 2){ %>
+                <i class="icon-error"></i><strong>还款申请失败</strong>
+            <% }else{ %>
+                <i class="icon-success"></i><strong>还款申请成功</strong>
+            <% } %>
+        </div>
+        <div class="successDetail">
+            <ul>
+                <li><p>流水号</p><span><%= info.orderNo %></span></li>
+                <li><p>还款金额</p><span><%= info.amount %></span></li>
+                <li><p>标的名称</p><span><%= info.project %></span></li>
+            </ul>
+        </div>
+        <div class="backVipCenter"><a href="/borrower/">返回账户管理</a></div>
+    </div>
+</div>
+<% include common/footer.html %>

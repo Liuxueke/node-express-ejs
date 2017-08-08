@@ -1,0 +1,89 @@
+<div class="quickLogin-box">
+    <!--未登录-->
+    <% if(!loginInfo){ %>
+    <div class="not-login-box">
+        <p class="tab-btn clearfix">
+            <span class="fs16">免费注册</span>
+            <span class="fs16 tab-active">快速登录</span>
+        </p>
+        <!--注册-->
+        <div class="tabs-box register-tab">
+            <form action="" id="registerForm">
+                        <span class="input-box">
+                            <input name="mobile" id="mobile" type="text" class="tel fs4" maxlength="11" placeholder="注册手机号码">
+                        </span>
+                <span class="input-box">
+                            <input name="password" id="rePassword" type="password" class="password fs4" placeholder="设置登录密码">
+                        </span>
+                <span class="input-box img-code-box">
+                            <input name="graphCode" maxlength="4" type="text" class="code-text text-inpt fs4" id="graphCode" placeholder="图片验证码">
+                        </span>
+                <img src="/getImg" onclick="this.src='/getImg?t='+Math.random()" class="img-code regist-check-img-code">
+                <span class="agree-box">
+                            <input type="checkbox" name="agree" id="agree" checked="checked">
+                            <span class="check-box" id="agreement"></span>
+                            <label for="agree" class="fs12">
+                                <a href="/agree" target="_blank">我已阅读《妙资理财协议》</a>
+                            </label>
+                        </span>
+                <input type="submit" class="register-btn fs20" value="立即注册">
+            </form>
+        </div>
+        <!--登录框-->
+        <div class="tabs-box login-tab">
+            <form action="" id="loginForm">
+                     <span class="input-box">
+                         <input name="username" id="username" class="username" type="text" maxlength="11" class="fs4" placeholder="手机号码">
+                     </span>
+                <span class="input-box">
+                        <input name="password" id="password" class="inp password" autocomplete="off" type="password" class="fs4" placeholder="登录密码">
+                    </span>
+                <span class="graphCode">
+                        <span class="input-box img-code-box">
+                            <input name="checkcode" id="checkcode"  type="text" class="text-inpt fs4 code-text" placeholder="图片验证码">
+                        </span>
+                        <img src="/getImg" onclick="this.src='/getImg?t='+Math.random()" class="img-code login-check-img-code">
+                    </span>
+                <input type="checkbox" id="remenber">
+                <a href="/findLoginPassword" class="forget-password fs12">忘记密码？</a>
+                <input type="submit" class="register-btn fs20" value="马上登录">
+            </form>
+        </div>
+        <!--注册短信验证码-->
+        <div class="tabs-box message-code">
+            <form action="" id="message-code">
+                <p class="prompt-message fs14">短信已发送到您尾号为<span class="telNumber"></span>的手机</p>
+                <div class="graphCodeBox hide">
+                            <span class="code input-box">
+                                <input type="text" maxlength="4" name="graphCode2" id="graphCode2" class="text-inpt fs4 message hidden" placeholder="图片验证码">
+                            </span>
+                    <img src="" id="reImgCode" onclick="this.src='/getImg?t='+Math.random()" alt="" class="img-code">
+                </div>
+                <span class="input-box message-code-box">
+                            <input type="text" maxlength="6" id="captcha" name="captcha" maxlength="6" class="text-inpt fs4 message" placeholder="短信验证码">
+                        </span>
+                <span class="cutdown fs14 fr" id="timer">重新获取(5)</span>
+                <input name="recommenderson" type="text" class="recommend-person" id="recommenderson" placeholder="推荐人号码（选填）">
+                <a href="javascript:;" class="change-tel fs12">更换手机号</a>
+                <input type="submit" class="register-btn fs20" value="完成手机验证">
+            </form>
+        </div>
+        <!--注册处理中-->
+        <div class="handleRegisterBox">
+            <p>注册处理中......</p>
+        </div>
+    </div>
+    <% }else{ %>
+    <!--已登录-->
+    <div class="success-login-box">
+        <h3>欢迎回到妙资金融！</h3>
+        <p class="user-info fs14">您当前登录的账户<span id="userInfo"><%= loginInfo.mobile.substr(0,3) %>***<%= loginInfo.mobile.substr(7,4) %></span></p>
+        <a href="/member" class="enter-account fs20">进入我的账户</a>
+        <p class="quit-box clearfix">
+            <a href="/member/investment?type=2" class="look-init-product fl">查看投资的项目</a>
+            <a href="javascript:;" class="safe-quit fr">安全退出</a>
+        </p>
+    </div>
+    <% } %>
+</div>
+<script src="/public/js/common/s_quickLogin.js"></script>

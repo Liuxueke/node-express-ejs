@@ -1,0 +1,33 @@
+<% if(productDetails.sell==1){ %>
+<h5>募集完成</h5>
+<div class="drcenter">
+    项目金额：
+    <p class="dqsy">￥<%= productDetails.investTotalAmount %></p>
+</div>
+<% }else{ %>
+<h5>募集进度</h5>
+<div class="process-box">
+    <p class="process-line fl" style="width: <%= productDetails.progress %>%;">
+        <em></em>
+    </p>
+    <span class="fs14 process-percent"><%= productDetails.progress?productDetails.progress:0 %>%</span>
+</div>
+<div class="down">
+    <ul>
+        <li><span>剩余可投:</span><p><i class="clry"><%= productDetails.surplusInvestAmount?productDetails.surplusInvestAmount:0 %></i> 元</p></li>
+        <li><span>融资金额:</span><p><%= productDetails.investTotalAmount %> 元</p></li>
+        <li><span>募集周期:</span><p><%= productDetails.saleLimitName?productDetails.saleLimitName:0 %></p></li>
+    </ul>
+</div>
+<% } %>
+<div class="btn-box">
+    <div class="btn-box">
+        <% if(productDetails.sell == -1){ %>
+        <a class="invest-btn comeSoon" href="javascript:void(0);" data-countTime="<%= productDetails.countDown %>">距离开始00:00:00</a>
+        <% }else if(productDetails.sell == 0){ %>
+        <a class="invest-btn ing" href="javascript:void(0);" data-id="<%= payment_id %>">立即投资</a>
+        <% }else if(productDetails.sell == 1){ %>
+        <a class="invest-btn" href="javascript:void(0);">募集完成</a>
+        <% } %>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/public/css/s_registerSuccess.min.css">
+<% include common/nav.html %>
+<div class="containt-box">
+    <input type="hidden" id="orderNo" value="<%= orderNo %>">
+    <input type="hidden" id="registerStatus" value="<%= registerStatus %>">
+    <input type="hidden" id="mobile" value="<%= registerInfo?(registerInfo.username):(null) %>">
+    <input type="hidden" id="password" value="<%= registerInfo?(registerInfo.password):(null) %>">
+    <div class="successOuterBox <% if(registerStatus != 4){ %>hidden<% } %>">
+        <div class="success-box">
+            <h3>恭喜您，注册成功！</h3>
+            <p>为了您的账户安全，请确认投资身份，并<a href="/member/account/bankCard">实名认证</a></p>
+        </div>
+        <div class="btn-box">
+            <a href="/member" class="enter-account">进入我的个人账户</a>
+            <a href="/" class="to-index">返回首页</a>
+        </div>
+    </div>
+    <div class="handleRegister <% if(registerStatus == 4 || registerStatus == 5){ %>hidden<% } %>">
+        <i></i>
+        <p class="handle">正在处理中......</p>
+    </div>
+</div>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/s_registerSuccess.js"></script>
+<% include common/footer.html %>

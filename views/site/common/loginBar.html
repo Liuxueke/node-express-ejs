@@ -1,0 +1,35 @@
+<div class="topBar-innerBox">
+    <% if(loginInfo){ %>
+    <p class="login-box fs12 fl clr9"><p class="login-box fs12 fl clr9">您好，<a href="/member" class="userName"><%= loginInfo['mobile'].substr(0,3)+"****"+loginInfo['mobile'].substr(7,4) %></a>
+    <a href="/member/message" class="information hasInfomation">
+        消息<span><%= messages %></span> </a>
+    <a href="javascript:void(0);" class="loginOut">[安全退出]</a>
+</p>
+    <% }else{ %>
+    <p class="login-box fs12 fl clr9">
+        您好，欢迎来到妙资金融！
+        <a href="/login" class="login clr9">[登录]</a>
+        <a href="/register" class="signUp active">[免费注册]</a>
+    </p>
+    <% } %>
+    <ul class="fs12 fr">
+        <li>
+            <a href="/news/downloadapp.html" class="clr9" target="_blank">下载APP</a>
+        </li>
+        <li>
+            <a href="/news/about.html" class="clr9" target="_blank">关于我们</a>
+        </li>
+        <li>
+            <a href="/news/help/" class="clr9" target="_blank">帮助中心</a>
+        </li>
+        <li class="weibo">
+            <a href="http://weibo.com/mzmoney" target="_blank"></a>
+            <div class="weibo-link-box">
+                <a class="fs14" href="http://weibo.com/mzmoney" target="_blank">@mzmoney</a>
+            </div>
+        </li>
+        <li class="weixin">
+            <a href="javascript:;"></a>
+        </li>
+    </ul>
+</div>

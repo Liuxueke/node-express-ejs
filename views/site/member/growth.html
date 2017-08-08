@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/public/css/s_growth.min.css">
+<% include ../common/nav.html %>
+<div class="containt-box">
+    <% include ../common/memberLeftNav.html %>
+    <div class="containtRight">
+        <div class="bread_crumbs">
+            <div class="title title_hp2">
+                <span class="borderNone">成长值明细</span>
+            </div>
+        </div>
+        <form id="Form1" method="post" class="user-center-form">
+            <div class="pt30 table_default">
+                <table width="100%" border="1" bordercolor="#e5e5e5">
+                    <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>内容</th>
+                        <th>成长值</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <% if(growth.list.length>0){ %>
+                            <% growth.list.forEach(function (item,index){ %>
+                                <tr>
+                                    <td><%= item.logTime %></td>
+                                    <td><%= item.content  %></td>
+                                    <td><%= item.grow %></td>
+                                </tr>
+                            <% }) %>
+                        <% }else{ %>
+                            <tr>
+                                <td colspan="5">暂无记录</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+                <input type="hidden" id="totalPage" value="<%= growth.totalPage %>">
+            </div>
+        </form>
+        <% include ../common/pagination.html %>
+    </div>
+</div>
+<% include ../common/footer.html %>
+<script src="/public/js/s_growth.js"></script>

@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/public/css/s_openAccountSuccess.min.css">
+<% include ../../common/nav.html %>
+<div class="containt-box">
+    <% include ../../common/memberLeftNav.html %>
+    <input type="hidden" id="state" value="<%= state %>">
+    <input type="hidden" id="orderNo" value="<%= orderNo %>">
+    <div class="containtRight">
+        <div class="bank-title">
+            <h3>开通存管账户</h3>
+        </div>
+        <div class="containtSuccess <% if(state != 4){ %>hidden<% } %>">
+            <i></i>
+            <p class="success">开通存管账户成功！</p>
+            <p>现在可以对您的账户进行充值了</p>
+            <a href="/member/account/recharge">立即充值</a>
+        </div>
+        <div class="waitHandleBox <% if(state == 4){ %>hidden<% } %>">
+            <i></i>
+            <p class="handle">正在处理中......</p>
+        </div>
+    </div>
+</div>
+<% include ../../common/memberFooter.html %>
+<script src="/public/js/s_openAccountSuccess.js"></script>

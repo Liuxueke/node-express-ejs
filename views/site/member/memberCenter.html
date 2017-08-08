@@ -1,0 +1,228 @@
+<link rel="stylesheet" href="/public/css/s_memberCenter.min.css">
+<% include ../common/nav.html %>
+<div class="containt-box">
+    <% include ../common/memberLeftNav.html %>
+    <div class="user-right">
+        <div class="banner-box"></div>
+        <div class="content-box">
+            <% if(!error){ %>
+            <div class="grade-box">
+                <p class="grade level<%= memberInfo.grade.currentGrade %>">
+                    <% if(memberInfo.grade.currentGrade != 1 && memberInfo.grade.currentGrade < 11 && memberInfo.grade.currentGrade != 0){ %>
+                        <i class="first choosed"></i>
+                        <i class="second choosed"></i>
+                        <i class=""></i>
+                    <% } %>
+                </p>
+                <h3 class="grade-name"><%= memberInfo.grade.gradeName %></h3>
+                <div class="progress-width">
+                    <p class="progress-box progress-width">
+                        <span class="progress" style="width: <%= (growthInfo.grow/growthInfo.maxGrow).toFixed(4)*100 %>%;"><i></i></span>
+                    </p>
+                    <span class="grow-value">成长值<em class="grow-value-number"><%= growthInfo.grow %>/<%= growthInfo.maxGrow %></em></span>
+                    <a href="/member/growth" class="grow-value-record" target="_blank">成长值获取记录＞</a>
+                </div>
+                <a href="/list" class="invite-btn" target="_blank">立即投资</a>
+            </div>
+            <h3 class="title">当前权益</h3>
+            <ul class="right-box clearfix">
+                <% memberInfo.list.forEach(function (item,index){ %>
+                    <li class="style<%= index %> <% if(item.show){ %>show<% } %>" data-type="style<%= index %>">
+                        <i class="<% if(!item.show){ %>disabled<% } %>">
+                            <% if(item.show && index==0){ %>
+                                <%= growthInfo.incomePlus %>%
+                            <% } %>
+                        </i>
+                        <h3><%= item.name %></h3>
+                        <p><%= item.content %></p>
+                    </li>
+
+                <% }) %>
+                <li class="more">
+                    <i></i>
+                    <h3>敬请期待</h3>
+                </li>
+            </ul>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member/memberCenter">刷新页面</a>
+            </div>
+            <% } %>
+            <h3 class="title">升级攻略</h3>
+            <div class="rule-box clearfix">
+                <div class="rule">
+                    <h3>升级标准</h3>
+                    <p>会员成长值为会员等级升级唯一标准。</p>
+                    <p>成长值的获取方式分两种：</p>
+                    <p>1、新手完成投资新手标。</p>
+                    <p>2、成功投资产品（非金包赢、新手标）后即可获得对应成长值。</p>
+                    <span class="remind">注：妙资金融保留对会员权益和规则进行适当调整的权利。</span>
+                </div>
+                <div class="grow-value">
+                    <h3>成长值的计算方式</h3>
+                    <p>1、投资新手标：+500</p>
+                    <p>2、投资（非新手标、金包赢）获得的成长值：</p>
+                    <p>公式：单笔投资获得成长值=投资金额*项目期限/1000</p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>投资产品</td>
+                            <td>投资千元获得成长值</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>招财宝（30天）</td>
+                            <td class="grow-value">30</td>
+                        </tr>
+                        <tr>
+                            <td>丰惠盈（60天）</td>
+                            <td class="grow-value">60</td>
+                        </tr>
+                        <tr>
+                            <td>盈乐宝（90天）</td>
+                            <td class="grow-value">90</td>
+                        </tr>
+                        <tr>
+                            <td>票据盈（120天）</td>
+                            <td class="grow-value">120</td>
+                        </tr>
+                        <tr>
+                            <td>丰利盈（180天）</td>
+                            <td class="grow-value">180</td>
+                        </tr>
+                        <tr>
+                            <td>企盈宝（300天）</td>
+                            <td class="grow-value">300</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--弹框-->
+    <!--收益加成弹框-->
+    <div class="modal-box" id="style0-modal">
+        <div class="modal">
+            <div class="modal-content-top">
+                <h3>收益加成</h3>
+                <p>会员享有产品额外加息权益</p>
+            </div>
+            <div class="modal-content">
+                <h3>特权介绍</h3>
+                <p>不同会员，享有不同加息特权。会员等级越高，加息力度越大。</p>
+            </div>
+            <div class="modal-content">
+                <h3>规则说明</h3>
+                <p>1、适用于妙资金融白银一星及以上等级会员。</p>
+                <p>2、投资除（金包赢、新手标、活动标之外）的产品，可获得不同力度的收益加成。</p>
+            </div>
+            <div class="modal-content last-content">
+                <h3>加息前后收益对比</h3>
+                <p>比如某产品年化收益12%，期限365天，投资100万</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>普通会员</td>
+                        <td>白银三星会员</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>预期年化收益率12%</td>
+                        <td>预期年化收益率12%+0.30%</td>
+                    </tr>
+                    <tr>
+                        <td>预期投资收益12万元</td>
+                        <td>预期投资收益12万元+3000元</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a href="javascript:;" class="close">我知道了</a>
+        </div>
+    </div>
+    <!--节日弹框-->
+    <div class="modal-box" id="style3-modal">
+        <div class="modal">
+            <div class="modal-content-top">
+                <h3>节日礼包</h3>
+                <p>过节再拿大礼包</p>
+            </div>
+            <div class="modal-content">
+                <h3>特权介绍</h3>
+                <p>节日礼包是为了感谢妙资金融的广大会员，特在佳节来临之际送出的大礼包，等级越高，礼物越丰厚！</p>
+            </div>
+            <div class="modal-content last-content">
+                <h3>规则说明</h3>
+                <p>1、适用于妙资金融白银一星及以上等级会员。</p>
+                <p>2、节日礼包会在每年的节日来临之时自动发放，无需领取。您可在妙资官网“个人中心”—“卡券管理”界面直接查看。</p>
+            </div>
+            <a href="javascript:;" class="close">我知道了</a>
+        </div>
+    </div>
+    <!--升级弹框-->
+    <div class="modal-box" id="style1-modal">
+        <div class="modal">
+            <div class="modal-content-top">
+                <h3>升级礼包</h3>
+                <p>升级就送大礼包</p>
+            </div>
+            <div class="modal-content">
+                <h3>特权介绍</h3>
+                <p>升级礼包是妙资金融对广大会员的回馈，当用户每升一级可获赠升级礼包一份，升级等级越高，礼物越丰厚！</p>
+            </div>
+            <div class="modal-content last-content">
+                <h3>规则说明</h3>
+                <p>1、适用于妙资金融白银一星及以上等级会员。</p>
+                <p>2、升级礼包会在用户升级之时自动发放，无需领取。您可在妙资官网“个人中心”—“卡券管理”界面直接查看。</p>
+            </div>
+            <a href="javascript:;" class="close">我知道了</a>
+        </div>
+    </div>
+    <!--生日弹框-->
+    <div class="modal-box" id="style2-modal">
+        <div class="modal">
+            <div class="modal-content-top">
+                <h3>生日礼包</h3>
+                <p>生日当天重磅大礼！</p>
+                <span>距您的生日还有<em class="birthday-days"><%= birthday %></em>天</span>
+            </div>
+            <div class="modal-content">
+                <h3>特权介绍</h3>
+                <p>生日礼包是妙资金融给广大会员的感恩回馈，会员生日当天可获赠生日大礼包一份，等级越高，礼物越丰厚！</p>
+            </div>
+            <div class="modal-content last-content">
+                <h3>规则说明</h3>
+                <p>1、适用于妙资金融白银一星及以上等级会员。</p>
+                <p>2、会员生日以实名认证的身份证号为准。</p>
+                <p>3、生日礼包会在会员生日当天自动发放，无需领取。</p>
+                <p>您可在妙资官网“个人中心”—“卡券管理”界面直接查看。</p>
+            </div>
+            <a href="javascript:;" class="close">我知道了</a>
+        </div>
+    </div>
+    <!--专属客服-->
+    <div class="modal-box" id="style4-modal">
+        <div class="modal">
+            <div class="modal-content-top">
+                <h3>专属客服</h3>
+                <p>您的私人理财顾问</p>
+            </div>
+            <div class="modal-content">
+                <h3>特权介绍</h3>
+                <p>专属客服是妙资金融为会员推出的增值服务，可满足来电热线优先接听、消息优先回复等特权。</p>
+            </div>
+            <div class="modal-content last-content">
+                <h3>规则说明</h3>
+                <p>适用于妙资金融白银一星及以上等级会员。</p>
+            </div>
+            <a href="javascript:;" class="close">我知道了</a>
+        </div>
+    </div>
+</div>
+<% include ../common/memberFooter.html %>
+<script src="/public/js/s_memberCenter.js"></script>

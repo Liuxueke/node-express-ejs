@@ -1,0 +1,95 @@
+<% include ../common/header.html %>
+<% include ../common/position.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <div class="renderMain">
+        <div class="renderTitle">
+            <h3><%= detail.projectName %><font><%= detail.status %></font></h3>
+            <p>项目编号:<%= detail.projectId %></p>
+            <ul>
+                <li>收款人：<span><%= detail.payee %></span></li>
+                <li>项目类型：<span><%= detail.creditTypeName %></span></li>
+                <li>还款方式：<span><%= detail.paymentOptionName %></span></li>
+                <li>项目用途：<span><%= detail.creditUseName %></span></li>
+            </ul>
+        </div>
+        <div class="projectDetailList clearFixed">
+            <ul>
+                <li>
+                    <i class="icon-interest"></i>
+                    <strong><%= detail.yearIncome %></strong>
+                    <p>年化利率</p>
+                </li>
+                <li>
+                    <i class="icon-account"></i>
+                    <strong><%= detail.creditAmount %></strong>
+                    <p>项目金额</p>
+                </li>
+                <li>
+                    <i class="icon-time"></i>
+                    <strong><%= detail.payTime %></strong>
+                    <p>服务费支付时间</p>
+                </li>
+                <li>
+                    <i class="icon-refunds"></i>
+                    <strong><%= detail.backServiceCharge %></strong>
+                    <p>服务费退款金额</p>
+                </li>
+                <li>
+                    <i class="icon-rate"></i>
+                    <strong><%= detail.serviceCharge %> %</strong>
+                    <p>服务费率</p>
+                </li>
+                <li class="no-border">
+                    <i class="icon-serverMoney"></i>
+                    <strong><%= detail.charge %></strong>
+                    <p>服务费支付金额</p>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="projectInfor clearFixed">
+            <div class="projectOne">
+                <h5>安全信息</h5>
+                <ul>
+                    <li><p>安全等级</p><span><%= detail.securityLevel %></span></li>
+                    <li><p>担保机构</p><span><%= detail.guarName %></span></li>
+                    <li><p>项目资料</p><span></span></li>
+                    <li><p>项目描述</p><span><%= detail.description %></span></li>
+                    <li class="no-border"></li>
+                </ul>
+            </div>
+            <div class="projectOne">
+                <h5>借款人信息</h5>
+                <ul>
+                    <li><p>借款人编号</p><span><%= detail.userId %></span></li>
+                    <li><p>借款人</p><span><%= detail.company %></span></li>
+                    <li><p>来源渠道</p><span><%= detail.sourceName %></span></li>
+                    <li><p>借款期限</p><span><%= detail.loanTerm %></span></li>
+                    <li class="no-border"><p>借款期限单位</p><span><%= detail.interestLimitType %></span></li>
+                </ul>
+            </div>
+            <div class="projectOne no-border">
+                <h5>票据信息</h5>
+                <ul>
+                    <li><p>票号</p><span><%= detail.ticketNo %></span></li>
+                    <li><p>出票人</p><span><%= detail.drawer %></span></li>
+                    <li><p>票据到期日</p><span><%= detail.bilExpDate %></span></li>
+                    <li class="no-border"><p>票据金额</p><span><%= detail.billAmount %></span></li>
+                </ul>
+            </div>
+            <div class="projectTwo">
+                <h5>其他信息</h5>
+                <ul class="clearFixed">
+                    <li><p>创建时间</p><span><%= detail.createTime %></span></li>
+                    <li class="ml"><p>适合人群</p><span><%= detail.fitGroup %></span></li>
+                    <li><p>更新时间</p><span><%= detail.updateTime %></span></li>
+                    <li class="ml"><p>详细地址</p><span><%= detail.address %></span></li>
+                    <li><p>退还时间</p><span><%= detail.backMoneyTime %></span></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="backVipCenter"><a href="/borrower">返回账户管理</a></div>
+    </div>
+</div>
+<% include ../common/footer.html %>

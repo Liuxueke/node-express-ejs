@@ -1,0 +1,336 @@
+.quickLogin-outerBox{
+    position: absolute;
+    top:0;
+    left:50%;
+    margin-left:-600px;
+    width:1200px;
+    .quickLogin-box{
+        position: absolute;
+        right: 0;
+        top: 30px;
+        border-radius: 4px;
+        width: 320px;
+        background: url(https://r.mzmoney.com/mz/img/hpimg/quick-loginbg.png) repeat-y;
+        background-size: 100%;
+        z-index: 100;
+        height: 305px;
+        .tab-btn{
+            width: 100%;
+            height: 40px;
+            span{
+                float: left;
+                display: inline-block;
+                width: 50%;
+                height: 100%;
+                line-height: 40px;
+                text-align: center;
+                color: #fff;
+                cursor: pointer;
+            }
+            .tab-active{
+                background-image: url(https://r.mzmoney.com/mz/img/hpimg/golden.png);
+                background-size: 100% 100%;
+            }
+        }
+        .tabs-box{
+            padding: 16px 30px;
+            .register-btn{
+                border:none;
+                display: block;
+                border-radius: 4px;
+                width:260px;
+                height:35px;
+                line-height: 35px;
+                text-align: center;
+                color: #fff;
+                background-color:#f76867;
+                font-size: 18px;;
+                &:hover{
+                    background-color: #fb705e;
+                }
+            }
+            a.forget-password{
+                display: inline-block;
+                margin:5px 0;
+                color: #fff;
+                text-align: left;
+                &:hover{
+                    border-bottom: 1px solid #fff;
+                    margin-bottom:4px;
+                }
+            }
+            input[type="password"]{
+                margin-bottom:13px;
+                padding-left:46px;
+                border-radius: 4px;
+                border:1px solid #dddddd;
+                height:38px;
+                line-height: 38px;
+                text-align: left;
+            }
+            input[type="text"]{
+                padding-left:46px;
+                border-radius: 4px;
+                border:1px solid #dddddd;
+                height:38px;
+                line-height: 38px;
+                text-align: left;
+            }
+            .check-box{
+                display: inline-block;
+                border-radius: 4px;
+                width:16px;
+                height:16px;
+                vertical-align: middle;
+                background: url("https://r.mzmoney.com/mz/img/hpimg/checked.png");
+                background-size: 100% 100%;
+            }
+            .code{
+                margin-bottom: 15px;
+                display: inline-block;
+                width:auto !important;
+                height:38px;
+            }
+            .graphCodeBox{
+                .img-code{
+                    width:66px !important;
+                }
+            }
+            .input-box{
+                position: relative;
+                display: inline-block;
+                margin-bottom: 15px;
+                width:262px;
+                height:38px;
+                label.error{
+                    position: absolute;
+                    top:50%;
+                    right:8px;
+                    padding:0 6px;
+                    margin-top: -10px;
+                    border-radius: 4px;
+                    height:20px;
+                    line-height: 20px;
+                    font-size:12px;
+                    background-color: #fb705e;
+                    color: #fff;
+                    text-align: center;
+                }
+            }
+            .message-code-box{
+                width:180px;
+                height:35px !important;
+            }
+            .img-code-box{
+                width:190px !important;
+            }
+            label{
+                padding-left:10px;
+                color: #fff;
+                a{
+                    color: #fff;
+                }
+            }
+            input.username{ width:214px; background: #fff url("https://r.mzmoney.com/mz/img/hpimg/register-tel.png") no-repeat left center;}
+            input.tel{
+                width:214px;
+                background:#fff url("https://r.mzmoney.com/mz/img/hpimg/register-tel.png") no-repeat left center;
+            }
+            input.password{
+                width:214px;
+                background:#fff url("https://r.mzmoney.com/mz/img/hpimg/login-password.png") no-repeat left center;
+            }
+            input.code-text{
+                background:#fff url("https://r.mzmoney.com/mz/img/hpimg/img-code.png") no-repeat left center;
+            }
+            .text-inpt{
+                width:92px;
+            }
+        }
+        .login-tab{
+            display: none;
+            .graphCode{
+                display: inline-block;
+                height:40px;
+                width: 262px;;
+            }
+            #loginForm {
+                input[type="submit"]{
+                    margin-top:18px;
+                    position: relative;
+                    bottom:18px;
+                }
+                span.graphCode{
+                    display: none;
+                }
+            }
+        }
+        .register-tab #registerForm label a:hover{
+            border-bottom:1px solid #fff;
+        }
+        .success-login-box{
+            padding: 20px 29px 0 29px;
+            h3{
+                width:100%;
+                height:50px;
+                line-height: 50px;
+                text-align: left;
+                font-size:14px;
+                border-bottom:1px solid #fff;
+                color: #fff;
+            }
+            .quit-box{
+                width:100%;
+                margin-top: 25px;
+                a{
+                    color: #fff;
+                    font-size:12px;
+                }
+                a.look-init-product{
+                    text-align: left;
+                    &:hover{
+                        border-bottom: 1px solid #fff;
+                    }
+                }
+                a.safe-quit{
+                    text-align: right;
+                    &:hover{
+                        border-bottom: 1px solid #fff;
+                    }
+                }
+            }
+            .user-info{
+                line-height: 70px;
+                text-align: left;
+                color: #fff;
+            }
+            .enter-account{
+                display: block;
+                border-radius: 4px;
+                width:100%;
+                height:35px;
+                background-color: #f76867;
+                line-height: 35px;
+                text-align: center;
+                color: #fff;
+                font-size:18px;
+            }
+        }
+        .message-code{
+            display: none;
+            padding:10px 30px !important;
+            .code{
+                height:35px !important;
+            }
+            div.error{
+                margin-top: 7px;
+            }
+            .change-tel{
+                &:hover{
+                    border-bottom: 1px solid #fff;
+                }
+            }
+            .register-btn{
+                margin-top:10px;
+            }
+            .prompt-message{
+                color: #fff;
+                text-align: left;
+                padding-bottom: 15px;
+            }
+            .message{
+                width:134px !important;
+                background: #fff url("https://r.mzmoney.com/mz/img/hpimg/register-tel.png") no-repeat left center;
+            }
+            .cutdown{
+                display: inline-block;
+                border-radius: 4px;
+                width:66px;
+                height:38px;
+                background-color: #f76867;
+                text-align: center;
+                line-height: 38px;
+                color: #fff;
+                cursor: default;
+                font-size:10px;
+            }
+            .recommend-person{
+                margin-bottom: 7px;
+                padding-left:15px !important;
+                background-color: #dddddd;
+                width:245px;
+                height:35px !important;
+            }
+            .change-tel{
+                color: #fff;
+            }
+        }
+        .input-code{
+            .message-box{
+                position: relative;
+                display: inline-block;
+                height: 35px;
+            }
+        }
+    }
+}
+.handleRegisterBox{
+    display: none;
+    p{
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        line-height: 200px;
+    }
+}
+.quickLogin-box .message-code div.error,
+.quickLogin-box .login-tab div.error,.quickLogin-box .register-tab div.error{
+    padding:3px 0 3px 29px;
+    border-radius: 4px;
+    font-size:12px;
+    background:url("https://r.mzmoney.com/mz/img/hpimg/error.png") no-repeat #fff1cc 7px center;
+    color: #666;
+}
+
+.quickLogin-box .message-code div.error,
+.quickLogin-box .login-tab{
+    position: relative;
+}
+.checked{
+    background: #fff !important;
+}
+.agree-box{
+    display: block;
+    margin-bottom:5px;
+}
+#agree,#remenber{
+    display: none;
+}
+#graphCode{
+    width: 144px;
+}
+#checkcode{ width: 144px;}
+.img-code{
+    margin-top: 1px;
+    float: right;
+    width:60px;
+    height:38px;
+}
+.hide{
+    display: none !important;
+}
+#agree-error{
+    display: none;
+    float: right;
+    margin-top: 3px;
+    padding:0 6px;
+    border-radius: 4px;
+    height:20px;
+    line-height: 20px;
+    background-color: #fb705e;
+    color: #fff;
+    font-size:12px;
+}
+input:-webkit-autofill {
+    background: none;
+}

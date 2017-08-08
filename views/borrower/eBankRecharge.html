@@ -1,0 +1,59 @@
+<% include common/header.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <div class="eBankCenter">
+        <div class="eBankCenterTitle">账户充值</div>
+        <div class="eBankCenterMain">
+            <div class="fl">网银支付</div>
+            <div class="fr">支付：<%= eBankInfo.money_order %>元</div>
+        </div>
+        <div class="eBankCenterSubmit">
+            <form id="eBankPay" method="post" action="https://cashier.lianlianpay.com/payment/bankgateway.htm" target="_blank">
+                <input type="hidden" name="version" value="<%= eBankInfo.version %>">
+                <input type="hidden" name="oid_partner" value="<%= eBankInfo.oid_partner %>">
+                <input type="hidden" name="user_id" value="<%= eBankInfo.user_id %>">
+                <input type="hidden" name="sign_type" value="<%= eBankInfo.sign_type %>">
+                <input type="hidden" name="sign" value="<%= eBankInfo.sign %>">
+                <input type="hidden" name="busi_partner" value="<%= eBankInfo.busi_partner %>">
+                <input type="hidden" name="no_order" value="<%= eBankInfo.no_order %>">
+                <input type="hidden" name="dt_order" value="<%= eBankInfo.dt_order %>">
+                <input type="hidden" name="name_goods" value="<%= eBankInfo.name_goods %>">
+                <input type="hidden" name="info_order" value="<%= eBankInfo.info_order %>">
+                <input type="hidden" name="money_order" value="<%= eBankInfo.money_order %>">
+                <input type="hidden" name="notify_url" value="<%= eBankInfo.notify_url %>">
+                <input type="hidden" name="url_return" value="<%= eBankInfo.url_return %>">
+                <input type="hidden" name="userreq_ip" value="<%= eBankInfo.userreq_ip %>">
+                <input type="hidden" name="url_order" value="<%= eBankInfo.url_order %>">
+                <input type="hidden" name="valid_order" value="<%= eBankInfo.valid_order %>">
+                <input type="hidden" name="bank_code" value="<%= eBankInfo.bank_code %>">
+                <input type="hidden" name="pay_type" value="<%= eBankInfo.pay_type %>">
+                <input type="hidden" name="timestamp" value="<%= eBankInfo.timestamp %>">
+                <input type="hidden" name="risk_item" value="<%= eBankInfo.risk_item %>">
+                <input type="hidden" name="id_type" value="<%= eBankInfo.id_type %>">
+                <input type="hidden" name="id_no" value="<%= eBankInfo.id_no %>">
+                <input type="hidden" name="acct_name" value="<%= eBankInfo.acct_name %>">
+                <input type="hidden" name="flag_modify" value="<%= eBankInfo.flag_modify %>">
+                <input type="submit" name="ebankSubmit" id="ebankSubmit" value="登录网银支付">
+            </form>
+        </div>
+        <div class="eBankCenterBot"><a href="/borrower/recharge">选择其它方式</a></div>
+    </div>
+</div>
+
+<div class="mask" style="display: block;">
+    <div class="maskBg"></div>
+    <div class="payContent">
+        <div class="payContent-title">温馨提示</div>
+        <div class="payContent-main">
+            <div class="payContent-top">
+                <p>· 请您在新打开的第三方支付页面上完成前请不要关闭此窗口</p>
+                <p>· 完成充值后请根据您的情况点击下面的按钮</p>
+            </div>
+            <div class="payContent-goOut">
+                <a href="">充值遇到问题</a>
+                <a href="">已完成充值</a>
+            </div>
+            <div class="payContent-back"><a href="">>> 返回重新选择银行</a></div>
+        </div>
+    </div>
+</div>
+<% include common/footer.html %>

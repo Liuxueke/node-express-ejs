@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="/public/css/s_coupon.min.css">
+<link rel="stylesheet" href="/public/css/common/s_pagination.min.css">
+<script src="https://r.mzmoney.com/public/js/jquery-1.9.1.min.js"></script>
+<% include ../common/nav.html %>
+<div class="containt-box">
+    <% include ../common/memberLeftNav.html %>
+    <div class="containt-right">
+        <div class="coupon">
+            <div class="couponTop">
+                <ul>
+                    <li class="on" data-status="1">可使用</li>
+                    <li data-status="2">已使用</li>
+                    <li data-status="3">已过期</li>
+                    <li data-status="0">获取记录</li>
+                </ul>
+                <div class="search">
+                    <input type="text" placeholder="输入兑换码激活">
+                    <a href="javascrit:;" class="exchange-btn disabled">兑换</a>
+                </div>
+            </div>
+            <!-- 优惠券列表 -->
+            <div class="couponMain">
+                <div class="canUse getRecord">
+                    <% if(!error){ %>
+                    <input type="hidden" id="totalPage" value="<%= couponList.totalPage %>">
+                    <ul id="couponBox">
+                        <% if(couponList.list.length>0){ %>
+                            <% couponList.list.forEach(function (item,index){ %>
+                                <li class="<% if(item.type==1){ %>jinbao<% }else if(item.type==2){ %>dijia<% }else if(item.type==3){ %>zhekou<% }else if(item.type==4){ %>xianjin<% }else if(item.type==5){ %>tixian<% }else if(item.type==6){ %>jiaxi<% } %>">
+                                    <div class="useTop">
+                                        <span class="useName"><i></i><%= item.name %></span>
+                                        <span class="usePrice">
+                                            <% if(item.type==3 || item.type==6){ %>
+                                                <font><%= ((item.fees)*100/10000).toFixed(2) %></font>%
+                                            <% }else{ %>
+                                                ￥<font><%= item.money %></font>
+                                            <% } %>
+                                        </span>
+                                        <div class="useState">
+                                            <% if(item.status==0){ %>
+                                                待激活
+                                            <% }else if(item.status==1){ %>
+                                                可使用
+                                            <% }else if(item.status==2){ %>
+                                                已使用
+                                            <% }else if(item.status==3){ %>
+                                                已失效
+                                            <% }else if(item.status==4){ %>
+                                                已废弃
+                                            <% } %>
+                                            <p><%= item.quota %>元以上可使用</p>
+                                        </div>
+                                    </div>
+                                    <div class="useBot">
+                                        <p><%= item.description %></p>
+                                        <p>有效期至：<%= item.expireTime %></p>
+                                    </div>
+                                </li>
+                            <% }) %>
+                        <% }else{ %>
+                            <li class="nothing">
+                                <p>暂无可使用卡券</p>
+                            </li>
+                        <% } %>
+                    </ul>
+                    <% }else{ %>
+                    <div class="networkErrorBox">
+                        <p>网络开小差啦，请刷新页面试试吧~</p>
+                        <a href="/member/coupon">刷新页面</a>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% include ../../site/common/pagination.html %>
+        </div>
+    </div>
+</div>
+<div class="mask" id="explainModal">
+    <div class="maskBg"></div>
+    <div class="maskBox">
+        <strong>使用说明</strong>
+        <p></p>
+        <span class="close">我知道了</span>
+    </div>
+</div>
+<% include ../common/memberFooter.html %>
+<script src="../../public/js/s_coupon.js"></script>

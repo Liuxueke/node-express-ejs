@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="/public/css/common/s_base.min.css">
+<link rel="stylesheet" href="/public/css/s_rechargeSuccess.min.css">
+<% include ../../common/nav.html %>
+<div class="containt-box">
+    <% include ../../common/memberLeftNav.html %>
+    <div class="user-right">
+        <div class="user-wrapper">
+            <div class="bread_crumbs">
+                <div class="title">
+                    <span>充值提醒</span>
+                </div>
+            </div>
+            <% if(!error){ %>
+            <% if(!rechargeStart['error_code']){ %>
+            <input type="hidden" id="rechargeStatus" value="<%= rechargeStart.state %>">
+            <input type="hidden" value="<%= orderNo %>" id="orderNumber">
+            <div class="rechargeStatus <% if(rechargeStart.state != 4){ %>hidden<% } %>" id="rechargeSuccess">
+                <div class="transaction_success mt50 pl140">
+                    <div class="success1">
+                        <span class="ml100 step step1 on"></span>
+                        <span class="step step_line"></span>
+                        <span class="step step3 on"></span>
+                    </div>
+                    <div class="success2 t-c mt15">
+                        <ul>
+                            <li>
+                                <p class="f18" style="text-align: left;padding-left: 36px;">
+                                    充值订单成功提交
+                                </p>
+                            </li>
+                            <li>
+                                <p class="f18" style="text-align: left;padding-left: 84px;">
+                                    充值成功
+                                </p>
+                            </li>
+
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="pt50 t-c">
+                    <a href="/member/account/recharge" class="btn btn-disabled ml40">继续充值</a>
+                    <a href="/member/prepaid" class="btn btn-disabled ml40">查看充值记录</a>
+                </div>
+            </div>
+            <div class="rechargeStatus <% if(rechargeStart.state == 4){ %>hidden<% } %>" id="rechargeHandel" >
+                <i></i>
+                <p class="handle">充值处理中......</p>
+            </div>
+            <div class="p20">
+                <div class="f14 pl30">
+                    <p class="mt30 fb cGray5">
+                        温馨提示：
+                    </p>
+                    <p class="pl30 pt10 cGray5">
+                        1、充值成功表明银行账户已经成功扣款，并进入第三方资金托管账户内
+                    </p>
+                    <p class="pl30 pt10 cGray5">
+                        2、资金到妙资财富平台账户可能会有一定时间延迟，一般不超过3分钟
+                    </p>
+                    <p class="pl30 pt10 cGray5">
+                        3、如果超过10分钟资金仍未到账，请联系客服：<span class="fb">400-757-8888</span>
+                    </p>
+                </div>
+            </div>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member/account/rechargeSuccess/<%= orderNo %>">刷新页面</a>
+            </div>
+            <% } %>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member/account/rechargeSuccess/<%= orderNo %>">刷新页面</a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<% include ../../common/memberFooter.html %>
+<script src="/public/js/s_rechargeSuccess.js"></script>

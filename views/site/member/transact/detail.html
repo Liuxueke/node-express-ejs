@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="/public/css/s_transactDetail.min.css">
+<% include ../../common/nav.html %>
+<div class="containt-box">
+    <% include ../../common/memberLeftNav.html %>
+    <div class="user-right">
+        <div class="user-wrapper mt0 miH838">
+            <div class="bread_crumbs">
+                <div class="title title_hp2">
+                    <span class="borderNone">交易记录详情</span>
+                </div>
+            </div>
+            <div class="p20">
+                <% if(transactDetail && !transactDetail['error_code']){ %>
+                    <div>
+                        <p class="f14">
+                            交易成功
+                        </p>
+                    </div>
+                    <div>
+                        <div class="transaction_success">
+                            <div class="success1">
+                                <span class="ml100 step step1 on"></span>
+                                <span class="step step_line on"></span>
+                                <% if(transactDetail.category==3){ %>
+                                <span class="step step2 on"></span>
+                                <span class="step step_line on"></span>
+                                <% } %>
+                                <span class="step step3 on"></span>
+                            </div>
+                            <div class="success2 t-c mt15">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <p class="f18">
+                                                <% if(transactDetail.category==2){ %>赎回<% } %>
+                                                <% if(transactDetail.category==0){ %>购买<% } %>
+                                                <% if(transactDetail.category==3){ %>提现<% } %>
+                                                <% if(transactDetail.category==1){ %>充值<% } %>
+                                                订单待处理
+                                            </p>
+                                            <p class="cGray1 f14 mt10">
+                                                <%= transactDetail.createTime %>
+                                            </p>
+                                        </li>
+                                        <% if(transactDetail.category==3){ %>
+                                        <li>
+                                            <p class="f18">
+                                                提现订单处理中
+                                            </p>
+                                            <p class="cGray1 f14 mt10">
+                                                <%= transactDetail.processTime %>
+                                            </p>
+                                        </li>
+                                        <% } %>
+                                        <li>
+                                            <p class="f18">
+                                                <% if(transactDetail.category==2){ %>赎回<% } %>
+                                                <% if(transactDetail.category==0){ %>购买<% } %>
+                                                <% if(transactDetail.category==3){ %>提现<% } %>
+                                                <% if(transactDetail.category==1){ %>充值<% } %>
+                                                订单处理成功
+                                            </p>
+                                            <p class="cGray1 f14 mt10">
+                                                <%= transactDetail.finishTime %>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt20 transaction_details">
+                            <hr style="border:1px dashed #e1e1e1;" class="mt30">
+                        </div>
+                    </div>
+                    <p class="f14 mt30">
+                        记录详情
+                    </p>
+                    <div class="table_default table_style2">
+                        <table width="100%" border="1" bordercolor="#e5e5e5" class="mt20">
+                            <tbody><tr>
+                                <td class="left">时间</td>
+                                <td><%= transactDetail.createTime %></td>
+                            </tr>
+                            <tr>
+                                <td class="left">交易类型</td>
+                                <td>
+                                    <% if(transactDetail.category==2){ %>赎回<% } %>
+                                    <% if(transactDetail.category==0){ %>购买<% } %>
+                                    <% if(transactDetail.category==3){ %>提现<% } %>
+                                    <% if(transactDetail.category==1){ %>充值<% } %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="left">流水号</td>
+                                <td><%= transactDetail.noOrder %></td>
+                            </tr>
+                            <tr>
+                                <td class="left">
+                                    <% if(transactDetail.category==2){ %>赎回金额<% } %>
+                                    <% if(transactDetail.category==0){ %>投资金额<% } %>
+                                    <% if(transactDetail.category==3){ %>提现金额<% } %>
+                                    <% if(transactDetail.category==1){ %>充值金额<% } %>
+                                </td>
+                                <td class="color_base"><%= transactDetail.moneyOrder %></td>
+                            </tr>
+                            <% if(transactDetail.category==1 || transactDetail.category==3){ %>
+                            <tr>
+                                <td class="left">
+                                    <% if(transactDetail.category==1){ %>充值方式<% } %>
+                                    <% if(transactDetail.category==3){ %>提现到<% } %>
+                                </td>
+                                <td>
+                                    <% if(transactDetail.category==3){ %>
+                                    <%= transactDetail.bankName %>(尾号为<%= transactDetail.bankCardNo %>)
+                                    <% } %>
+                                    <% if(transactDetail.category==1){ %>余额支付<% } %>
+                                </td>
+                            </tr>
+                            <% } %>
+                            <tr>
+                                <td class="left">交易状态</td>
+                                <td>
+                                    <%= transactDetail.statusOrderName %>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <% }else{ %>
+                    <div class="networkErrorBox">
+                        <p>网络开小差啦，请刷新页面试试吧~</p>
+                        <a href="javascript:window.location.reload();">刷新页面</a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<% include ../../common/memberFooter.html %>

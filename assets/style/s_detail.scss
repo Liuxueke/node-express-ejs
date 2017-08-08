@@ -1,0 +1,648 @@
+@import "common/s_nav";
+@import "common/s_footer";
+.bordouble {border-right: 1px solid #ddd;border-left: 1px solid #ddd}
+.product-box {
+    margin:20px auto 0 auto;
+    width:1200px;
+    .details{
+        position: relative;
+        margin-bottom:20px;
+        display: inline-block;
+        width: 740px;
+        height: 320px;
+        border: 1px solid #eee;
+        background: #fff;
+        padding: 20px 30px;
+        .icon{
+            position: absolute;
+            right: -11px;
+            top: 22px;
+            padding-left:7px;
+            border-radius: 4px;
+            width:73px;
+            height:25px;
+            line-height: 25px;
+            text-align: center;
+            background-size: 100% 100%;
+            color: #fff;
+        }
+        .news{
+            background-image: url("https://r.mzmoney.com/mz/img/hpimg/newbg.png");
+            box-shadow: 0 2px 10px 0px rgba(247,104,103,.6);
+            -webkit-box-shadow: 0 2px 10px 0px rgba(247,104,103,.6);
+            -moz-box-shadow: 0 2px 10px 0px rgba(247,104,103,.6);
+        }
+        .taste{
+            background-image: url("https://r.mzmoney.com/mz/img/hpimg/tastebg.png");
+            box-shadow: 0 2px 10px 0px rgba(236,186,102,.6);
+            -webkit-box-shadow: 0 2px 10px 0px rgba(236,186,102,.6);
+            -moz-box-shadow: 0 2px 10px 0px rgba(236,186,102,.6);
+        }
+        p{
+            height:30px;
+            line-height:30px;
+        }
+        .product-name{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        a.activity{
+            display: inline-block;
+            margin-left:20px;
+            border:none;
+            padding-left:22px;
+            text-align: left;
+            font-size:14px;
+            color: #ecba66;
+            background: url("https://r.mzmoney.com/mz/img/hpimg/activityLogo.png") no-repeat 5px center;
+            vertical-align: middle;
+        }
+        .rate {
+            margin-top: 15px;
+            ul{
+                li {
+                    display: inline-block;
+                    width: 190px;
+                    p {
+                        font-size: 20px;
+                        color: #666;
+                        text-align: center;
+                    }
+                    span {
+                        display: block;
+                        text-align: center;
+                        font-size: 14px;
+                        line-height: 30px;
+                        color: #999;
+                    }
+                }
+                .first{
+                    width: 245px;
+                    p {
+                        text-align: left!important;
+                    }
+                    span {
+                        text-align: left!important;
+                    }
+                }
+            }
+        }
+        .info {
+            margin-top: 10px;
+            ul{
+                li {
+                    margin: 20px 0;
+                }
+            }
+            img {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 14px;
+                color: #666;
+            }
+        }
+        .calculator {
+            width: 700px;
+            height: 30px;
+            border: 1px solid #ddd;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 30px;
+            div {
+                float: left;
+            }
+            .left {
+                width: 100px;
+                height: 30px;
+                font-size: 14px;
+                line-height: 30px;
+                text-align: center;
+                background: url("https://r.mzmoney.com/mz/img/hpimg/productDetail/dollor.png") 9px center #ecba66 no-repeat;
+                color: #fff;
+                border-top-left-radius: 4px;
+                -webkit-border-top-left-radius: 4px;
+                -moz-border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                -webkit-border-bottom-left-radius: 4px;
+                -moz-border-bottom-left-radius: 4px;
+                border-top-right-radius: 0px;
+                -webkit-border-top-right-radius: 0px;
+                -moz-border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                -webkit-border-bottom-right-radius: 0px;
+                -moz-border-bottom-right-radius: 0px;
+            }
+            .middle {
+                width: 240px;
+                height: 30px;
+                font-size: 14px;
+                border-right: 1px solid #ddd;
+                background: #f4f4f4;
+                input[type="text"] {
+                    display: block;
+                    width: 100%;
+                    height:30px;
+                    border: none;
+                    font-size: inherit;
+                    line-height: 30px;
+                    background: #f4f4f4;
+                    text-indent: 50px;
+                }
+            }
+            .right {
+                font-size: 14px;
+                color:#999;
+                line-height: 30px;
+                text-indent: 50px;
+                span {
+                    i{
+                        padding-left: 10px;
+                        font-style: normal;
+                    }
+
+                }
+            }
+        }
+    }
+}
+.active{
+    color: #f76867 !important;
+}
+.networkErrorBox{
+    margin:100px 0 !important;
+}
+.process {
+    position: relative;
+    width: 315px;
+    height: 320px;
+    padding: 20px 30px;
+    border: 1px solid #eee;
+    background: #fff;
+    .drcenter {
+        padding-left: 18px;
+        margin: 80px auto;
+        color: #666;
+        text-align: left;
+        font-size: 14px;
+        .dqsy {
+            display: inline;
+            font-size: 30px;
+        }
+    }
+    h5 {
+        font-size: 20px;
+        color:#333;
+    }
+    .process-box {
+        width: 250px;
+        height: 5px;
+        background: #eee;
+        margin-top: 40px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        position: relative;
+        .process-line {
+            height: 5px;
+            background: #f76867;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            em {
+                display: block;
+                width: 6px;
+                height: 6px;
+                -webkit-border-radius:100%;
+                -moz-border-radius:100%;
+                border-radius:100%;
+                border: 2px solid #f76867;
+                background: #fff;
+                position: absolute;
+                right: -5px;
+                top: -2px;
+                font-style: normal;
+            }
+        }
+    }
+    span.process-percent {
+        display: block;
+        color: #666;
+        position: absolute;
+        right: -64px;
+        top: -6px;
+    }
+    .down {
+        margin-top: 20px;
+        ul{
+            li{
+                font-size: 14px;
+                color: #666;
+                height: 30px;
+                line-height: 30px;
+                margin: 26px 0;
+                p{
+                    float: right;
+                    i{
+                        font-style: normal;
+                        color: #ecba66;
+                    }
+                }
+            }
+        }
+    }
+    .btn-box {
+        position: absolute;
+        width:315px;
+        bottom: 29px;
+        .ing {
+            background: #f76867 !important;
+            &:hover{
+                background-color: #fb705e !important;
+            }
+        }
+        .invest-btn {
+            display: block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            background: #ccc;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+    }
+}
+.model-tab {
+    margin-bottom:20px;
+    width: 1200px;
+    height: 58px;
+    line-height: 58px;
+    font-size: 16px;
+    color: #999;
+    border: 1px solid #eee;
+    text-align: left;
+    background: #fff;
+    ul{
+        width:1200px;
+        margin:0 auto;
+        li {
+            display: inline-block;
+            width: 170px;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+}
+.model-box {
+    padding: 40px;
+    border: 1px solid #eee;
+    background: #fff;
+    margin-bottom: 20px;
+    img{
+        margin-bottom:30px;
+        width:35%;
+    }
+    .subtitle {
+        font-size: 16px;
+        color: #333;
+        padding-bottom: 20px;
+    }
+    .post {
+        font-size: 14px;
+        color:#666;
+        line-height: 30px;
+        margin-bottom: 30px;
+    }
+    .img-box{
+        li{
+            float: left;
+            border:1px solid #eee;
+            width: 208px;
+            height: 150px;
+            margin-right:13px;
+            margin-bottom: 13px;
+            img{
+                margin:0;
+                width:100%;
+                height:100%;
+            }
+        }
+    }
+
+}
+.ml20{
+    margin-left:20px !important;
+}
+.pt50{
+    padding-top:50px !important;
+}
+table{
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    font-size: 14px;
+    line-height: 40px;
+    border-left:1px solid #e5e5e5 !important;
+    border-bottom:1px solid #e5e5e5 !important;
+    border-right:none !important;
+    border-top:none !important;
+    .table_head{
+        td{
+            color: #fff;
+        }
+    }
+    td{
+        border-top:1px solid #e5e5e5;
+        border-right:1px solid #e5e5e5;;
+    }
+    img{
+        margin: auto 5px auto auto !important;
+        display: inline-block;
+        width: 12px !important;
+        height: 10px;
+        vertical-align: middle;
+    }
+}
+
+
+#layui-layer-shade4{
+    display: none;
+    z-index:0;
+    background-color:#000;
+    opacity:0.3;
+    filter:alpha(opacity=30);
+}
+#layui-layer5{
+    display:none;
+    z-index: 19891019;
+    width: 600px;
+    height: 350px;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -175px;
+}
+/*è®¾ç½®å¯†ç å¼¹æ¡†*/
+.hidden{
+    display: none;
+}
+.pl80 {
+    padding-left: 80px !important;
+}
+.pt10 {
+    padding-top: 10px !important;
+}
+.pt30 {
+    padding-top: 30px !important;
+}
+.mt40 {
+    margin-top: 40px !important;
+}
+.mt20 {
+    margin-top: 20px !important;
+}
+.cGray2 {
+    color: #666!important;
+}
+.f14 {
+    font-size: 14px !important;
+}
+.default-form ul li {
+    margin-bottom: 15px;
+    height: 40px;
+    line-height: 40px;
+}
+.default-form .title {
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    display: block;
+    float: left;
+    font-size: 14px;
+}
+.default-form .inp {
+    margin-left: 10px;
+    width: 300px;
+    height: 38px;
+    line-height: 38px;
+    float: left;
+    text-indent: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.w200 {
+    width: 200px !important;
+}
+.btn {
+    display: inline-block;
+    /* padding: 6px 12px; */
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 10px 40px;
+}
+.btn-default, .label-default {
+    background-color: #f04f4b;
+    border-color: #f04f4b;
+    -webkit-transition: background-color 0.3s linear;
+    -moz-transition: background-color 0.3s linear;
+    -o-transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
+}
+.btn-login{
+    width: 300px;
+}
+.btn-reg {
+    width: 300px;
+    margin-left: 60px;
+}
+.ml100 {
+    margin-left: 100px !important;
+}
+#submit{
+    color: #fff;
+}
+label.error{
+    background: url("https://r.mzmoney.com/mz/img/hpimg/productDetail/error_icon.png") no-repeat left center;
+    padding-left: 20px;
+    color: #e72210;
+    padding-top: 11px;
+    height: 29px;
+    line-height: 18px;
+    font-size: 12px;
+    display: block;
+    position: absolute;
+    left: 370px;
+    top: 0;
+    vertical-align: middle;
+}
+label.valid{
+    background: url("https://r.mzmoney.com/mz/img/ico_03.png") no-repeat left center;
+    color: #53a03b;
+}
+.pop-certify-success>div{
+    display: table;
+    clear: both;
+    content: '';
+}
+.pop-certify-success i{
+    width: 90px;
+    height: 90px;
+    background: url("https://r.mzmoney.com/mz/img/ico.png") no-repeat -4px -973px;
+    display: inline-block;
+}
+.btn-recharge, .btn-set-pwd, .btn-safe {
+    display: block;
+    margin: 0 auto;
+    width: 290px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    background: #ea544a;
+    color: #fff;
+    font-size: 14px;
+}
+.table_head{
+    background-color: #f76867 !important;
+}
+.table_jl .odd{
+    background-color: #f4f4f4 !important;
+}
+.viewer-container{
+    background: url("https://r.mzmoney.com/mz/img/hpimg/quick-loginbg.png") repeat !important;
+}
+#error_msg{
+    clear: both;
+    background: url(https://r.mzmoney.com/mz/img/hpimg/productDetail/error_icon.png) no-repeat left center;
+    padding-left: 20px;
+    color: #e72210;
+    font-size: 12px;
+}
+
+.project_level_list{ margin-top: 15px; font-size: 14px; line-height: 30px;}
+.project_level_star{ display: inline;}
+.project_level_star i{ display: inline-block; width: 15px; height: 15px; margin: 0 2px; background: url(https://r.mzmoney.com/mz/img/hpimg/productDetail/project_star_icon.png) no-repeat; background-size: 100% 100%;}
+
+.mask{
+    width: 100%;
+    background: #fff;
+    margin-top:40px;
+    display: none;
+    .mask-top{
+        height: 45px;
+        line-height: 45px;
+        border-bottom: 1px solid #D5D5D5;
+        font-size: 16px;
+        color: #333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: #EAEAEA;
+        padding: 0 25px;
+    }
+    .mask-box{
+        width: 100%;
+        .login-form{
+            padding-left: 80px;
+            margin: 0 auto;
+            padding-bottom: 10px;
+            li{
+                margin-bottom: 15px;
+                min-height: 40px;
+                line-height: 40px;
+                position: relative;
+                .title{
+                    width: 50px;
+                    height: 40px;
+                    line-height: 40px;
+                    text-align: right;
+                    display: block;
+                    float: left;
+                    font-size: 14px;
+                }
+                .inp{
+                    margin-left: 10px;
+                    width: 295px;
+                    height: 38px;
+                    line-height: 38px\9;
+                    float: left;
+                    text-indent: 40px;
+                    border: 1px solid #dcdcdc;
+                    border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    -webkit-border-radius: 3px;
+                }
+                .username {
+                    background: #fff url(https://r.mzmoney.com/mz/img/ico.png) no-repeat 9px -228px;
+                }
+                .password {
+                    background: #fff url(https://r.mzmoney.com/mz/img/ico.png) no-repeat 9px -129px;
+                }
+                #graphCode {
+                    background: #fff url(https://r.mzmoney.com/mz/img/ico.png) no-repeat 9px -433px;
+                    width: 180px;
+                    margin-right: 20px;
+                    float: left;
+                }
+                .color_blue {
+                    color: #0099ff;
+                }
+            }
+        }
+    }
+    .close{
+        cursor: pointer;
+        position: absolute;
+        right: -12px;
+        top: -10px;
+        width: 30px;
+        height: 30px;
+        margin-left: 0;
+        background: url(https://r.mzmoney.com/public/plugins/layer/skin/default/icon.png) -149px -44px;
+    }
+}
+.mayShowErr .error{
+    background: url(https://r.mzmoney.com/mz/img/hpimg/productDetail/error_icon.png) 54px center no-repeat;
+    color: #e72210;
+    padding-left: 75px;
+}
+
+
+
+
+

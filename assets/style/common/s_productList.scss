@@ -1,0 +1,252 @@
+@import "s_config";
+@keyframes productListHover {
+    from{background-color: #fff;}
+    to{background-color: #f8f8f8;}
+}
+@keyframes rotates {
+    from {transform:rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-mz-transform:rotate(0deg)}
+    to {transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-mz-transform:rotate(180deg)}
+}
+@keyframes notice {
+    from {opacity: 0.8;}
+    to {opcity:1;}
+}
+ul{
+        .productBox{
+            margin-bottom: -1px;
+            position: relative;
+            padding: 0 30px;
+            border: 1px solid #eee;
+            height: 120px;
+            background-color: #fff;
+            @extend .clearfix;
+            .product-box{
+                width:210px;
+                .product-name{
+                    padding:37px 0 11px 0;
+                    width:100%;
+                    color: #333;
+                    text-align: left;
+                    overflow:hidden;          /*超出部分隐藏*/
+                    white-space:nowrap;
+                    text-overflow:ellipsis;                    /*适用IE*/
+                    -o-text-overflow:ellipsis;                 /*适用opera*/
+                    font-weight: normal;
+                    font-size:16px;
+                }
+            }
+            .activity{
+                padding-left:20px;
+                display: block;
+                text-align: left;
+                font-size:14px;
+                color: #ecba66;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                -o-text-overflow: ellipsis;
+                background: url("https://r.mzmoney.com/mz/img/hpimg/activityLogo.png") no-repeat 5px center;
+            }
+            div{
+                width: 140px;
+                margin-right: 30px;
+                height: 120px;
+                p{
+                    width: 140px;
+                    height: 31px;
+                    line-height: 31px;
+                    text-align: center;
+                    color: #666;
+                }
+                .firstLine{
+                    padding-top: 32px;
+                    color: #666666;
+                    text-align: center;
+                    width: 140px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    font-size:16px !important;
+                }
+                .colred{
+                    color: #f76867;
+                    font-size:20px !important;
+                }
+                .progress-line{
+                    position: relative;
+                    border-radius: 3px;
+                    width:150px;
+                    height:4px;
+                    background-color: #eeeeee;
+                    em{
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        background-color: #f74d5c;
+                        border-radius: 3px;
+                        height:4px;
+                        i{
+                            position: absolute;
+                            top: -2px;
+                            right:-6px;
+                            border-radius: 50%;
+                            border:2px solid #f74d5c;
+                            width:4px;
+                            height:4px;
+                            background: #fff;
+                        }
+                    }
+                }
+                .progress-line-box{
+                    width:190px;
+                    margin-top:45px;
+                    height:20px;
+                    span{
+                        margin-top:-7px;
+                        display: inline-block;
+                        vertical-align: middle;
+                        color: #999;
+                    }
+                }
+            }
+            .progress{
+                width: 230px;
+                .experience{
+                    padding-top: 34px;
+                    width:150px;
+                    height:96px;
+                    text-align: center;
+                    color: #f76867;
+                    line-height: 28px;
+                }
+                p.progress-text{
+                    width:150px;
+                    line-height: 26px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    -o-text-overflow: ellipsis;
+                    -moz-binding: url('ellipsis.xml#ellipsis');
+                    text-align: center;
+                }
+            }
+            .icon{
+                position: absolute;
+                left:-10px;
+                top:9px;
+                padding-left:7px;
+                border-radius: 4px;
+                width:73px;
+                height:25px;
+                line-height: 25px;
+                text-align: center;
+                background-size: 100% 100%;
+                color: #fff;
+            }
+            .taste{
+                background-image: url("https://r.mzmoney.com/mz/img/hpimg/tastebg.png");
+                box-shadow: 0 2px 10px 0px rgba(236,186,102,.6);
+                -webkit-box-shadow: 0 2px 10px 0px rgba(236,186,102,.6);
+                -moz-box-shadow: 0 2px 10px 0px rgba(236,186,102,.6);
+            }
+            .news{
+                background-image: url("https://r.mzmoney.com/mz/img/hpimg/newbg.png");
+                box-shadow: 0 2px 10px 0px rgba(247,104,103,.6);
+                -webkit-box-shadow: 0 2px 10px 0px rgba(247,104,103,.6);
+                -moz-box-shadow: 0 2px 10px 0px rgba(247,104,103,.6);
+            }
+            .btn{
+                position: absolute;
+                top:42px;
+                right:0px;
+                border-radius: 4px;
+                width:150px;
+                height:35px;
+                color: #fff;
+                text-align: center;
+                line-height: 35px;
+                a{
+                    display: block;
+                    border-radius: 4px;
+                    width:100%;
+                    height: 35px;;
+                    background-color: #f76867;
+                    color: #fff;
+                    font-size:14px !important;
+                    &:link{
+                        background-color: #f76867;
+                    }
+                    &:hover{
+                        background-color: #fb705e;
+                    }
+                    &:active{
+                        background-color: #e15251;
+                    }
+                }
+                .disabled{
+                    background-color: #ccc !important;
+                }
+            }
+            .finished{
+                h3,div>p{
+                    color: #999 !important;
+                }
+                .btn{
+                    a{
+                        &:hover{
+                            background-color: #ddd;
+                        }
+                    }
+                }
+            }
+            &:hover{
+                animation:productListHover 0.5s linear;
+                -webkit-animation:productListHover 0.5s linear;
+                background-color: #f8f8f8;
+            }
+        }
+        .nothing{
+            height:20px;
+        }
+        .sellWell{
+            .firstLine,.secondeLine{
+                color: #999 !important;
+            }
+        }
+        .finished{
+            color: #999 !important;
+            .product-box{
+                h3{
+                    margin:0 !important;
+                    padding:0 !important;
+                    line-height: 120px !important;
+                    color: #999 !important;
+                }
+            }
+            div{
+                p{
+                    color: #999 !important;
+                }
+            }
+        }
+    }
+.lookmore{
+    display: block;
+    padding: 0px !important;
+    margin-left: 0px !important;
+    width:1198px;
+    height:79px;
+    border: 1px solid #eee;
+    line-height:79px;
+    text-align: center;
+    color: #999;
+    background-color: #fff;
+    font-size:16px;
+    &:hover{
+        background-color: #fff !important;
+    }
+}
+#paginationBox{
+    display: none;
+    margin-bottom:40px;
+}

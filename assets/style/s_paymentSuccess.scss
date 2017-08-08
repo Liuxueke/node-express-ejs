@@ -1,0 +1,196 @@
+@import "./common/s_config";
+.contain{
+    margin-top: 60px;
+    margin-bottom: 70px;
+    .section {
+        width: 1200px;
+        margin: 0 auto;
+        .box-order {
+            margin-top: 60px;
+            background: #fff;
+            width: 100%;
+            padding-bottom: 10px;
+            .transaction_success{
+                .success1 {
+                    font-size: 0;
+                    span{
+                        display: inline-block;
+                        width: 62px;
+                        height: 62px;
+                        background: url(https://r.mzmoney.com/mz/img/ico_user_center.png) no-repeat;
+                    }
+                    .step1.on {
+                        background-position: -480px -7px;
+                    }
+                    .step2.on {
+                        background-position: -480px -7px;
+                    }
+                    .step3 {
+                        background-position: -664px -91px;
+                    }
+                    .step_line {
+                        height: 2px;
+                        width: 125px;
+                        background: #c4c4c4;
+                        position: relative;
+                        top: -30px;
+                    }
+                    .step_line.on {
+                        background: #13ce65;
+                    }
+                }
+                .success2{
+                    ul{
+                        @extend .clearfix;
+                        li{
+                            float: left;
+                            width: 270px;
+                            p{
+                                color: #444;
+                                text-align: center;
+                                line-height: 45px;
+                            }
+                        }
+                    }
+                }
+            }
+            .btn-order-again{
+                width:300px;
+            }
+        }
+        .download {
+            width: 1115px;
+            margin: 0 auto;
+            border-top: 1px solid #dfdfdf;
+            padding-top: 20px;
+            @extend .clearfix;
+            #dy_left {
+                float: left;
+                vertical-align: middle;
+                margin-left: 335px;
+            }
+            #dy_right{
+                @extend .clearfix;
+                #barcode {
+                    float: left;
+                }
+                #dy_download {
+                    float: left;
+                }
+            }
+        }
+        .safes{
+            padding: 50px 0 0 110px;
+            ul{
+                @extend .clearfix;
+                li{
+                    float: left;
+                    width: 350px;
+                    i{
+                        width: 50px;
+                        height: 55px;
+                        display: inline-block;
+                        position: relative;
+                        left: 50px;
+                        top: 10px;
+                        background: url(https://r.mzmoney.com/mz/img/ico.png) no-repeat;
+                        float: left;
+                    }
+                    p{
+                        color: #444;
+                    }
+                    div{
+                        width: 200px;
+                        float: left;
+                        margin-left: 70px;
+                        .title {
+                            font-size: 22px;
+                            margin-bottom: 5px;
+                        }
+                        .text {
+                            color: #999;
+                        }
+                    }
+                }
+                li.bao1 i{
+                    background-position: -109px -745px;
+                }
+                li.xian i {
+                    background-position: -205px -745px;
+                }
+                li.jian i {
+                    background-position: -301px -745px;
+                }
+            }
+        }
+    }
+}
+.waitBox{
+    padding:78px 0;
+    i{
+        margin:0 auto;
+        display: block;
+        width: 63px;
+        height:63px;
+        background: url('https://r.mzmoney.com/mz/img/loading.gif');
+    }
+    p{
+        font-size:12px;
+        line-height: 50px;
+        text-align: center;
+    }
+}
+.hidden{
+    display: none;
+}
+.pb10{
+    padding-bottom:10px;
+}
+.pt50{
+    padding-top:50px;
+}
+.pl20{
+    padding-left:20px;
+}
+.pl30{
+    padding-left:30px;
+}
+.pl170{
+    padding-left:170px;
+}
+.mt15{
+    margin-top:15px;
+}
+.mt50{
+    margin-top:50px;
+}
+.mb50{
+    margin-bottom:50px;
+}
+.ml40{
+    margin-left:40px;
+}
+.ml100{
+    margin-left:100px;
+}
+.ml345{
+    margin-left:345px;
+}
+.f14{
+    font-size:14px;
+}
+.f16{
+    font-size:16px;
+}
+.f18{
+    font-size:18px;
+}
+.cGray1 {
+    color: #aaaaaa!important;
+}
+.color_blue {
+    color: #0099ff;
+}
+.t-c{
+    text-align: center;
+}

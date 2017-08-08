@@ -1,0 +1,31 @@
+@import "./s_config";
+.zf_header {
+    background: #fff;
+    height: 80px;
+    border-bottom: 1px solid #c8c8c9;
+    overflow: hidden;
+    .sectionBox{
+        margin:0 auto;
+        width:1200px;
+        @extend .clearfix;
+        h1 {
+            float: left;
+            margin: 0;
+            @extend .clearfix;
+            img{
+                float: left;
+            }
+        }
+        ul{
+            float: right;
+            margin: 50px 0 0 0;
+            @extend .clearfix;
+            li{
+                float: left;
+                span{
+                    padding: 0 5px;
+                }
+            }
+        }
+    }
+}

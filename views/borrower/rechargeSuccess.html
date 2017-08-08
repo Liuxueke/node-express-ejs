@@ -1,0 +1,31 @@
+<% include common/header.html %>
+<% include common/position.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <div class="successCenter">
+        <div class="successTop">
+            <% if(status == 4){ %>
+                <i class="icon-success"></i><strong>充值成功</strong>
+            <% }else if(status == 5){ %>
+                <i class="icon-dealing"></i><strong>充值失败</strong>
+            <% }else{ %>
+                <i class="icon-dealing"></i><span class="dealWith" data-order="<%= orderNo %>">充值处理中.....</span>
+            <% } %>
+        </div>
+        <div class="rechargeTip">
+            <span>温馨提示：</span>
+            <ul>
+                <li>1、为保障账户及资金安全，请在充值前完成安全认证以及提现密码设置。</li>
+                <li>2、您的账户资金将通过第三方平台连连支付进行充值。</li>
+                <li>3、由于大多数银行的网银系统只支持IE浏览器，请您进行充值时使用IE浏览器。同时请注意您银行卡充值的支付金额限制，具体请参阅: 各银 行的网上银行支付限额总表。</li>
+                <li>4、推荐使用大额快捷支付，第二次支付无需再次输入银行卡信息，且自动绑定支付卡，项目到期后无需另外绑定银行卡，直接提现至支付时 的银行卡。</li>
+                <li>5、大额快捷支付中若无您想要支付的银行卡，请办理以上银行卡或使用网银支付。具体请参阅: 目前支持的网上银行列表。</li>
+                <li>6、选择网银支付，大额网银支付请准备好Ukey等银行安全工具，使用动态口令卡等网银支付可能额度较低。</li>
+                <li>7、本平台禁止充值不投资，马上提现等行为，一经发现并确认，将终止该账户的使用。</li>
+                <li>8、如果充值金额没有及时到账，请拨打客服电话: 400-757-8888。</li>
+            </ul>
+        </div>
+        <div class="backVipCenter"><a href="/borrower/">返回账户管理</a></div>
+    </div>
+</div>
+<% include common/footer.html %>
+<script src="../../public/js/borrower/rechargeSuccess.js"></script>

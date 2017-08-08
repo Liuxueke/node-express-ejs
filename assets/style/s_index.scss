@@ -1,0 +1,459 @@
+@import 'common/s_config';
+@import "common/s_nav";
+@import "common/s_quickLogin";
+@import "common/s_productList";
+@import "common/fixedQQ";
+@import "common/s_footer";
+.banner-box{
+    position: relative;
+    .swiper-slide{
+        height:350px;
+        overflow: hidden;
+        a{
+            display: block !important;
+            width:100% !important;
+            height:100% !important;
+            img{
+                width:100%;
+                height: 100%;
+            }
+        }
+    }
+}
+/*平台数据*/
+.investmentAmount-box{
+    a{
+        display: block;
+        margin:0 auto;
+        width:1200px;
+        height:100%;
+    }
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    width:100%;
+    min-width: 1200px;
+    height:80px;
+    background-color: #fff;
+    .investment-innerBox{
+        position: relative;
+        margin:0 auto;
+        width:1200px;
+        height: 100%;
+        .downloadApp-box{
+            display: block;
+            position: absolute;
+            bottom:50%;
+            left:29px;
+            margin-bottom: -25px;
+            width: 263px;
+            height:50px;
+            z-index: 100;
+            cursor: pointer;
+        }
+        .data-reveal{
+            margin-left:10px;
+            display: inline-block;
+            width:328px;
+            height:78px;
+            background: url("https://r.mzmoney.com/mz/img/hpimg/data-bg.png");
+            cursor: default;
+            h3{
+                padding:19px 0 9px 100px;
+                font-size:20px;
+                color:#666;
+                font-style: normal;
+                text-align: left;
+                span{
+                    padding-left:9px;
+                    font-size:11px;
+                }
+            }
+            p{
+                padding-left:100px;
+                font-size:12px;
+                color: #cccccc;
+                span{
+                    padding-right:6px;
+                }
+            }
+        }
+        ul{
+            padding:11px 0;
+            float: left;
+            @extend .clearfix;
+            li{
+                float: left;
+                border-right: 1px dashed #dddddd;
+                width:243px;
+                height:58px;
+                text-align: center;
+                line-height: 30px;
+                div{
+                    display: inline-block;
+                    cursor: default;
+                    p{
+                        overflow: hidden;
+                        font-size:16px;
+                        text-align: left;
+                        color: #999;
+                        span.number-box{
+                            display: inline-block;
+                            position: relative;
+                            height:30px;
+                            line-height: 30px;
+                            color: #f76867;
+                            vertical-align: middle;
+                        }
+                        span.unit{
+                            display: inline-block;
+                            line-height: 30px;
+                            vertical-align: middle;
+                        }
+                        span.number-box{
+                            em{
+                                display: block;
+                                font-style: normal;
+                            }
+                        }
+                    }
+                    p{
+                        text-align: left;
+                    }
+                    h3{
+                        font-weight: normal;
+                        color: #666666;
+                        font-size: 16px;
+                    }
+                }
+                &:last-child{
+                    border:none;
+                }
+            }
+        }
+        .indexDateMore{
+            float: right;
+            width: 130px;
+            height: 62px;
+            background: url(https://r.mzmoney.com/mz/img/hpimg/data-bg2.png) no-repeat;
+            margin-top: 10px;
+            span{
+                display: block;
+                width: 62px;
+                height: 62px;
+                background: url(https://r.mzmoney.com/mz/img/hpimg/data-more.png) no-repeat;
+                margin-left: 48px;
+                &:hover {
+                    background: url('https://r.mzmoney.com/mz/img/hpimg/data-more.gif') no-repeat;
+                }
+            }
+        }
+    }
+}
+/*运营报告*/
+.safe-box{
+    margin:20px auto -1px auto;
+    height:120px;
+    background: #fff;
+    border: 1px solid #eee;
+    width: 1198px !important;
+    ul{
+        height:100%;
+        @extend .clearfix;
+        li{
+            float: left;
+            width:25%;
+            height:100%;
+            line-height: 120px;
+            a{
+                padding-right:20px;
+                display: block;
+                text-align: center;
+                i{
+                    display: inline-block;
+                    width:60px;
+                    height:60px;
+                    -webkit-background-size:100% 100%;
+                    background-size:100% 100%;
+                    vertical-align: middle;
+                }
+                i.safe-icon{
+                    background-image: url("https://r.mzmoney.com/mz/img/hpimg/b-safe-icon.png");
+                }
+                i.year-icon{
+                    background-image: url("https://r.mzmoney.com/mz/img/hpimg/b-year-icon.png");
+                }
+                i.data-icon{
+                    background-image: url("https://r.mzmoney.com/mz/img/hpimg/b-data-icon.png");
+                }
+                i.news-icon{
+                    background-image: url("https://r.mzmoney.com/mz/img/hpimg/b-news-icon.png");
+                }
+                .text{
+                    margin-left:20px;
+                    display: inline-block;
+                    height: 60px;
+                    vertical-align: middle;
+                    p{
+                        line-height: 28px;
+                        color: #999999;
+                        text-align: left;
+                    }
+                    p.title{
+                        padding-top:3px;
+                        color: #333;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+/*资讯*/
+.link-box{
+    margin-top:40px;
+    border-top:1px solid #ddd;
+    padding-top:60px;
+    width:100%;
+    min-width: 1200px;
+    background-color: #fff;
+    .link-innerBox{
+        margin:0 auto;
+        width:1200px;
+        ul{
+            width:1230px;
+            overflow: hidden;
+            li{
+                margin-right:30px;
+                width:380px;
+                .img-link{
+                    display: block;
+                    border:1px solid #ddd;
+                    width:378px;
+                    height:174px;
+                    img{
+                        width:100%;
+                        height:100%;
+                        opacity: 1;
+                        &:hover{
+                            animation:notice 1s linear;
+                            -webkit-animation:notice 1s linear;
+                            opacity: .8;
+                        }
+                    }
+                }
+                h3{
+                    padding:23px 0 23px 26px;
+                    text-align: left;
+                    color: #666666;
+                    font-weight:normal;
+                    font-size: 16px;
+                    a{
+                        font-size:14px;
+                        color: #666;
+                        &:hover {color: #f76867;}
+                    }
+                }
+                .notice{
+                    display: inline-block;
+                    padding-left:26px;
+                    width:345px;
+                    color: #999;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    -o-text-overflow: ellipsis;
+                    -moz-binding: url('ellipsis.xml#ellipsis');
+                    i{
+                        margin-right:10px;
+                        display: inline-block;
+                        border-radius: 50%;
+                        border: 2px solid #f3295c;
+                        width:6px;
+                        height:6px;
+                        vertical-align: middle;
+                    }
+                    line-height: 2;
+                    &:hover{
+                        color: #f76867;
+                    }
+                }
+                &:nth-child(3){
+                    margin: 0;
+                }
+            }
+            li.last-li{
+                margin: 0px;
+            }
+        }
+
+    }
+}
+.list-box{
+    margin:20px auto 0 auto;
+    width:1200px;
+}
+.modalBox{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: url(https://r.mzmoney.com/mz/img/hpimg/quick-loginbg.png) repeat;
+    z-index: 1000;
+    .modal{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        margin-left: -300px;
+        margin-top:-155px;
+        border:1px solid #ddd;
+        width:600px;
+        background: #fff;
+        .content{
+            padding:100px;
+            p{
+                text-align: center;
+                line-height: 30px;
+                font-size:16px;
+                color: #666;
+            }
+        }
+        a{
+            display: block;
+            border-top:1px solid #ddd;
+            text-align: center;
+            line-height:50px;
+            font-size:16px;
+            color: #f76867;
+        }
+    }
+
+}
+/*合作伙伴*/
+.partner{
+    width:100%;
+    min-width:1200px;
+    height:184px;
+    background-color: #fff;
+    line-height:184px;
+    text-align: center;
+    span{
+        padding:0 50px;
+        color: #666666;
+    }
+
+}
+.partnerLink-box{
+    width:100%;
+    min-width: 1230px;
+    height:123px;
+    background-color: #fff;
+    .partner-link{
+        margin:0 auto;
+        width:1200px;
+        .partner-swiper-container{
+            margin:0 auto;
+            position: relative;
+            height: 62px;
+            width: 1200px;
+            overflow: hidden;
+            ul{
+                position: absolute;
+                top:0;
+                left:0;
+                margin:0 auto;
+                height: 62px;
+                width:2530px;
+                @extend .clearfix;
+                li{
+                    float: left;
+                    border-right:1px solid #ddd;
+                    width:235px;
+                    height:62px;
+                    background: #fff;
+                    a{
+                        display: block;
+                        margin:0 auto;
+                        width:100%;
+                        height:62px;
+                    }
+                    img{
+                        margin:0 auto;
+                    }
+                }
+
+            }
+            .direction{
+                position: absolute;
+                top:0px;
+                width:21px;
+                height:62px;
+                -webkit-background-size:100% 100%;
+                background-size:100% 100%;
+                z-index:100;
+                cursor: pointer;
+            }
+            .toLeft{
+                background: url("https://r.mzmoney.com/mz/img/hpimg/toLeft.jpg");
+                left:0;
+                &:hover{
+                    background: url("https://r.mzmoney.com/mz/img/hpimg/toLefthover.jpg");
+                }
+            }
+            .toRight{
+                background: url("https://r.mzmoney.com/mz/img/hpimg/toRight.jpg");
+                right:0px;
+                &:hover{
+                    background: url("https://r.mzmoney.com/mz/img/hpimg/toRighthover.jpg");
+                }
+            }
+        }
+    }
+}
+.notice-box{
+    width:100%;
+    min-width:1200px;
+    height:29px;
+    background-color: #ecba66;
+    a{
+        margin:0 auto;
+        display: block;
+        text-align: left;
+        color: #fff;
+        line-height: 29px;
+        height:29px;
+        padding-left: 30px;
+        width: 1170px !important;
+        background: url("https://r.mzmoney.com/mz/img/hpimg/noticebg.png") no-repeat left center;
+        font-size: 14px;
+        p.notice{
+            display: inline-block;
+            max-width: 1145px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-weight: normal;
+        }
+        span{
+            float: right;
+            display: inline-block;
+            width:17px;
+            height:29px;
+            cursor: pointer;
+            background: url("https://r.mzmoney.com/mz/img/hpimg/close.png") no-repeat center center;
+            &:hover{
+                animation: rotates 0.5s linear;
+                -webkit-animation: rotates 0.5s linear;
+            }
+        }
+    }
+}
+@keyframes notice {
+    from {opacity: 0.8;}
+    to {opcity:1;}
+}
+@keyframes rotates {
+    from {transform:rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-mz-transform:rotate(0deg)}
+    to {transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-mz-transform:rotate(180deg)}
+}

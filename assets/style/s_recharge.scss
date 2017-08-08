@@ -1,0 +1,331 @@
+@import "./common/s_config";
+.sectionBox{
+    margin: 0 auto;
+    width:1200px;
+    text-align: left;
+    .contain-box{
+        margin: 30px auto 0 auto;
+        width:1200px;
+        @extend .clearfix;
+    }
+    .user-wrapper{
+        float: right;
+        border:1px solid #ddd;
+        width:988px;
+        min-height: 807px;
+        background: #fff;
+        .bread_crumbs{
+            .title{
+                width: 100%;
+                height: 54px;
+                line-height: 54px;
+                font-size: 14px;
+                color: #999;
+                font-weight: bold;
+                border-bottom: 1px solid #e1e1e1;
+                span{
+                    display: inline-block;
+                    padding: 0 15px;
+                    height: 29px;
+                    line-height: 29px;
+                }
+
+            }
+        }
+        .invest_list_tabs {
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #e6e6e6;
+            font-size: 14px;
+            ul{
+                margin-left: 25px;
+                @extend .clearfix;
+                li{
+                    float: left;
+                    padding:0 15px;
+                    border-radius: 3px;
+                    a{
+                        &:hover{
+                            color: #e23f34;
+                        }
+                    }
+                }
+                li.cur{
+                    border: 1px solid #e6e6e6;
+                    border-bottom: 1px solid #fff;
+                    position: relative;
+                    top: 1px;
+                    background: #fff;
+                    a{
+                        color: #e23f34;
+                    }
+                }
+            }
+        }
+    }
+    #bankcard_ul{
+        @extend .clearfix;
+        li{
+            width: 310px;
+            height: 85px;
+            float: left;
+            background: #fff;
+            border: 1px solid #c9c9c9;
+            border-radius: 3px;
+            margin: 10px;
+            position: relative;
+            padding: 1px;
+            div{
+                @extend .clearfix;
+                img{
+                    width: 70px;
+                    height:70px;
+                }
+            }
+            .paper-checked{
+                display: none;
+                width: 25px;
+                height: 25px;
+                background: url(https://r.mzmoney.com/mz/img/userCenter/paper-check.png) no-repeat;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+        }
+        .cur{
+            border: 2px solid #eb544b;
+            padding: 0;
+            .paper-checked{
+                display: block;
+            }
+        }
+    }
+    table{
+        border: 1px solid #e5e5e5;
+        text-align: center;
+        th{
+            text-align: center;
+            background: #efefef;
+            height: 30px;
+            font-weight: bold;
+        }
+        td{
+            height:30px;
+        }
+    }
+    .inp{
+        width: 140px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #d9d9d9;
+    }
+    #ebank{
+        display: none;
+        .paper-list2{
+            ul{
+                @extend .clearfix;
+                li{
+                    width: 120px;
+                    height: 54px;
+                    float: left;
+                    background: #fff;
+                    border: 1px solid #c9c9c9;
+                    border-radius: 3px;
+                    margin: 10px;
+                    position: relative;
+                    padding: 1px;
+                    .paper-checked{
+                        display: none;
+                        width: 25px;
+                        height: 25px;
+                        background: url(https://r.mzmoney.com/mz/img/userCenter/paper-check.png) no-repeat;
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                    }
+                }
+                li.cur{
+                    border: 1px solid #eb544b;
+                    .paper-checked{
+                        display: block;
+                    }
+                }
+            }
+
+        }
+    }
+}
+.agreeBox{
+    padding-left:94px;
+    .agree{
+        display: none;
+    }
+    .agreement{
+        display: inline-block;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 14px;
+        height: 14px;
+        background: #f4f4f4;
+        vertical-align: middle;
+    }
+    .textBox{
+        padding-left:10px;
+        display: inline-block;
+        vertical-align: middle;
+        a{
+            color: #f76867;
+        }
+    }
+    .agreed{
+        border: none !important;
+        width: 16px !important;
+        height: 16px !important;
+        background: url(https://r.mzmoney.com/mz/img/hpimg/checked.png) !important;
+    }
+}
+label.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) no-repeat left center;
+    margin-left: 10px;
+    padding-left: 20px;
+    color: #e72210;
+    vertical-align: middle;
+    display: inline-block;
+    width: 200px;
+    line-height: 20px !important;
+    min-height: 20px;
+    font-size: 12px;
+}
+div.error{
+    margin-left:94px;
+    padding-left:20px;
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) no-repeat left center;
+    color: #e72210;
+    line-height: 30px;
+}
+#messageCodeBox{
+    display: none;
+}
+#form{
+    position: relative;
+    padding-bottom:80px;
+    height:132px;
+}
+#ebankFormData{
+    height:225px;
+}
+form{
+    position: relative;
+    .form_input{
+        margin-bottom:10px;
+        label{
+            line-height: 30px;
+        }
+        input{
+            height: 30px;
+            line-height: 30px;
+            border-radius: 3px;
+            text-align: center;
+            border: 1px solid #dcdcdc;
+        }
+        .inp_sms{
+            margin-right:10px;
+            width:100px;
+        }
+    }
+    .submitBtn{
+        position: absolute;
+        left:100px;
+        bottom:0px;
+        border:none;
+        border-radius: 4px;
+        width:100px;
+        height:40px;
+        color: #fff;
+        background: #f04f4b;
+        &:hover{
+            background-color: #fb746b;
+        }
+    }
+}
+#messageCodeConfirmForm{
+    height:162px;
+}
+label.error{
+    margin-left:0 !important;
+    width:auto !important;
+}
+.btn{
+    margin-left:94px;
+    position: absolute;
+    left:0;
+    bottom:0;
+}
+.p10{
+    padding:10px;
+}
+.p20{
+    padding:20px;
+}
+.pt0{
+    padding-top:0px !important;
+}
+.pt5{
+    padding-top:5px;
+}
+.pt10{
+    padding-top:10px;
+}
+.pt25{
+    padding-top:25px;
+}
+.pl10{
+    padding-left:10px;
+}
+.pl30{
+    padding-left:30px;
+}
+.pl70{
+    padding-left:70px;
+}
+.pb20{
+    padding-bottom:20px;
+}
+.mt20{
+    margin-top:20px;
+}
+.mt40{
+    margin-top:40px;
+}
+.mt30{
+    margin-top:30px;
+}
+.mt40{
+    margin-top:40px;
+}
+.mt50{
+    margin-top: 50px;
+}
+.ml50{
+    margin-left:50px;
+}
+.f14 {
+    font-size: 14px !important;
+}
+.f16{
+    font-size:16px;
+}
+.cGray6 {
+    color: #959595!important;
+}
+.w200{
+    width:200px;
+}
+.w220{
+    width:220px !important;
+}
+
+
+
+
+

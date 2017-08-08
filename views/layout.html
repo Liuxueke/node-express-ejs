@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= page.title%></title>
+    <link rel="stylesheet" href="/public/css/common/reset.min.css">
+    <script src="/public/js/common/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 9]>
+<div class="ie-warning">
+    <span>您的浏览器版本过低，为了获得更好的浏览体验，建议升级浏览器，或者下载手机客户端理财</span>
+    <div class="img-box">
+        <img class="small" src="https://r.mzmoney.com/r/cms/www/red/img/download/number.png" alt="">
+        <img class="large" src="https://r.mzmoney.com/r/cms/www/red/img/download/number.png" alt="">
+    </div>
+</div>
+<style>
+    .weibo-link-box,.two-dimension-code-box{
+        top: 75px !important;
+    }
+</style>
+<![endif]-->
+    <%- body%>
+    <% include ./site/common/fixedQQ.html %>
+</body>
+</html>

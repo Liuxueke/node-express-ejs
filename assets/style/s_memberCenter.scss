@@ -1,0 +1,455 @@
+@import "./common/s_config";
+.containt-box{
+    margin:30px auto 0 auto;
+    width:1200px;
+    @extend .clearfix;
+    .user-right{
+        float: right;
+        margin-bottom:24px;
+        width: 990px;
+        .banner-box {
+            margin-bottom: 19px;
+            height: 132px;
+            background: url(https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/banner.jpg);
+            background-size: 100% 100%;
+        }
+        .content-box {
+            padding: 36px 40px 72px 40px;
+            border: 1px solid #ddd;
+            background: #fff;
+            .grade-box {
+                position: relative;
+                margin-bottom: 37px;
+                padding-left: 100px;
+                .progress-width{
+                    width:500px;
+                }
+                .grade{
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    width:74px;
+                    height:76px;
+                    text-align: center;
+                    i{
+                        margin-top:58px;
+                        display: inline-block;
+                        width:12px;
+                        height:12px;
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/grade-disabled.png");
+                        background-size: 100% 100%;
+                    }
+                    .first,.second{
+                        margin-right:7px;
+                    }
+                    i.choosed{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/grade.png") !important;
+                    }
+                }
+                .level1,.level0{
+                    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/level1.png");
+                }
+                .level2,.level3,.level4{
+                    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/level2.png");
+                }
+                .level5,.level6,.level7{
+                    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/level3.png");
+                }
+                .level8,.level9,.level10{
+                    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/level4.png");
+                }
+                .level11,.level12,.level13{
+                    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/level5.png");
+                }
+                .grade-name{
+                    margin-bottom:6px;
+                    height:30px;
+                    font-size:16px;
+                    color: #666666;
+                    line-height: 30px;
+                }
+                .progress-box{
+                    position: relative;
+                    margin-bottom:15px;
+                    border-radius: 2px;
+                    height: 4px;
+                    background: #eeeeee;
+                    span{
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        border-radius: 2px;
+                        height: 4px;
+                        background: #f76867;
+                        i{
+                            position: absolute;
+                            bottom:-3px;
+                            right:-7px;
+                            border-radius: 50%;
+                            border:2px solid #f76867;
+                            width:6px;
+                            height: 6px;
+                            background: #fff;
+                        }
+                    }
+                }
+                .grow-value{
+                    font-size:14px;
+                    color: #999999;
+                    em{
+                        padding-left:9px;
+                        font-size:16px;
+                        color: #f9c15b;
+                    }
+                }
+                .grow-value-record{
+                    float: right;
+                    font-size:14px;
+                    color: #f76867;
+                }
+                .invite-btn{
+                    position: absolute;
+                    top:50%;
+                    right:0;
+                    margin-top:-20px;
+                    border-radius: 4px;
+                    width:160px;
+                    height:40px;
+                    font-size:16px;
+                    color: #fff;
+                    background: #f76867;
+                    line-height: 40px;
+                    text-align: center;
+                }
+            }
+            .title{
+                margin-bottom:26px;
+                border-bottom:1px solid #eee;
+                line-height: 54px;
+                font-size:16px;
+                color: #333333;
+            }
+            ul{
+                margin-bottom:7px;
+                width:100%;
+                @extend .clearfix;
+                li{
+                    float: left;
+                    margin-bottom:22px;
+                    padding-top:22px;
+                    border-radius: 8px;
+                    border:1px solid transparent;
+                    width:24.5%;
+                    height:176px;
+                    text-align: center;
+                    &:hover{
+                        border:1px solid #eee;
+                    }
+                    i{
+                        display: block;
+                        margin:0 auto 5px auto;
+                        width:68px;
+                        height: 68px;
+                        line-height: 64px;
+                        font-style: normal;
+                        text-align: center;
+                        color: #f76867;
+                        font-weight: bold;
+                        font-size:16px;
+                        background-size: 100% 100%;
+                    }
+                    h3{
+                        margin-bottom:12px;
+                        font-size: 14px;
+                        color: #333333;
+                    }
+                    p{
+                        margin:0 auto;
+                        width:66%;
+                        font-size:12px;
+                        color: #999;
+                        text-align: center;
+                    }
+                }
+                li.show{
+                    cursor: pointer;
+                }
+                li.style0{
+                    i{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/memberCenter/profits.png");
+                    }
+                    .disabled{
+                        background:url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/profit-disabled.png");
+                    }
+                }
+                li.style1{
+                    i{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/birthday.png");
+                    }
+                    .disabled{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/birthday-disabled.png");
+                    }
+
+                }
+                li.style2{
+                    i{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/update.png");
+                    }
+                    .disabled{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/update-disabled.png");
+                    }
+                }
+                li.style3 {
+                    i{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/holiday.png");
+                    }
+                    .disabled{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/holiday-disabled.png");
+                    }
+                }
+                li.style4 {
+                    i{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/service.png");
+                    }
+                    .disabled{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/service-disabled.png");
+                    }
+                }
+                li.more {
+                    i{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/more.png");
+                    }
+                }
+
+            }
+            .rule-box{
+                width:100%;
+                height: 404px;
+                div{
+                    float: left;
+                    width:50%;
+                    h3{
+                        padding-left:24px;
+                        margin-left:70px;
+                        margin-bottom:24px;
+                        font-size:14px;
+                        color: #666666;
+                    }
+                    p{
+                        margin-left:70px;
+                        margin-bottom:24px;
+                        font-size:12px;
+                        color: #999999;
+                    }
+                }
+                div.rule{
+                    position: relative;
+                    padding-top:92px;
+                    &::after{
+                        position: absolute;
+                        top:0;
+                        right:0;
+                        width:1px;
+                        height:404px;
+                        background: #eee;
+                        content: '';
+                    }
+                    h3{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/grade.png") left center no-repeat;
+                    }
+                    h3,p,.remind{
+                        margin-left:20px !important;
+                    }
+                    .remind{
+                        margin-left:70px;
+                        display: inline-block;
+                        padding:0 26px 0 37px;
+                        border-radius: 4px;
+                        font-size: 12px;
+                        color: #999999;
+                        line-height: 25px;
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/remind.png") 11px center no-repeat #eeeeee;
+                    }
+                }
+                div.grow-value{
+                    padding-top:15px;
+                    h3{
+                        background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/growValueWay.jpg") left center no-repeat;
+                    }
+                    table{
+                        margin-left:70px;
+                        border: 1px solid #e5e5e5;
+                        width:324px;
+                        text-align: center;
+                        thead{
+                            tr{
+                                height:26px;
+                                background: #eeeeee;
+                                font-size:12px;
+                                color: #333333;
+                            }
+                        }
+                        tr{
+                            border-bottom: 1px solid #e5e5e5;
+                        }
+                        td{
+                            border:none !important;
+                        }
+                        tbody{
+                            tr{
+                                height:34px;
+                                font-size:12px;
+                                color: #666666;
+                                td.grow-value{
+                                    color: #f76867;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+.none{
+    background: none !important;
+}
+.modal-box{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: url("https://r.mzmoney.com/mz/img/hpimg/quick-loginbg.png") repeat;
+    z-index: 1002;
+    .modal{
+        position: absolute;
+        left:50%;
+        top:50%;
+        padding:0 20px;
+        margin-left:-200px;
+        border-radius: 8px;
+        border:1px solid #eee;
+        width:400px;
+        background: #fff;
+        h3{
+            font-size:16px;
+            color: #333333;
+        }
+        p{
+            font-size:12px;
+            color: #666666;
+        }
+        a{
+            display: inline-block;
+            width:100%;
+            height:55px;
+            line-height: 55px;
+            text-align: center;
+            font-size:16px;
+            color: #f76867;
+        }
+        .modal-content-top{
+            height:173px;
+            border-bottom:1px solid #eee;
+            h3{
+                padding-top:70px;
+                padding-bottom:10px;
+            }
+        }
+        .modal-content{
+            padding:10px 0 30px 0;
+            border-bottom:1px solid #eee;
+            h3{
+                line-height: 40px;
+            }
+            p{
+                line-height: 20px;
+            }
+            table{
+                margin-top:6px;
+                width:100%;
+                text-align: center;
+                thead {
+                    tr{
+                        height: 32px;
+                        background: #eeeeee;
+                        font-size:12px;
+                        color: #333333;
+                        td{
+                            width:50%;
+                        }
+                    }
+                }
+                td{
+                    border:1px solid #e5e5e5;
+                }
+                tbody{
+                    tr{
+                        height:30px;
+                        color: #666666;
+                    }
+                }
+            }
+        }
+    }
+
+}
+.last-content{
+    padding-bottom:50px !important;
+}
+
+.modal-box .modal a{
+    display: inline-block;
+    width:100%;
+    height:55px;
+    line-height: 55px;
+    text-align: center;
+    font-size:16px;
+    color: #f76867;
+}
+#style0-modal .modal{
+    margin-top:-347px;
+}
+#style0-modal .modal .modal-content-top{
+    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/profit-modal.png") right center no-repeat;
+}
+#style3-modal .modal{
+    margin-top:-257px;
+}
+#style3-modal .modal .modal-content-top{
+    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/holiday-modal.png") right center no-repeat;
+}
+#style1-modal .modal{
+    margin-top:-257px;
+}
+#style1-modal .modal .modal-content-top{
+    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/update-modal.png") right center no-repeat;
+}
+#style2-modal .modal{
+    margin-top:-267px;
+}
+#style2-modal .modal .modal-content-top h3{
+    padding-top:50px !important;
+}
+#style4-modal .modal{
+    margin-top:-237px;
+}
+#style2-modal .modal .modal-content-top{
+    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/birthday-modal.png") right center no-repeat;
+}
+#style4-modal .modal .modal-content-top{
+    background: url("https://r.mzmoney.com/mz/img/hpimg/member/memberCenter/service-modal.png") right center no-repeat;
+}
+#style2-modal .modal .modal-content-top span{
+    display: inline-block;
+    margin-top:9px;
+    padding:0 13px;
+    border-radius: 4px;
+    line-height: 20px;
+    font-size:12px;
+    color: #fff;
+    background: #ecba66;
+}

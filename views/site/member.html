@@ -1,0 +1,165 @@
+<% include common/nav.html %>
+<link rel="stylesheet" href="/public/css/s_member.min.css">
+<link rel="stylesheet" href="/public/js/common/skin/layer.css">
+<div class="containt-box">
+    <% if(!error && !userInfo['error_code']){ %>
+    <div class="account-name clearfix">
+        <img src="https://r.mzmoney.com/mz/img/hpimg/member/memberPandect/portrait.png" alt="">
+        <div class="edit-name">
+            <p>用户名：</p>
+            <div class="edit">
+                <div class="name-box">
+                    <% if(userInfo.username){ %>
+                    <span class="name"><%= userInfo.username %></span>
+                    <% }else{ %>
+                    <span class="name">未设置</span><a href="javascript:;" class="edit-btn"></a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="safe-grade">
+            <h3>安全等级：<span>
+                <% if(userInfo.verify && userInfo.bindPayPassword){ %>
+                    高
+                <% }else if(userInfo.verify || userInfo.bindPayPassword){ %>
+                    中
+                <% }else if(!userInfo.verify && !userInfo.bindPayPassword){ %>
+                    低
+                <% } %>
+            </span></h3>
+            <ul class="clearfix">
+                <li class="tel-check checked">
+                    <i></i>
+                    <p>手机号码已验证。</p>
+                </li>
+                <li class="name-check <% if(userInfo.verify){ %>checked<% } %>">
+                    <i></i>
+                    <% if(userInfo.verify){ %>
+                    <p>已开通银行存管账户</p>
+                    <% }else{ %>
+                    <p>未开通银行存管账户。<a href="/member/account/bankCard">立即开通</a></p>
+                    <% } %>
+                </li>
+                <li class="password-check <% if(userInfo.bindPayPassword){ %>checked<% } %>">
+                    <i></i>
+                    <% if(userInfo.bindPayPassword){ %>
+                    <p>交易密码已设置。<a href="/member/security?f=_paypassword" >点击修改</a></p>
+                    <% }else{ %>
+                    <p>交易密码未设置。<a href="/member/security?f=_paypassword" >立即设置</a></p>
+                    <% } %>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <% } %>
+    <% include common/memberLeftNav.html %>
+    <!--个人中心账户总览-->
+    <div class="containt-right">
+        <% if(!error){ %>
+            <% if(!walletAccount['error_code']){ %>
+            <div class="account-total">
+                <h3>资产概览</h3>
+                <div class="asset-box clearfix">
+                    <div class="asset-total clearfix">
+                        <div class="right">
+                            <div id="main" style="width: 164px;height:164px;"></div>
+                            <div class="asset-number">
+                                <p>总资产（元）</p>
+                                <span>￥<%= walletAccount.totalAssets %></span>
+                            </div>
+                        </div>
+                        <div class="caption">
+                            <p class="wait-profit"><i></i><em>待收本金</em><span id="expectPrincipal"><%= walletAccount.expectPrincipal %></span>元</p>
+                            <p class="apply"><i></i><em>投资冻结金额</em><span id="cashFrozen"><%= -walletAccount.cashFrozen %></span>元</p>
+                            <p class="can-use"><i></i><em>可用余额</em><span id="balance"><%= walletAccount.balance %></span>元</p>
+                            <a href="/member/account/recharge" class="deposit" target="_blank">立即充值</a>
+                            <a href="/member/account/withdrawal" class="widthdraw" target="_blank">提现</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="asset-detail clearfix">
+                <li class="total-profit">
+                    <p><%= walletAccount.interestTotalAmount %></p>
+                    <span>累计收益（元）</span>
+                </li>
+                <li class="wait-get">
+                    <p><%= walletAccount.expectInterest %></p>
+                    <span>待收收益（元）</span>
+                </li>
+                <li>
+                    <p><%= -walletAccount.cashFrozen %></p>
+                    <span>提现中的金额（元）</span>
+                </li>
+            </ul>
+            <% }else{ %>
+            <div class="partBox">
+                <div class="networkErrorBox">
+                    <p>网络开小差啦，请刷新页面试试吧~</p>
+                    <a href="/member">刷新页面</a>
+                </div>
+            </div>
+            <% } %>
+        <div class="account-detail">
+            <% if(!walletAccount['error_code'] && !investInfo['error_code']){ %>
+            <div class="my-invest look-detail">
+                <h3 class="title">我的投资</h3>
+                <div class="top">
+                    投标中
+                    <p>
+                        <%= investInfo.bidCount %>笔
+                        <a href="/member/investment?type=1" class="look-more">查看详情</a>
+                    </p>
+                </div>
+                <div class="top">
+                    待回款
+                    <p>
+                        <%= investInfo.waitRepayCount %>笔
+                        <a href="/member/investment?type=2" class="look-more">查看详情</a>
+                    </p>
+                </div>
+                <div class="bottom">
+                    已回款
+                    <p>
+                        <%= investInfo.repayCount %>笔
+                        <a href="/member/investment?type=3" class="look-more">查看详情</a>
+                    </p>
+                </div>
+            </div>
+            <div class="my-invest account-info">
+                <h3 class="title">账户信息</h3>
+                <a href="/member/account/bankCard" class="bankCard">
+                    <h3>Bank card</h3>
+                    <p>银行卡<span><%= walletAccount.bankcardCount %></span>张</p>
+                </a>
+                <a href="/member/coupon" class="coupon">
+                    <h3>Coupon</h3>
+                    <p>优惠券<span><%= walletAccount.usablePassbookCount %></span>张</p>
+                </a>
+            </div>
+            <% }else{ %>
+                <div class="networkErrorBox">
+                    <p>网络开小差啦，请刷新页面试试吧~</p>
+                    <a href="/member">刷新页面</a>
+                </div>
+            <% } %>
+        </div>
+        <% }else{ %>
+        <div class="containtBox">
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member">刷新页面</a>
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+    <!--个人中心账户总览-->
+</div>
+<% if(!error){ %>
+<script src="/public/js/common/echarts.simple.min.js"></script>
+<% } %>
+<script src="/public/js/common/layer.js"></script>
+<script src="/public/js/s_member.js"></script>
+<% include common/memberFooter.html %>
+

@@ -1,0 +1,237 @@
+<link rel="stylesheet" href="/public/css/s_investment.min.css">
+<% include ../../common/nav.html %>
+<div class="containt-box">
+    <% include ../../common/memberLeftNav.html %>
+    <div class="user-right">
+        <div class="user-wrapper mt0">
+            <div class="bread_crumbs">
+                <div class="title title_hp2">
+                    <span class="borderNone">我的投资明细</span>
+                </div>
+            </div>
+            <% if(!error){ %>
+            <div id="asset_inf">
+                <% if(!walletAccount['error_code']){ %>
+                <div class="invest_list_left">
+                    <div class="list fl">
+                        <p>总投资（元）</p>
+                        <p class="f26 fb mt10"><%= walletAccount.totalAssets %></p>
+                        <hr style="border:1px dashed #e1e1e1;" class="mt20">
+                        <ul class="t-l mt15">
+                            <li>
+                                <p class="cGray1">投资冻结金额（元）</p>
+                                <p class="f16 fb mt10"><%= -walletAccount.cashFrozen %>元</p>
+                            </li>
+                            <li class="NoBorder ml50">
+                                <p class="cGray1">待收本金（元）</p>
+                                <p class="f16 fb mt10"><%= walletAccount.expectPrincipal %>元</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="invest_list_right">
+                    <div class="list fr">
+                        <p>总收益（元）</p>
+                        <p class="f26 fb mt10 color_base"><%= walletAccount.interestTotalAmount %></p>
+                        <hr style="border:1px dashed #e1e1e1;" class="mt20">
+                        <div class="t-l mt15">
+                            <ul>
+                                <li>
+                                    <p class="cGray1">已收收益（元）</p>
+                                    <p class="f16 fb mt10"><%= walletAccount.recoveredInterest %>元</p>
+                                </li>
+                                <li class="NoBorder ml50">
+                                    <p class="cGray1">待收收益（元）</p>
+                                    <p class="f16 fb mt10"><%= walletAccount.expectInterest %>元</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <% }else{ %>
+                <div class="networkErrorBox mtb20">
+                    <p>网络开小差啦，请刷新页面试试吧~</p>
+                    <a href="/member/investment?type=<%= type %>">刷新页面</a>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="p20">
+                <p class="f14">所有投资记录</p>
+                <% if(!investInfo['error_code'] && !list['error_code']){ %>
+                <div id="list_tabs" class="invest_list_tabs mt30">
+                    <ul id="listTabs">
+                        <li <% if(type == 1){ %>class="cur"<% } %> data-type="1">
+                            <a href="javascript:void(0)">投标中 <span class="color_base">(<%= investInfo.bidCount %>)</span></a>
+                        </li>
+                        <li <% if(type == 2){ %>class="cur"<% } %> data-type="2">
+                            <a href="javascript:void(0)">待回款 <span class="color_base">(<%= investInfo.waitRepayCount %>)</span></a>
+                        </li>
+                        <li <% if(type == 3){ %>class="cur"<% } %> data-type="3">
+                            <a href="javascript:void(0)">已回款 <span class="color_base">(<%= investInfo.repayCount %>)</span></a>
+                        </li>
+                        <li <% if(type == 0){ %>class="cur"<% } %> data-type="0">
+                            <a href="javascript:void(0)">未成标 <span class="color_base">(<%= investInfo.bidFailCount %>)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="data_list">
+                    <div class="pt20 table_default" id="recordListBox">
+                        <% if(type == 2 || type == 3){ %>
+                            <table>
+                                <% if(type == 2){ %>
+                                    <thead>
+                                        <tr>
+                                            <th>项目信息</th>
+                                            <th>投资金额（元）</th>
+                                            <th>预估收益（元）</th>
+                                            <th>预计回款日</th>
+                                            <th>状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                <% } else if(type == 3){ %>
+                                    <thead>
+                                        <tr>
+                                            <th>项目信息</th>
+                                            <th>投资金额（元）</th>
+                                            <th>已收收益（元）</th>
+                                            <th>回款日</th>
+                                            <th>状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                <% } %>
+                                <tbody>
+                                    <% if(list.list.length==0){ %>
+                                        <tr>
+                                            <td align="center" colspan="6">暂无投资明细记录</td>
+                                        </tr>
+                                    <% }else{ %>
+                                        <% list.list.forEach(function (item,index){ %>
+                                            <tr>
+                                                <td>
+                                                    <p class="productName"><%= item.productName %></p>
+                                                    <p>收益率：<span class="rate">6.08%</span></p>
+                                                    <p>期限：<span><%= item.interestLimit %></span>天</p>
+                                                </td>
+                                                <td><%= item.totalPrincipal %></td>
+                                                <td><%= item.interest %></td>
+                                                <% if(item.dealTime){ %>
+                                                    <td><%= item.dealTime %></td>
+                                                <% }else{ %>
+                                                    <td></td>
+                                                <% } %>
+                                                <td><%= item.statusName %></td>
+                                                <td>
+                                                    <a target="_blank" href="/member/investment/detail?type=<%= type %>&holdId=<%= item.holdId %>">查看</a>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        <% }else if(type == 0){ %>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>项目信息</th>
+                                        <th>投资金额（元）</th>
+                                        <th>投资时间</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if(list.list.length == 0){ %>
+                                        <tr>
+                                            <td align="center" colspan="5">暂无投资明细记录</td>
+                                        </tr>
+                                    <% }else{ %>
+                                        <% list.list.forEach(function (item,index){ %>
+                                            <tr>
+                                                <td>
+                                                    <p class="productName"><%= item.productName %></p>
+                                                    <p>收益率：<span class="rate">6.08%</span></p>
+                                                    <p>期限：<span><%= item.interestLimit %></span>天</p>
+                                                </td>
+                                                <td><%= item.totalPrincipal %></td>
+                                                <% if(item.dealTime){ %>
+                                                    <td><%= item.dealTime %></td>
+                                                <% }else{ %>
+                                                    <td></td>
+                                                <% } %>
+                                                <td><%= item.statusName %></td>
+                                                <td>
+                                                    <a target="_blank" href="/member/investment/detail?type=<%= type %>&partId=<%= item.partId %>">查看</a>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        <% }else if(type == 1){ %>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>项目信息</th>
+                                        <th>投资金额（元）</th>
+                                        <th>预估收益（元）</th>
+                                        <th>投资时间</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if(list.list.length == 0){ %>
+                                        <tr>
+                                            <td align="center" colspan="6">暂无投资明细记录</td>
+                                        </tr>
+                                    <% }else{ %>
+                                        <% list.list.forEach(function (item,index){ %>
+                                            <tr>
+                                                <td>
+                                                    <p class="productName"><%= item.productName %></p>
+                                                    <p>收益率：<span class="rate">6.08%</span></p>
+                                                    <p>期限：<span><%= item.interestLimit %></span>天</p>
+                                                </td>
+                                                <td><%= item.totalPrincipal %></td>
+                                                <td><%= item.interest %></td>
+                                                <% if(item.dealTime){ %>
+                                                    <td><%= item.dealTime %></td>
+                                                <% }else{ %>
+                                                    <td></td>
+                                                <% } %>
+                                                <td><%= item.statusName %></td>
+                                                <td><a target="_blank" href="/member/investment/detail?type=<%= type %>&partId<%= item.partId %>">查看</a></td>
+                                            </tr>
+                                        <% }) %>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        <% } %>
+                    </div>
+                    <input type="hidden" id="totalSize" value="<%= list.totalPage%>">
+                    <% include ../../common/pagination.html %>
+                </div>
+                <% }else{ %>
+                <div class="networkErrorBox">
+                    <p>网络开小差啦，请刷新页面试试吧~</p>
+                    <a href="/member/investment?type=<%= type %>">刷新页面</a>
+                </div>
+                <% } %>
+            </div>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member/investment?type=<%= type %>">刷新页面</a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<% if(!error && !investInfo['error_code'] && !list['error_code']){ %>
+<script src="/public/js/s_investment.js"></script>
+<% } %>
+<% include ../../common/memberFooter.html %>

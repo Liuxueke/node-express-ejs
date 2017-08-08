@@ -1,0 +1,280 @@
+<link rel="stylesheet" href="/public/css/common/s_base.min.css">
+<link rel="stylesheet" href="/public/css/s_payment.min.css">
+<link rel="stylesheet" href="/public/js/common/skin/layer.css">
+<!--top bar-->
+<% include common/paymentTopBar.html %>
+<!--content-->
+<div class="contain mt20">
+    <div class="section payment_order">
+        <div class="payment_order_top">
+            <span class="f18 cGreen1 ml15 relative" style="top:13px;"></span>
+        </div>
+
+        <div class="box-order mt0 pb0">
+            <% if(!error){ %>
+            <div class="box-title">
+                <p class="cGray2 f16 fl pl80">
+                    项目名称： <span class="f18 cBlack fb"><%= productDetails.productName %></span>
+                </p>
+                <p class="cGray2 f16 fr pr90">
+                    年化收益：
+                    <span class="f18 color_base" id="yearProfitRate-title">
+                        <%= productDetails.minYearIncome %>%
+                        <% if(productDetails.incomePlus){ %>
+                            +<%= productDetails.incomePlus %>%(VIP奖励)
+                        <% } %>
+                    </span>
+                    期限：<span class="f18 color_base"><%= productDetails.interestLimitDes %><%= productDetails.interestLimitType %></span>
+                </p>
+            </div>
+            <input type="hidden" id="productRisk" value="1">
+            <input type="hidden" id="isProductSupportPlus" value="1">
+            <img src="https://r.mzmoney.com/mz/img/toggle_down.png" class="m-c toggle_down">
+            <div>
+                <table>
+                    <tbody><tr>
+                        <td class="title">项目名称</td>
+                        <td class="detail"><%= productDetails.productName %></td>
+                        <td class="title">项目金额</td>
+                        <td class="detail"><%= productDetails.investTotalAmount %>元</td>
+                    </tr>
+                    <tr>
+                        <td class="title">计息方式</td>
+                        <td class="detail"><%= productDetails.valueDateName %></td>
+                        <td class="title">收益方式</td>
+                        <td class="detail"><%= productDetails.incomeWayName %></td>
+                    </tr>
+                    <tr>
+                        <td class="title">投资期限</td>
+                        <td class="detail"><span class="color_base"><%= productDetails.interestLimitDes %><%= productDetails.interestLimitType %></span></td>
+                        <td class="title">募集周期</td>
+                        <td class="detail"><%= productDetails.saleLimitName %></td>
+                    </tr>
+                    <tr>
+                        <td class="title">年化收益率</td>
+                        <td class="detail">
+                            <span id="yearProfitRate-td" class="color_base">
+                                <%= productDetails.minYearIncome %>%
+                                <% if(productDetails.incomePlus){ %>
+                                    +<%= productDetails.incomePlus %>%(VIP奖励)
+                                <% } %>
+				            </span>
+                        </td>
+                        <td class="title">起投金额</td>
+                        <td class="detail"><span class="color_base" id="startAmount" data-number="<%= productDetails.partInvestAmount %>"><%= productDetails.partInvestAmount %>元</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <form id="create_form" class="confirm-order user_form">
+                    <input type="hidden" name="productId" id="productId" value="<%= productDetails.productId %>">
+                    <input type="hidden" name="productType" id="productType" value="<%= productDetails.productType %>">
+                    <% if(productDetails.productType == 5){ %>
+                        <!--金包-->
+                        <div class="mt50">
+                            <div class="form_input">
+                                <label class="text w100">选择优惠：</label>
+                                <label>
+                                    <select name="passbookId" id="passbookId" <% if(cardCanUse.length<=0){ %>disabled="disabled"<% } %>>
+                                        <option data-money="0" value="">
+                                            <% if(cardCanUse.length>0){ %>
+                                                暂无适用于该产品的优惠券
+                                            <% }else{ %>
+                                                选择优惠券
+                                            <% } %>
+                                        </option>
+                                        <% if(cardCanUse.length>0){ %>
+                                            <% cardCanUse.forEach(function (item,index){ %>
+                                                <option data-money="<%= item.money%>" value="<%= item.id %>"><%= item.name %></option>
+                                            <% }) %>
+                                        <% } %>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="form_input">
+                                <label class="text w100"></label>
+                                <label class="red" id="error_msg"></label>
+                            </div>
+                            <input type="submit" value="确认支付" id="surePay" class="btn btn-default pl80 pr90">
+                        </div>
+                    <% }else{ %>
+                        <!--非金包-->
+                        <div class="pt20">
+                            <div class="form_input mt30">
+                                <div class="form_input">
+                                    <label class="text w100">投资金额：</label>
+                                    <label>
+                                        <input name="amount" id="amount" type="text" placeholder="请输入投资金额" class="inp">
+                                    </label>
+                                </div>
+                                <div class="form_input">
+                                    <!--是否可以叠加-->
+                                    <label class="text w100">选择优惠：</label>
+                                    <label>
+                                        <select name="passbookId" id="passbookId" <% if(cardCanUse.length<=0){ %>disabled="disabled"<% } %>>
+                                            <option data-money="0" value="">
+                                                <% if(cardCanUse.length>0){ %>
+                                                    暂无适用于该产品的优惠券
+                                                <% }else{ %>
+                                                    选择优惠券
+                                                <% } %>
+                                            </option>
+                                            <% if(cardCanUse.length>0){ %>
+                                                <% cardCanUse.forEach(function (item,index){ %>
+                                                    <option data-money="<%= item.money%>" value="<%= item.id %>"><%= item.name %></option>
+                                                <% }) %>
+                                            <% } %>
+                                        </select>
+                                    </label>
+                                    <em class="cGray1" id="passbookTip"></em>
+                                </div>
+                                <% if(agreement){ %>
+                                    <div class="form_input">
+                                        <label class="text w100"></label>
+                                        <label class="">
+                                            <input type="checkbox" name="agree" id="agree" checked="">
+                                            同意按如下
+                                            <% agreement.forEach(function (item,index){ %>
+                                                <span class="color_blue"><a href="/agree/product?productId=<%= productDetails.productId %>&agreeId=<%= item.agreeId %>&partId" target="_blank" class="color_blue">《<%= item.agreeName %>》</a></span>、
+                                            <% }) %>
+                                            的格式和条款进行投资
+                                        </label>
+                                    </div>
+                                <% } %>
+                                <input type="submit" value="确认支付" id="surePay" class="btn btn-default pl80 pr90">
+                            </div>
+                        </div>
+                    <% } %>
+                </form>
+            </div>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="javascript:window.location.reload();">刷新页面</a>
+            </div>
+            <% } %>
+            <div class="section">
+                <div class="safes">
+                    <ul>
+                        <li class="bao1">
+                            <i class="top4"></i>
+                            <div>
+                                <p class="title mb9">安全保障</p>
+                                <p class="text">
+                                    第三方保证担保
+                                </p>
+                            </div>
+                        </li>
+                        <li class="xian">
+                            <i class="top4"></i>
+                            <div>
+                                <p class="title mb9">资金安全</p>
+                                <p class="text">
+                                    账户资金同卡进出
+                                </p>
+                            </div>
+                        </li>
+                        <li class="jian">
+                            <i class="top4"></i>
+                            <div>
+                                <p class="title mb9">投资安全</p>
+                                <p class="text">
+                                    资金第三方托管
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--输入交易密码-->
+<div class="enter_pwd">
+    <form id="verify_form" action="" class="user_form mt50">
+        <input type="hidden" name="productId" value="20459">
+        <input type="hidden" name="partId" value="2201705182935049">
+        <input type="hidden" id="sub_amount" name="amount">
+        <input type="hidden" id="passbook_id" name="passbookId">
+        <div class="form_input">
+            <label class="text">投资金额：</label>
+            <label id="realAmount"></label>
+        </div>
+        <div id="virtualAmount" class="form_input hide">
+            <label class="text">优惠金额：</label>
+            <label id="discount">0.00</label>
+        </div>
+        <div class="form_input">
+            <label class="text">实际支付金额：</label>
+            <label>
+                <span class="red" id="moneyOrder"></span>
+            </label>
+        </div>
+        <div class="form_input">
+            <label class="text">交易密码：</label>
+            <input type="password" name="payPassword" id="payPassword" placeholder="请输入交易密码" class="inp">
+        </div>
+        <div class="form_input">
+            <a href="javascript:window.open('/member/security/findPayPassword1.htm');" class="color_blue" style="margin-left:300px;">忘记交易密码？</a>
+        </div>
+        <input type="submit" value="确认支付" class="btn btn-default">
+    </form>
+</div>
+<!--充值-->
+<div class="not_enough">
+    <div class="user_form mt30 ml50">
+        <div class="form_input">
+            <label class="text">投资金额：</label>
+            <label id="realAmount1"></label>
+        </div>
+        <div class="form_input" id="virtualAmount1">
+            <label class="text">优惠金额：</label>
+            <label id="discount1">0.00</label>
+        </div>
+        <div class="form_input">
+            <label class="text">实际支付金额：</label>
+            <label id="moneyOrder1"></label>
+        </div>
+        <div class="form_input">
+            <label class="text">还需充值金额：</label>
+            <label><span class="red" id="diffAmount"></span></label>
+        </div>
+        <div class="form_input">
+            <label>
+                <a href="javascript:;" class="rechargeBtn">立即充值</a>
+            </label>
+        </div>
+        <div class="form_input mt20">
+            <label class="f14 ml30">如有疑问，<a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAxNzI1Ml8yNDk5MDVfNDAwNzU3ODg4OF8yXw" target="_blank">点击 <i class="icon-kefu"></i>联系在线客服</a>或致电客服热线 <i class="icon-tel"></i>400-757-8888
+            </label>
+        </div>
+    </div>
+</div>
+<!--提示弹框-->
+<div class="modalBox" id="openAccountBox">
+    <div class="modal">
+        <p class="warmTip"></p>
+        <div class="btnBox">
+            <a class="btn" href="javascript:;"></a>
+            <a class="cancelBtn" href="javascript:;">取消</a>
+        </div>
+    </div>
+</div>
+<!--风险测评-->
+<div class="modalBox" id="riskTestBox">
+    <div class="modal">
+        <p class="warmTip">您还没有进行风险测评，需要在app端进行测评才可以投资。</p>
+        <span>
+            <img src="https://r.mzmoney.com/mz/img/hpimg/app.png" alt="">
+            扫码下载APP
+        </span>
+        <a href="javascript:;" class="cancelBtn"></a>
+    </div>
+</div>
+
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/common/layer.js"></script>
+<script src="/public/js/s_payments.js"></script>

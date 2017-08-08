@@ -1,0 +1,59 @@
+<% include ../common/header.html %>
+<% include ../common/position.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <div class="renderMain">
+        <div class="renderTitle">
+            <h3><%= detail.bidName %></h3>
+            <ul>
+                <li>标的编号：<span><%= detail.bidId %></span></li>
+                <li>标的状态：<span><%= detail.status %></span></li>
+                <li>标的金额：<span>￥<%= detail.amount %></span></li>
+            </ul>
+        </div>
+        <div class="renderProduct">
+            <ul>
+                <li><p><strong><%= detail.productName %></strong></p><span>项目编号<font><%= detail.projectId %></font></span></li>
+                <li>
+                    <p><strong><%= detail.yearIncome %></strong> % 年化利率</p>
+                    <span>借款期限<font><%= detail.interestLimit %>天</font></span>
+                </li>
+            </ul>
+        </div>
+        <div class="renderProductDetail">
+            <ul>
+                <li>开始还款时间<span><%= detail.startRefundTime %></span></li>
+                <li>结束还款时间<span><%= detail.endRefundTime %></span></li>
+                <li>还款方式<span><%= detail.reFundTypeName %></span></li>
+                <li>借款人编号<span><%= detail.userId %></span></li>
+                <li>借款人名称<span><%= detail.legalName %></span></li>
+            </ul>
+        </div>
+        <div class="renderProductInfor">
+            <h5>产品信息</h5>
+            <ul class="clearFixed">
+                <li><p>产品编号</p><span><%= detail.productId %></span></li>
+                <li class="ml"><p>退款时间</p><span><%= detail.refundFinishTime %></span></li>
+                <li><p>产品名称</p><span><%= detail.productName %></span></li>
+                <li class="ml"><p>还款时间</p><span><%= detail.paymentTime %></span></li>
+                <li><p>募集进度</p><span><%= detail.raisedProcess %>%</span></li>
+                <li class="ml"><p>偿还垫资金额</p><span><%= detail.repayAmount %></span></li>
+                <li><p>已募集金额</p><span><%= detail.raisedAmount %></span></li>
+                <li class="ml"><p>偿还垫资时间</p><span><%= detail.repayTime %></span></li>
+                <li><p>募集完成时间</p><span><%= detail.endSaleTime %></span></li>
+                <li class="ml"><p>已结清时间</p><span><%= detail.settlementTime %></span></li>
+                <li><p>待放款金额</p><span><%= detail.forLoanAmount %></span></li>
+                <li class="ml"><p>创建时间</p><span><%= detail.createTime %></span></li>
+                <li><p>放款金额</p><span><%= detail.loanAmount %></span></li>
+                <% if(detail.updateTime){ %>
+                    <li class="ml"><p>更新时间</p><span><%= detail.updateTime %></span></li>
+                <% }else{ %>
+                    <li class="ml"><p>更新时间</p><span></span></li>
+                <% } %>
+                <li><p>放款时间</p><span><%= detail.loanAmountTime %></span></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="backVipCenter"><a href="/borrower/">返回账户管理</a></div>
+    </div>
+</div>
+<% include ../common/footer.html %>

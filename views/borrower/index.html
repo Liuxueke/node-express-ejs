@@ -1,0 +1,136 @@
+<% include common/header.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <% include common/menu.html %>
+    <div class="main fr">
+        <!--费用 start-->
+        <div class="main-cost clearFixed">
+            <div class="cost-overage">
+                <div class="cost-box">
+                    <ul>
+                        <li><p>融资余额</p><span><%= accountInfo.financeAccount %></span></li>
+                        <li><p>待还金额</p><span><%= accountInfo.paymentAmount %></span></li>
+                    </ul>
+                    <i></i>
+                </div>
+                <div class="cost-do"><a href="/borrower/recharge" class="recharge">充值</a><a href="/borrower/withdraw" class="withdraw">提现</a></div>
+            </div>
+            <div class="cost-pay">
+                <div class="cost-box">
+                    <ul>
+                        <li><p>服务费金额</p><span><%= accountInfo.freeAccount %></span></li>
+                        <li><p>待付金额</p><span><%= accountInfo.chargeAmount %></span></li>
+                    </ul>
+                    <i></i>
+                </div>
+                <div class="cost-do"><a href="/borrower/recharge" class="recharge">充值</a><a href="/borrower/withdraw" class="withdraw">提现</a></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--费用 end-->
+        <!--管理 start-->
+        <div class="main-management">
+            <div class="management-title">
+                <ul>
+                    <li class="active">标的管理</li>
+                    <li>项目管理</li>
+                </ul>
+            </div>
+            <div class="management-box">
+                <div class="management-list-box">
+                    <div class="management-column">
+                        <div class="management-column-box" style="display: block;">
+                            <ul>
+                                <li class="mc1">标的ID</li>
+                                <li class="mc2">状态</li>
+                                <li class="mc3">募集金额</li>
+                                <li class="mc4">待还金额</li>
+                                <li class="mc5">已还金额</li>
+                                <li class="mc6">到期时间</li>
+                                <li class="mc7">操作</li>
+                            </ul>
+                        </div>
+                        <div class="management-column-box">
+                            <ul>
+                                <li class="mc1">项目ID</li>
+                                <li class="mc2">状态</li>
+                                <li class="mc3">项目金额</li>
+                                <li class="mc4">服务费</li>
+                                <li class="mc5">退还金额</li>
+                                <li class="mc6">创建时间</li>
+                                <li class="mc7">操作</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="management-list">
+                        <ul>
+                        </ul>
+                    </div>
+                    <!-- 这里显示分页 -->
+                    <div id="Pagination" class="pagination"></div>
+                    <!-- 这里显示分页 -->
+                </div>
+            </div>
+        </div>
+        <!--管理 end-->
+    </div>
+    <div class="clear"></div>
+</div>
+<% include common/footer.html %>
+<!-- 还款确认 start -->
+<div class="mask" id="Repayment">
+    <div class="maskBg"></div>
+    <div class="maskBox">
+        <div class="maskTit"></div>
+        <div class="sureRepayment">
+            <ul>
+                <li class="numbering">
+                    <span></span>
+                    <div></div>
+                </li>
+                <li class="naming">
+                    <span></span>
+                    <div></div>
+                </li>
+                <li class="amounting">
+                    <span></span>
+                    <div></div>
+                </li>
+                <li class="rating">
+                    <span></span>
+                    <div></div>
+                </li>
+                <li class="terming">
+                    <span></span>
+                    <div></div>
+                </li>
+                <li class="needPaying">
+                    <span></span>
+                    <div></div>
+                </li>
+            </ul>
+        </div>
+        <div class="maskBottom">
+            <a href="javascript:void(0);" class="sure surePay">还款</a>
+            <a href="javascript:void(0);" class="cancel">取消</a>
+        </div>
+        <div class="close"></div>
+    </div>
+</div>
+<!-- 还款确认 end -->
+
+<!-- 账户余额不足 start -->
+<div class="mask" id="shortageOverage">
+    <div class="maskBg"></div>
+    <div class="maskBox">
+        <div class="shortageOverage-icon"></div>
+        <div class="shortageOverage-tips">融资余额不足，请充值！</div>
+        <div class="maskBottom">
+            <a href="/borrower/recharge" class="sure">去充值</a>
+            <a href="javascript:void(0);" class="cancel">取消</a>
+        </div>
+    </div>
+</div>
+<!-- 账户余额不足 end -->
+<script src="../../public/js/common/jquery.pagination.js"></script>
+<link href="../../public/css/common/s_pagination.min.css" rel="stylesheet" type="text/css">
+<script src="../../public/js/borrower/index.js"></script>

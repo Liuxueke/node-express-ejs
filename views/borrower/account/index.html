@@ -1,0 +1,120 @@
+<% include ../common/header.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <% include ../common/menu.html %>
+    <div class="main fr">
+        <div class="accountDetail-top"><span>基本信息</span></div>
+        <div class="accountDetail-main">
+            <div class="u-information">
+                <% if(userInfo.loanPrincipal == 0){ %>
+                    <ul>
+                        <li>
+                            <span>手机号</span>
+                            <% if(userInfo.mobile==''){ %>
+                                <div></div>
+                            <% }else{ %>
+                                <div><%= userInfo.mobile.substr(0, 3)+'****'+userInfo.mobile.substr(7, 11) %></div>
+                            <% } %>
+                        </li>
+                        <li class="bg">
+                            <span>借款人类型</span>
+                            <div>个人</div>
+                        </li>
+                        <li>
+                            <span>借款人姓名</span>
+                            <div><%= userInfo.name %></div>
+                        </li>
+                        <li class="bg">
+                            <span>借款人身份证</span>
+                            <% if(userInfo.idNo==''){ %>
+                                <div></div>
+                            <% }else{ %>
+                                <div><%= userInfo.idNo.substr(0,4)+'****'+userInfo.idNo.substr(14,18) %></div>
+                            <% } %>
+                        </li>
+                        <li>
+                            <span>银行卡号</span>
+                            <% if(userInfo.account == ''){ %>
+                                <div></div>
+                            <% }else{ %>
+                                <div><%= userInfo.cardNo.substr(0,4)+'****'+userInfo.cardNo.substr(userInfo.cardNo.length-4) %></div>
+                            <% } %>
+                        </li>
+                        <li class="bg">
+                            <span>个人介绍</span>
+                            <div><%= userInfo.profile %></div>
+                        </li>
+                        <li>
+                            <span>相关凭证</span>
+                            <div>
+                                <% userInfo.cers.forEach(function(item){ %>
+                                    <img src="<%= item.imgPath %>" alt="<%= item.description %>">
+                                <% }) %>
+                            </div>
+                        </li>
+                    </ul>
+                <% }else{ %>
+                    <ul>
+                        <li>
+                            <span>手机号</span>
+                            <% if(userInfo.mobile==''){ %>
+                                <div></div>
+                            <% }else{ %>
+                                <div><%= userInfo.mobile.substr(0, 3)+'****'+userInfo.mobile.substr(7, 11) %></div>
+                            <% } %>
+                        </li>
+                        <li class="bg">
+                            <span>借款人类型</span>
+                            <div>企业</div>
+                        </li>
+                        <li>
+                            <span>法人姓名</span>
+                            <div><%= userInfo.name %></div>
+                        </li>
+                        <li class="bg">
+                            <span>企业名称</span>
+                            <div><%= userInfo.company %></div>
+                        </li>
+                        <li>
+                            <span>注册号</span>
+                            <% if(userInfo.registerNo == ''){ %>
+                                <div></div>
+                            <% }else{ %>
+                                <div><%= userInfo.registerNo.substr(0,4)+'****'+userInfo.registerNo.substr(14,18) %></div>
+                            <% } %>
+                        </li>
+                        <li class="bg">
+                            <span>法人身份证</span>
+                            <% if(userInfo.idNo==''){ %>
+                                <div></div>
+                            <% }else{ %>
+                                <div><%= userInfo.idNo.substr(0,4)+'****'+userInfo.idNo.substr(14,18) %></div>
+                            <% } %>
+                        </li>
+                        <li>
+                            <span>对公账号</span>
+                            <% if(userInfo.account == ''){ %>
+                                <div></div>
+                            <% }else{ %>
+                                <div><%= userInfo.cardNo.substr(0,4)+'****'+userInfo.cardNo.substr(userInfo.cardNo.length-4) %></div>
+                            <% } %>
+                        </li>
+                        <li class="bg">
+                            <span>企业介绍</span>
+                            <div><%= userInfo.profile %></div>
+                        </li>
+                        <li>
+                            <span>相关凭证</span>
+                            <div>
+                                <% userInfo.cers.forEach(function(item){ %>
+                                    <img src="<%= item.imgPath %>" alt="<%= item.description %>">
+                                <% }) %>
+                            </div>
+                        </li>
+                    </ul>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<% include ../common/footer.html %>

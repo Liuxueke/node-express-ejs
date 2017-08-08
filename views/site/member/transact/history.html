@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="/public/css/common/s_base.min.css">
+<link rel="stylesheet" href="/public/css/s_transact.min.css">
+<% include ../../common/nav.html %>
+<div class="containt-box">
+    <% include ../../common/memberLeftNav.html %>
+    <div class="user-right">
+        <div class="user-wrapper mt0 miH838">
+            <div class="bread_crumbs">
+                <div class="title title_hp2">
+                    <span class="borderNone">资金明细历史账单</span>
+                    <a class="historyOrder" href="/member/transact">返回上一页</a>
+                </div>
+                <% if(!error){ %>
+                <div class="p20">
+                    <div id="data_list">
+                        <div class="pt30 table_default">
+                            <table width="100%" border="1" bordercolor="#e5e5e5">
+                                <thead>
+                                    <tr>
+                                        <th>时间</th>
+                                        <th>类型明细</th>
+                                        <th>金额</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if(accountFlowList.list.length>0){ %>
+                                        <% accountFlowList.list.forEach(function (item,index){ %>
+                                            <tr>
+                                                <td><%= item.createTime %></td>
+                                                <td><%= item.infoOrder %></td>
+                                                <td class="money"><%= item.moneyOrder %></td>
+                                                <td>
+                                                    <a href="/member/transact/detail/<%= item.noOrder %>">查看</a>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                                    <% }else{ %>
+                                        <tr>
+                                            <td colspan="4">暂无资产明细记录</td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                            <input type="hidden" id="totalPage" value="<%= accountFlowList.totalPage %>">
+                            <% include ../../common/pagination.html %>
+                        </div>
+                    </div>
+                </div>
+                <% }else{ %>
+                <div class="networkErrorBox">
+                    <p>网络开小差啦，请刷新页面试试吧~</p>
+                    <a href="/member/transact/history">刷新页面</a>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../../common/memberFooter.html %>
+<% if(!error){ %>
+<script src="/public/js/s_transactHistory.js"></script>
+<% } %>

@@ -1,0 +1,217 @@
+<link rel="stylesheet" href="/public/css/s_recharge.min.css">
+<link rel="stylesheet" href="/public/css/common/s_base.min.css">
+<link rel="stylesheet" href="/public/js/common/skin/layer.css">
+<% include ../../common/nav.html %>
+<div class="sectionBox">
+    <div class="contain-box">
+        <% include ../../common/memberLeftNav.html %>
+        <div class="user-wrapper">
+            <div class="bread_crumbs">
+                <div class="title">
+                    <span>账户充值</span>
+                </div>
+            </div>
+            <% if(!error){ %>
+            <div class="p20">
+                <div class="invest_list_tabs mt30">
+                    <ul id="tabBox">
+                        <li class="cur" val="quickRecharge"><a href="javascript:;">快捷充值</a></li>
+                        <li val="ebank"><a href="javascript:;">网银充值 </a></li>
+                    </ul>
+                </div>
+                <div class="banlList" id="quickRecharge">
+                    <!-- 快捷充值 -->
+                    <div class="p20">
+                        <div>
+                            <p class="f14 fb cGray5">充值银行</p>
+                            <div class="pl70 mt40">
+                                <p class="f14 cGray6">选择已绑定的银行卡</p>
+                                <div class="pt10">
+                                    <div class="paper-list1">
+                                        <ul id="bankcard_ul">
+                                            <% if(bankList.list){ %>
+                                            <% bankList.list.forEach(function (item,index){ %>
+                                            <li class="pb20" data-card="<%= item.bankCardId %>">
+                                                <div class="p10">
+                                                    <div class="fl"><img src="<%= item.bankLogo %>" alt="<%= item.bankName%>" width="59px" height="59px"></div>
+                                                    <div class="fl pl10 w200">
+                                                        <input type="hidden" name="bankCardPhone" class="bankCardPhone" value="<%= item.phone %>">
+                                                        <input type="hidden" name="bankCardNo" value="<%= item.bankCardNo %>">
+                                                        <p class="f16"><%= item.bankName %>(尾号<%= item.bankCardNo %>)</p>
+                                                        <p class="f14 cGray5 pt5">开户名：<%= userBaseInfo.realname.substr(0,1) %>**</p>
+                                                        <p class="f14 cGray5">预留手机号:<%= item.phone.substr(0,3) %>****<%= item.phone.substr(7,4) %></p>
+                                                        <input class="paymentSingleLimit" type="hidden" name="paymentSingleLimit" value="<%= item.paymentSingleLimit %>">
+                                                        <input class="paymentDayLimit" type="hidden" name="paymentDayLimit" value="<%= item.paymentDayLimit %>">
+                                                        <input class="paymentLimit" type="hidden" name="paymentLimit" value="单笔50000元，单日5万元">
+                                                    </div>
+                                                </div>
+                                                <div class="paper-checked"></div>
+                                            </li>
+                                            <% }) %>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                <p class="f14 pt25 cGray6"><span id="_bankName">银行</span>充值限额如下：</p>
+                                <div class="pt10 table_default">
+                                    <table width="95%" border="1" bordercolor="#e5e5e5">
+                                        <thead>
+                                        <tr>
+                                            <th width="16%">单笔限额</th>
+                                            <th width="17%">每日限额</th>
+                                            <th width="16%">支持范围</th>
+                                            <th width="22%">客服热线</th>
+                                            <th width="29%">备注</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="_tbody">
+                                        <tr>
+                                            <td width="16%" id="paymentSingleLimit"></td>
+                                            <td width="17%" id="paymentLimit"></td>
+                                            <td width="16%"></td>
+                                            <td width="22%"></td>
+                                            <td width="29%"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <hr style="border:1px dashed #e1e1e1;" class="mt40">
+                        </div>
+                        <div class="p20">
+                            <div><p class="f14 fb cGray5">填写充值金额</p></div>
+                            <form id="form" class="user-center-form f14">
+                                <div class="p20"><label>可用余额：</label>
+                                    <span class="fb"></span><%= balance.totalAmount %>元</div>
+                                <div class="p20 pt0"><label>充值金额：</label>
+                                    <label>
+                                        <input type="text" name="rechargeMoney" id="rechargeMoney" class="inp w220">元
+                                    </label>
+                                </div>
+                                <div class="form_input agreeBox">
+                                    <input type="checkbox" class="agree" checked>
+                                    <span class="agreement agreed"></span>
+                                    <span class="textBox">已同意协议<a href="/agree/pay" target="_blank">《支付服务协议》</a></span>
+                                </div>
+                                <input type="submit" class="btn btn-default ml70" value="确认充值">
+                            </form>
+                            <hr style="border:1px dashed #e1e1e1;" class="mt20">
+                        </div>
+                    </div>
+                    <div class="p20 ">
+                        <div class="p20">
+                            <div>
+                                <p class="f14 fb cGray5">温馨提示：</p>
+                                <p class="pl30 pt10 cGray2">1、为保障账户及资金安全，请在充值前完成安全认证以及提现密码设置。</p>
+                                <p class="pl30 pt10 cGray2">2、您的账户资金将通过第三方平台连连支付进行充值。</p>
+                                <p class="pl30 pt10 cGray2">3、由于大多数银行的网银系统只支持IE浏览器，请您进行充值时使用IE浏览器。同时请注意您银行卡充值的支付金额限制，具体请参阅: 各银
+                                    行的网上银行支付限额总表。</p>
+                                <p class="pl30 pt10 cGray2">4、推荐使用大额快捷支付，第二次支付无需再次输入银行卡信息，且自动绑定支付卡，项目到期后无需另外绑定银行卡，直接提现至支付时 的银行卡。</p>
+                                <p class="pl30 pt10 cGray2">5、大额快捷支付中若无您想要支付的银行卡，请办理以上银行卡或使用网银支付。具体请参阅: 目前支持的网上银行列表。</p>
+                                <p class="pl30 pt10 cGray2">6、选择网银支付，大额网银支付请准备好Ukey等银行安全工具，使用动态口令卡等网银支付可能额度较低。</p>
+                                <p class="pl30 pt10 cGray2">7、本平台禁止充值不投资，马上提现等行为，一经发现并确认，将终止该账户的使用。</p>
+                                <p class="pl30 pt10 cGray2">
+                                    8、如果充值金额没有及时到账，请拨打客服电话:
+                                    <span class="fb">400-757-8888</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banlList" id="ebank">
+                    <!-- 网银充值 -->
+                    <div class="p20">
+                        <div>
+                            <p class="f14 fb cGray5">充值银行</p>
+                            <div class="pl70 mt40">
+                                <div class="paper-list2">
+                                    <ul id="ebank_ul">
+                                        <% netBnakList.list.forEach(function (item,index){ %>
+                                        <li data-card="<%= item.bankId %>">
+                                            <img src="<%= item.netBankLogo %>" alt="<%= item.name %>">
+                                            <div class="paper-checked"></div>
+                                        </li>
+                                        <% }) %>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr style="border:1px dashed #e1e1e1;" class="mt40">
+                        </div>
+                        <div class="p20">
+                            <div>
+                                <p class="f14 fb cGray5">填写充值金额</p>
+                            </div>
+                            <form id="ebankFormData" class="user-center-form f14">
+                                <div class="p20">
+                                    <label>可用余额：</label> <span class="fb"><%= balance.totalAmount %></span> 元
+                                </div>
+                                <div class="p20 pt0">
+                                    <label>充值金额：</label>
+                                    <label>
+                                        <input type="text" name="amount" id="amount" value="" class="inp w220" required="" data-msg-required="充值金额不能为空">
+                                    </label>元
+                                </div>
+                                <div class="form_input agreeBox">
+                                    <input type="checkbox" class="agree" checked>
+                                    <span class="agreement agreed"></span>
+                                    <span class="textBox">已同意协议<a href="/agree/pay" target="_blank">《支付服务协议》</a></span>
+                                </div>
+                                <input type="submit" class="btn btn-default ml70" value="确认充值">
+                            </form>
+                            <hr style="border:1px dashed #e1e1e1;" class="mt20">
+                        </div>
+                        <div class="p20">
+                            <div class="p20">
+                                <div>
+                                    <p class="f14 fb cGray5">温馨提示：</p>
+                                    <p class="pl30 pt10 cGray2">1、为保障账户及资金安全，请在充值前完成安全认证以及提现密码设置。</p>
+                                    <p class="pl30 pt10 cGray2">2、您的账户资金将通过第三方平台连连支付进行充值。</p>
+                                    <p class="pl30 pt10 cGray2">3、由于大多数银行的网银系统只支持IE浏览器，请您进行充值时使用IE浏览器。同时请注意您银行卡充值的支付金额限制，具体请参阅: 各银
+                                        行的网上银行支付限额总表。</p>
+                                    <p class="pl30 pt10 cGray2">4、推荐使用大额快捷支付，第二次支付无需再次输入银行卡信息，且自动绑定支付卡，项目到期后无需另外绑定银行卡，直接提现至支付时 的银行卡。</p>
+                                    <p class="pl30 pt10 cGray2">5、大额快捷支付中若无您想要支付的银行卡，请办理以上银行卡或使用网银支付。具体请参阅: 目前支持的网上银行列表。</p>
+                                    <p class="pl30 pt10 cGray2">6、选择网银支付，大额网银支付请准备好Ukey等银行安全工具，使用动态口令卡等网银支付可能额度较低。</p>
+                                    <p class="pl30 pt10 cGray2">7、本平台禁止充值不投资，马上提现等行为，一经发现并确认，将终止该账户的使用。</p>
+                                    <p class="pl30 pt10 cGray2">
+                                        8、如果充值金额没有及时到账，请拨打客服电话:
+                                        <span class="fb">400-757-8888</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member/account/recharge">刷新页面</a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<div class="get_code layui-layer-wrap" id="messageCodeBox">
+    <form action="" id="messageCodeConfirmForm" class="user_form mt50 ml50">
+        <div class="form_input">
+            <label class="">短信验证已发送到银行预留手机号码（<span id="bankCardPhone"></span>），请输入验证码</label>
+        </div><input id="returnURL" type="hidden" name="returnURL" value="">
+        <div class="form_input">
+            <label style="float: left;">验证码：</label>
+            <label>
+                <input type="text" id="bankCheckCode" name="bankCheckCode" class="inp inp_sms" maxlength="6">
+                <input id="timer" name="timer" type="button" value="60秒" class="inp inp_sms">
+            </label>
+            <label>
+                <span id="check_code_msg" style="color:red;position: relative;top: 5px"></span>
+            </label>
+        </div>
+        <input type="submit" value="确定" class="submitBtn">
+    </form>
+</div>
+<script src="/public/js/common/layer.js"></script>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/s_recharge.js"></script>
+<% include ../../common/memberFooter.html %>

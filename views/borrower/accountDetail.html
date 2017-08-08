@@ -1,0 +1,42 @@
+<% include common/header.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <% include common/menu.html %>
+    <div class="main fr">
+        <div class="accountDetail-top">
+            <span>账户流水</span>
+            <ul>
+                <li class="active">全部</li>
+                <li>充值</li>
+                <li>提现</li>
+                <li>支付</li>
+                <li>退款</li>
+                <li>还款</li>
+                <li>融资</li>
+            </ul>
+        </div>
+        <div class="accountDetail-main">
+            <div class="accountDetail-tit">
+                <ul>
+                    <li class="ad1">流水号</li>
+                    <li class="ad2">业务类型</li>
+                    <li class="ad3">业务描述</li>
+                    <li class="ad4">所属账户</li>
+                    <li class="ad5">交易金额</li>
+                    <li class="ad6">创建时间</li>
+                </ul>
+            </div>
+            <div class="accountDetail-list">
+                <ul>
+                </ul>
+            </div>
+            <!-- 这里显示分页 -->
+            <div id="Pagination" class="pagination"></div>
+            <!-- 这里显示分页 -->
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<% include common/footer.html %>
+<script src="../../public/js/common/jquery.pagination.js"></script>
+<link href="../../public/css/common/s_pagination.min.css" rel="stylesheet" type="text/css">
+<script src="../../public/js/borrower/accountDetail.js"></script>

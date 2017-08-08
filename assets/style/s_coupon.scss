@@ -1,0 +1,347 @@
+@import "./common/s_config";
+.containt-box{
+    margin:30px auto 0 auto;
+    width:1200px;
+    @extend .clearfix;
+    .containt-right{
+        .coupon{
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 29px 39px 39px 39px;
+            min-height: 739px;
+            position: relative;
+            .couponTop {
+                width: 100%;
+                height: 45px;
+                border-bottom: 1px solid #dddddd;
+                position: relative;
+                ul{
+                    height: 46px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: 10;
+                    @extend .clearfix;
+                    li{
+                        float: left;
+                        margin-right: 35px;
+                        height: 43px;
+                        line-height: 43px;
+                        font-size: 16px;
+                        color: #999;
+                        cursor: pointer;
+                        &:hover{
+                            color: #f76867;
+                        }
+                    }
+                    li.on{
+                        border-bottom: 3px solid #f76867;
+                        color: #f76867;
+                    }
+                }
+                .search {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    z-index: 10;
+                    input[type="text"] {
+                        width: 166px;
+                        height: 26px;
+                        border: 1px solid #eee;
+                        background: #f4f4f4;
+                        padding: 0 10px;
+                        outline: none;
+                        float: left;
+                        -webkit-border-radius: 2px;
+                        -moz-border-radius: 2px;
+                        border-radius: 2px;
+                        color: #666;
+                    }
+                    .exchange-btn {
+                        display: inline-block;
+                        width: 90px;
+                        height: 28px;
+                        line-height: 28px;
+                        color: #fff;
+                        background: #f76867;
+                        font-size: 14px;
+                        text-align: center;
+                        float: left;
+                        margin-left: 14px;
+                        -webkit-border-radius: 3px;
+                        -moz-border-radius: 3px;
+                        border-radius: 3px;
+                        outline: none;
+                        cursor: default;
+                    }
+                    .disabled {
+                        background: #ddd !important;
+                    }
+                }
+            }
+            .couponMain {
+                position: relative;
+                width: 100%;
+                min-height: 673px;
+                .canUse {
+                    width: 100%;
+                    padding-top: 20px;
+                    padding-bottom: 57px;
+                    ul {
+                        border-radius: 8px;
+                        width: 930px;
+                        margin-left: -10px;
+                        overflow: hidden;
+                        @extend .clearfix;
+                        li{
+                            border-radius: 8px;
+                            width: 290px;
+                            float: left;
+                            margin: 0 10px 20px 10px;
+                            overflow: hidden;
+                            .useTop{
+                                width: 266px;
+                                height: 78px;
+                                padding: 12px;
+                                color: #fff;
+                                position: relative;
+                            }
+                            span.useName {
+                                height: 20px;
+                                display: block;
+                                line-height: 20px;
+                                font-size: 14px;
+                                i{
+                                    display: block;
+                                    width: 20px;
+                                    height: 20px;
+                                    float: left;
+                                    margin-right: 8px;
+                                    background: url(https://r.mzmoney.com/mz/img/hpimg/member/coupon/coupon-icon.png);
+                                }
+                            }
+                            span.usePrice {
+                                display: block;
+                                padding-top: 30px;
+                                font-size: 18px;
+                                font {
+                                    font-size: 38px;
+                                }
+                            }
+                            .useState {
+                                position: absolute;
+                                right: 12px;
+                                top: 12px;
+                                text-align: right;
+                                line-height: 22px;
+                                color: #fff;
+                                font-size:12px;
+                                p{
+                                    color: #fff;
+                                }
+                            }
+                            .useBot {
+                                border: 1px solid #eee;
+                                padding: 5px 12px;
+                                -webkit-border-radius: 0 0 8px 8px;
+                                -moz-border-radius: 0 0 8px 8px;
+                                border-radius: 0 0 8px 8px;
+                                height: 40px;
+                                position: relative;
+                                color: #666;
+                                p{
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        li.zhekou,li.dijia,li.xianjin,li.tixian  {
+                            .useTop{
+                                background: url(https://r.mzmoney.com/mz/img/hpimg/member/coupon/dikou.png);
+                                -webkit-background-size: 100% 100%;
+                                background-size: 100% 100%;
+                                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://r.mzmoney.com/mz/img/hpimg/member/coupon/dikou.png', sizingMethod='scale');
+                            }
+                            span.useName{
+                                i{
+                                    background-position: 0 -40px;
+                                }
+                            }
+                        }
+                        li.zhekou.used,li.dijia.used, li.xianjin.used,li.tixian.used{
+                            .useTop {
+                                background: url("https://r.mzmoney.com/mz/img/hpimg/member/coupon/dikou-used.png");
+                                -webkit-background-size: 100% 100%;
+                                background-size: 100% 100%;
+                                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://r.mzmoney.com/mz/img/hpimg/member/coupon/dikou-used.png', sizingMethod='scale');
+                            }
+                            span.useName{
+                                i{
+                                    background-position: -20px -40px;
+                                }
+                            }
+                        }
+                        li.jinbao{
+                            .useTop{
+                                background: url("https://r.mzmoney.com/mz/img/hpimg/member/coupon/jinbao.png");
+                                -webkit-background-size:100% 100%;
+                                background-size:100% 100%;
+                                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://r.mzmoney.com/mz/img/hpimg/member/coupon/jinbao.png', sizingMethod='scale');
+                            }
+                            span.useName{
+                                i{
+                                    background-position: 0px 0px;
+                                }
+
+                            }
+                        }
+                        li.jinbao.used {
+                            .useTop {
+                                background: url("https://r.mzmoney.com/mz/img/hpimg/member/coupon/jinbao-used.png");
+                                -webkit-background-size: 100% 100%;
+                                background-size: 100% 100%;
+                                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://r.mzmoney.com/mz/img/hpimg/member/coupon/jinbao-used.png', sizingMethod='scale');
+                            }
+                            span.useName{
+                                i{
+                                    background-position: -20px 0;
+                                }
+                            }
+                        }
+                        li.jiaxi {
+                            .useTop {
+                                background: url("https://r.mzmoney.com/mz/img/hpimg/member/coupon/jiaxi.png");
+                                -webkit-background-size: 100% 100%;
+                                background-size: 100% 100%;
+                                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://r.mzmoney.com/mz/img/hpimg/member/coupon/jiaxi.png', sizingMethod='scale');
+                            }
+                            span.useName{
+                                i{
+                                    background-position: 0 -20px;
+                                }
+                            }
+                        }
+                        li.jiaxi.used{
+                            .useTop {
+                                background: url("https://r.mzmoney.com/mz/img/hpimg/member/coupon/jiaxi-used.png");
+                                -webkit-background-size: 100% 100%;
+                                background-size: 100% 100%;
+                                filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://r.mzmoney.com/mz/img/hpimg/member/coupon/jiaxi-used.png', sizingMethod='scale');
+                            }
+                            span.useName{
+                                i{
+                                    background-position: -20px -20px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .getRecord {
+                    width: 100%;
+                    padding-top: 20px;
+                    padding-bottom: 60px;
+                    table{
+                        border-top: 1px solid #ddd;
+                        border-bottom: 1px solid #ddd;
+                        border-left: 1px solid #ddd;
+                        width: 100%;
+                        text-align: center;
+                        font-size: 12px;
+                        color: #666666;
+                        thead{
+                            tr{
+                                border: 1px solid #ddd;
+                                height: 35px;
+                                background: #eeeeee;
+                            }
+                        }
+                        tbody{
+                            tr{
+                                border-top: 1px solid #ddd;
+                                td{
+                                    line-height: 40px;
+                                    border-right: 1px solid #ddd;
+                                }
+                                .color_base{
+                                    color: #f04f4b !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+.nothing{
+    width:100% !important;
+    text-align: center !important;
+    line-height: 40px;
+}
+.pagination{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 50px;
+}
+.color_base{
+    color: #f04f4b !important;
+}
+.mask{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1001;
+    .maskBg {
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.3);
+    }
+    .maskBox {
+        width: 274px;
+        background: #fff;
+        border: 1px solid #ddd;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 105;
+        margin-left: -138px;
+        margin-top: -72px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        strong {
+            display: block;
+            font-size: 18px;
+            color: #333;
+            font-weight: 400;
+            padding: 18px 0;
+        }
+        p{
+            padding: 0 18px 18px 18px;
+            text-align: justify;
+        }
+        span{
+            display: block;
+            font-size: 16px;
+            color: #f76867;
+            width: 90%;
+            margin: 0 auto;
+            border-top: 1px solid #f4f4f4;
+            height: 46px;
+            line-height: 46px;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,158 @@
+<% include common/nav.html%>
+<link rel="stylesheet" href="/public/js/common/skin/layer.css">
+<link rel="stylesheet" href="/public/css/s_detail.min.css">
+<div class="product-box">
+    <div class="details">
+        <p class="fs20 clr3">
+            <span class="product-name"><%= productDetails.productName %></span>
+            <% if(productDetails.activitys){ %>
+                <a href="<%= productDetails.activitys.activityUrl %>" class="activity"><%= productDetails.activityTitle.activityTitle %></a>
+            <% } %>
+
+        </p>
+        <div class="rate">
+            <ul>
+                <li class="first">
+                    <p class="active">
+                        <font class="rate_base fs36"><%= productDetails.minYearIncome %>%</font>
+                        <% if(productDetails.incomePlus){ %>
+                            +<font class="rate_add fs26"><%= productDetails.incomePlus %>%</font>
+                        <% } %>
+
+                    </p>
+                    <span>预期年化收益率</span>
+                </li>
+                <li class="bordouble">
+                    <p><%= productDetails.partInvestAmount %>元</p>
+                    <span>起投金额</span>
+                </li>
+                <li>
+                    <p><%= productDetails.interestLimitDes %><%= productDetails.interestLimitType %></p>
+                    <span>投资期限</span>
+                </li>
+            </ul>
+        </div>
+        <div class="info">
+            <ul>
+                <li><img src="https://r.mzmoney.com/mz/img/hpimg/productDetail/icon_min.png" alt="" /><span>收益起始日： <%= productDetails.valueDateName %></span></li>
+                <li><img src="https://r.mzmoney.com/mz/img/hpimg/productDetail/icon_return.png" alt="" /><span>收益方式： <%= productDetails.incomeWayName%></span></li>
+                <% if(productDetails.comment){ %>
+                    <li><img src="https://r.mzmoney.com/mz/img/hpimg/productDetail/icon_ps.png" alt="" /><span>补充说明： <%= productDetails.comment %></span></li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="calculator">
+            <div class="left">收益预估</div>
+            <div class="middle">
+                <input type="text" placeholder="请输入您的投资本金" id="calculator" maxlength="10" />
+            </div>
+            <div class="right">
+                您的预期收益: <span class="active"><i>0</i>元</span>
+            </div>
+        </div>
+        <% if(productDetails.tip == 1){ %>
+            <span class="icon fs14 news">新手专享</span>
+        <% } else if(productDetails.tip == 2){ %>
+            <span class="icon fs14 taste">体验金</span>
+        <% }else if(productDetails.tip == 3){ %>
+            <span class="icon fs14 news">本月畅销</span>
+        <% }else if(productDetails.tip == 4){ %>
+            <span class="icon fs14 news">会员专享</span>
+        <% } %>
+    </div>
+    <!-- 产品详情 end-->
+
+    <!-- 募集进度 -->
+    <div class="process fr" id="detail_invest">
+        <% if(productDetails.sell==1){ %>
+            <h5>募集完成</h5>
+            <div class="drcenter">
+                项目金额：
+                <p class="dqsy">￥<%= productDetails.investTotalAmount %></p>
+            </div>
+        <% }else{ %>
+            <h5>募集进度</h5>
+            <div class="process-box">
+                <p class="process-line fl" style="width: <%= productDetails.progress %>%;">
+                    <em></em>
+                </p>
+                <span class="fs14 process-percent"><%= productDetails.progress %>%</span>
+            </div>
+            <div class="down">
+                <ul>
+                    <li><span>剩余可投:</span><p><i class="clry"><%= productDetails.surplusInvestAmount %></i> 元</p></li>
+                    <li><span>融资金额:</span><p><%= productDetails.investTotalAmount %> 元</p></li>
+                    <li><span>募集周期:</span><p><%= productDetails.saleLimitName %></p></li>
+                </ul>
+            </div>
+        <% } %>
+        <div class="btn-box">
+            <div class="btn-box">
+                <% if(productDetails.sell == -1){ %>
+                    <a class="invest-btn comeSoon" href="javascript:void(0);" data-countTime="<%= productDetails.countDown %>">距离开始00:00:00</a>
+                <% }else if(productDetails.sell == 0){ %>
+                    <a class="invest-btn ing" href="javascript:void(0);" data-id="<%= payment_id %>">立即投资</a>
+                <% }else if(productDetails.sell == 1){ %>
+                    <a class="invest-btn" href="javascript:void(0);">募集完成</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <!-- 募集进度 end-->
+
+    <!-- 项目详情、投资记录、风险提示 -->
+    <div class="model-details wth mrCenter">
+        <div class="model-tab">
+            <ul>
+                <li class="active">项目详情</li>
+                <li>投资记录</li>
+                <li>风险提示</li>
+            </ul>
+        </div>
+        <div class="model-box">
+            详情
+        </div>
+    </div>
+</div>
+<% include common/footer.html%>
+<!--登录-->
+<div class="mask" id="loginBox">
+    <div class="mask-box">
+        <form id="pop-login-form" action="" method="post" autocomplete="off" >
+            <div class="login-form">
+                <ul>
+                    <li>
+                        <label class="title">账号</label>
+                        <input type="text" name="username" id="username" class="inp username"  placeholder="用户名/手机">
+                    </li>
+                    <li>
+                        <label class="title">密码</label>
+                        <input type="password" name="password" id="password" class="inp password" placeholder="请输入密码">
+                    </li>
+                    <li class="code hidden" id="code" >
+                        <label class="title">验证码</label>
+                        <input type="text" name="graphCode" id="graphCode" class="inp graphCode" placeholder="请输入验证码">
+                        <img id="validCode" src="/getImg" onclick="this.src='/getImg?t='+Math.random()" width="100" height="38" class="fl img-code">
+                    </li>
+                    <li class="mayShowErr">
+                        <label class="title"></label>
+                        <input type="submit" name="submit" id="submit" value="立即登录" class="btn btn-default btn-login">
+                    </li>
+                    <li>
+                        <label class="title"></label>
+                        <div style="width:300px;" class="fl">
+                            <a href="/findLoginPassword" target="_top" class="color_blue">忘记密码?</a>
+                            <span class="fr">没有账号？<a href="/register" target="_top" class="color_blue ft16">免费注册</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+<!--登录-->
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="../../public/js/common/common.utils.js"></script>
+<script src="/public/js/common/layer.js"></script>
+<script src="../../public/js/s_detail.js"></script>
+

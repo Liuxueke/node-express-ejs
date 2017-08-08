@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="/public/css/s_prepaid.min.css">
+<% include ../common/nav.html %>
+<div class="containt-box">
+    <% include ../common/memberLeftNav.html %>
+    <div class="user-right">
+        <div class="user-wrapper mt0">
+            <div class="bread_crumbs">
+                <div class="title title_hp2">
+                    <span class="borderNone">充值提现记录</span>
+                </div>
+            </div>
+            <% if(!error){ %>
+            <div class="p20">
+                <div class="recharge_record f14 pt10 pb10">
+                    <% if(!walletAccount['error_code']){ %>
+                    <div class="left">
+                        <p class="mt10">累计成功充值：<span class="color_base fb"><%= walletAccount.rechargeAmount %>元</span>
+                        </p><p class="mt10"> 累计成功提现：<span class="color_base fb"><%= walletAccount.cashAmount %>元</span>
+                    </p></div>
+                    <div class="right">
+                        <div class="fl">
+                            <p class="cGray1 mt10">
+                                账户可用余额
+                            </p>
+                            <p class="fb">
+                                <%= walletAccount.balance %>元
+                            </p>
+                        </div>
+                        <div class="controls fr">
+                            <a href="/member/account/recharge" class="btn_cz">充值</a>
+                            <a href="/member/account/withdrawal" class="btn_tx">提现</a>
+                        </div>
+                    </div>
+                    <% }else{ %>
+                    <div class="networkErrorBox mtb20">
+                        <p>网络开小差啦，请刷新页面试试吧~</p>
+                        <a href="/member/prepaid">刷新页面</a>
+                    </div>
+                    <% } %>
+                </div>
+                <% if(!rechargeList['error_code']){ %>
+                <div class="p20">
+                    <div id="list_tabs" class="invest_list_tabs mt30">
+                        <ul id="listTabBox">
+                            <li class="cur">
+                                <a href="javascript:void(0)" value="1">充值记录<span class="color_base"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" value="2">提现记录 <span class="color_base"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="data_list">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>充值时间</th>
+                                    <th>充值金额(元）</th>
+                                    <th>流水号</th>
+                                    <th>状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if(!rechargeList.list){ %>
+                                    <tr>
+                                        <td align="center" colspan="6">暂无充值提现记录</td>
+                                    </tr>
+                                <% }else{ %>
+                                    <% rechargeList.list.forEach(function (item,index){ %>
+                                        <tr>
+                                            <td><%= item.createTime %></td>
+                                            <td><%= item.moneyOrder %></td>
+                                            <td><%= item.noOrder %></td>
+                                            <td><%= item.statusOrderName %></td>
+                                        </tr>
+                                    <% }) %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <% include ../common/pagination.html %>
+                    <input type="hidden" value="1" id="totalPage">
+                </div>
+                <div class="questionBox">
+                    <div class="f14">
+                        <span>使用遇到问题？</span>
+                    </div>
+                    <p class="pl20 fb f14 lh30">
+                        · 银行已扣钱，为什么妙资账户没收到？
+                    </p>
+                    <p class="pl20 f14 lh25">
+                        答： 请您别担心，会有以下几种情况：<br>
+                        1、可能由于网络繁忙原因延迟到账，请不用担心，系统会重新核实，一般不超过三分钟恢复到账，若长时间未到账，还请您咨询妙资客服。<br>
+                        2、如果是网银扣款，请您查询银行扣款明细，扣款商户如果显示不是连连银通电子支付有限公司，请您联系银行客服咨询款项的去向。<br>
+                        温馨提示：工作日包括周一至周五，不包括双休日、国家的法定节假日。<br>
+                    </p>
+                </div>
+                <% }else{ %>
+                <div class="networkErrorBox">
+                    <p>网络开小差啦，请刷新页面试试吧~</p>
+                    <a href="/member/prepaid">刷新页面</a>
+                </div>
+                <% } %>
+            </div>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member/prepaid">刷新页面</a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<% if(!error && !rechargeList['error_code']){ %>
+<script src="/public/js/s_prepaid.js"></script>
+<% } %>
+<% include ../common/memberFooter.html %>

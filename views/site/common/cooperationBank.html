@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="/public/css/common/s_cooperationBank.min.css">
+<div class="bank-title">
+    <h3>合作银行</h3>
+</div>
+<ul id="ebank_ul" class="cooperation-bank clearfix">
+    <% cooperativeBank.forEach(function (item,index){ %>
+        <li id="<%= item.bankId %>">
+            <img src="<%= item.netBankLogo %>" alt="<%= item.name %>" title="<%= item.name %>">
+        </li>
+    <% }) %>
+</ul>

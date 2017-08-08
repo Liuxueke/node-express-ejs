@@ -1,0 +1,32 @@
+<div class="menu fl">
+    <div class="menuTop">
+        <div class="avatar fl"><img src="/public/images/avatar.png"></div>
+        <div class="uInfor fr">
+            <span><%= baseInfo.name %></span>
+            <% if(baseInfo.style == 0){  %>
+                <p>类型：个人</p>
+            <% }else{  %>
+                <p>类型：企业</p>
+            <% } %>
+
+        </div>
+    </div>
+    <div class="menuList">
+        <% config['menu'].forEach(function(item, index){ %>
+            <dl>
+                <dt <% if(index == menuActive[0]) { %> class="active"<% } %>>
+                    <a href="<%= item.firstMenu.src %>"><i class="account_center<%= index %>"></i><%= item.firstMenu.firstMenuName %></a>
+                </dt>
+                <% item.secondMenu.forEach(function(itm, idx){ %>
+                    <dd <% if( index == menuActive[0] && idx == menuActive[1]) { %> class="active" <% } %>>
+                        <a href="<%= itm.src %>"><%= itm.secondMenuName %></a>
+                    </dd>
+                <% }) %>
+            </dl>
+        <% }) %>
+        <dl>
+            <dt><a href="javascript: void(0);" class="loginOut"><i class="account_center2"></i>退出登录</a></dt>
+        </dl>
+    </div>
+</div>
+<script src="../../public/js/borrower/loginOut.js"></script>

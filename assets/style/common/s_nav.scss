@@ -1,0 +1,243 @@
+@import "s_config";
+.topBar-box{
+    width: 100%;
+    min-width: 1200px;
+    height: 35px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    z-index: 1000;
+    .topBar-innerBox{
+        margin:0 auto;
+        width:1200px !important;
+        @extend .clearfix;
+        .login-box{
+            float: left;
+            text-align: left;
+            line-height: 35px;
+            color: #999;
+            .userName{
+                color: #f76867;
+            }
+            .information{
+                padding-right: 10px;
+                padding-left: 20px;
+                margin-left: 8px;
+                border-right: 1px solid #ddd;
+                color: #999;
+                background: url(https://r.mzmoney.com/mz/img/hpimg/infomation.png) no-repeat left center;
+            }
+            .hasInfomation{
+                background: url(https://r.mzmoney.com/mz/img/hpimg/hasInfomation.png) no-repeat left center !important;
+            }
+            .login{
+                padding-left: 10px;
+                color: #f76867;
+            }
+            .loginOut{
+                padding-left: 10px;
+                color: #f76867;
+            }
+        }
+        ul{
+            float: right;
+            line-height: 35px;
+            @extend .clearfix;
+            li{
+                float: left;
+                width: 94px;
+                text-align: center;
+                a{
+                    color: #999 !important;
+                    &:hover{
+                        color: #f76867 !important;
+                    }
+                }
+            }
+            li.weixin,li.weibo{
+                width: 50px;
+                a{
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    background-size: 20px;
+                    background-position: 0px 0px;
+                    vertical-align: middle;
+                }
+            }
+            li.weibo{
+                position: relative;
+                a{
+                    background: url("https://r.mzmoney.com/mz/img/hpimg/weibo.png") no-repeat;
+                }
+                .weibo-link-box{
+                    display: none;
+                    position: absolute;
+                    top:35px;
+                    left:50%;
+                    margin-left: -66px;
+                    width:132px;
+                    height:37px;
+                    z-index:1001;
+                    a{
+                        display: inline-block;
+                        border-radius: 4px;
+                        border:1px solid #dddddd;
+                        width:130px !important;
+                        height:35px !important;
+                        text-align: center;
+                        line-height: 35px !important;
+                        color: #999;
+                        vertical-align: top;
+                        background: none #fff !important;
+                    }
+                }
+            }
+            li.weixin{
+                a{
+                    background: url("https://r.mzmoney.com/mz/img/hpimg/weixin.png") no-repeat;
+                }
+            }
+        }
+    }
+
+}
+.two-dimension-code-box{
+    display: none;
+    position: absolute;
+    top:28px;
+    left:50%;
+    height:130px;
+    z-index:1001;
+    .two-dimension-code{
+        border: 1px solid #ddd;
+        padding: 5px;
+        position: absolute;
+        right: 0;
+        top: 7px;
+        border-radius: 4px;
+        box-shadow: 0 5px 10px rgba(0,0,0,.2);
+        background-color: #fff;
+        span{
+            display: inline-block;
+            border-radius: 4px;
+            border:1px solid #ddd;
+            width:130px;
+            height:130px;
+            vertical-align: top;
+            img{
+                width:100%;
+                height:100%;
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+.nav-box{
+    border-bottom:1px solid #ddd;
+    width: 100%;
+    height:80px;
+    background-color: #fff;
+    min-width:1200px;
+    .nav-innerBox{
+        margin:0 auto;
+        width:1200px;
+        @extend .clearfix;
+        a{
+            display: inline-block;
+            color: #999;
+            span{
+                display: inline-block;
+                width: 320px;
+                height: 80px;
+                background: url("https://r.mzmoney.com/mz/img/hpimg/logo3.png") no-repeat center center !important;
+                cursor: pointer;
+            }
+        }
+        .nav{
+            float: right;
+            height: 80px;
+            position: relative;
+            ul{
+                font-size:16px;
+                @extend .clearfix;
+                li{
+                    float: left;
+                    margin:0;
+                    padding-left:20px;
+                    width: 90px;
+                    height:80px;
+                    text-align: center;
+                    line-height: 80px;
+                    a{
+                        margin: 0 auto;
+                        text-align: center;
+                        display: block;
+                        color: #666;
+                        &:hover{
+                            color: #f76867;
+                        }
+                    }
+                }
+                li.navActive{
+                    a{
+                        color: #f76867 !important;
+                    }
+                }
+            }
+        }
+        .border-btm{
+            position: absolute;
+            bottom:0;
+            border-radius: 1px;
+            width: 90px;
+            height:3px;
+            background-color: #f76867;
+        }
+    }
+}
+
+
+/*鎮诞qq*/
+.connect-fixed {
+    position: fixed;
+    right: 20px;
+    bottom: 220px;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop) + 250);
+    z-index: 9999;
+}
+.fixed-server, .fixed-weixin, .goto-top {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+.fixed-server-content {
+    width: 105px;
+    height: 120px;
+    background: #ea544a;
+    position: absolute;
+    right: 45px;
+    top: 0;
+    padding: 3px 3px 5px 3px;
+    text-align: center;
+}
+.f14 {
+    font-size: 14px !important;
+}
+.cWhite {
+    color: #FFF!important;
+}
+.fixed-weixin-content {
+    width: 110px;
+    height: 40px;
+    color: #fff;
+    background: #ea544a;
+    position: absolute;
+    right: 45px;
+    top: 0;
+    line-height: 20px;
+    padding-left: 10px;
+    font-size:12px;
+}
+

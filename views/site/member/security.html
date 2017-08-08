@@ -1,0 +1,211 @@
+<link rel="stylesheet" href="/public/css/s_security.min.css">
+<% include ../common/nav.html %>
+<div class="containt-box">
+    <% include ../common/memberLeftNav.html %>
+    <div class="containt-right">
+        <div class="content-box">
+            <% if(!error){ %>
+            <h3 class="safe-grade">
+                安全等级：
+                <span>
+                    <% if(userBaseInfo.verify && userBaseInfo.bindPayPassword){ %>
+                        高
+                    <% }else if(userBaseInfo.verify || userBaseInfo.bindPayPassword){ %>
+                        中
+                    <% }else if(!userBaseInfo.verify && !userBaseInfo.bindPayPassword){ %>
+                        低
+                    <% } %>
+
+                </span>
+            </h3>
+            <div class="attestation-box">
+                <ul>
+                    <!--实名认证-->
+                    <li>
+                        <% if(userBaseInfo.verify == 1){ %>
+                            <div class="top attestated">
+                                <span class="attestation-status">已开通</span>
+                                <span class="attestation-kind">存管账户</span>
+                                <span class="attestation-explain">银行存管账号(<%= userBaseInfo.customerId %>)</span>
+                                <span class="info"><%= userBaseInfo.realname.substr(0,1) %>**（**************<%= userBaseInfo.identitycard.substr(14,4) %>）</span>
+                            </div>
+                        <% }else{ %>
+                            <div class="top attestate">
+                                <span class="attestation-status">未开通</span>
+                                <span class="attestation-kind">存管账户</span>
+                                <span class="attestation-explain">保障账户安全，开通银行存管账户</span>
+                                <a href="/member/account/bankCard" class="true-name">开通</a>
+                            </div>
+                        <% } %>
+                        <input type="hidden" id="verify" value="<%= userBaseInfo.verify %>">
+                    </li>
+                    <!--认证手机号-->
+                    <li>
+                        <div class="top attestated">
+                            <span class="attestation-status">已认证</span>
+                            <span class="attestation-kind">手机号码</span>
+                            <span class="attestation-explain">保障资金安全，用户登录账号，获取账户资金变动通知</span>
+                            <span class="info"><%= userBaseInfo.mobile.substr(0,3) %>****<%= userBaseInfo.mobile.substr(7,4) %></span>
+                            <a href="javascript:;" class="edit-btn">修改</a>
+                        </div>
+                        <div class="edit-box">
+                            <form id="tel-attestation">
+                                <p class="old-tel">原预留手机：<span><%= userBaseInfo.mobile.substr(0,3) %>****<%= userBaseInfo.mobile.substr(7,4) %></span></p>
+                                <input type="hidden" name="phone" id="phone" value="<%= userBaseInfo.mobile %>">
+                                <div class="input-box" id="telCodeBox">
+                                    <input type="text" name="pictureCaptcha" id="pictureCaptcha" class="img-code wth160" placeholder="图片验证码">
+                                    <span class="img-code-box">
+                                        <img id="captchaImg" class="imgCode" src="/getImg" onclick="this.src='/getImg?t='+Math.random()">
+                                    </span>
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" name="messageCode" maxlength="6" id="messageCode" class="message-code wth160" placeholder="短信验证码">
+                                    <a href="javascript:;" class="get-message-code" id="telGetCode">获取验证码</a>
+                                </div>
+                                <% if(userBaseInfo.verify == 1){ %>
+                                    <div class="input-box">
+                                        <input type="text" name="idCard" id="idCard" maxlength="8" class="message-code wth279" placeholder="请输入身份证后8位">
+                                    </div>
+                                <% } %>
+                                <input type="submit" class="submit-btn" value="下一步">
+                                <a href="javascript:;" class="cancel-btn">取消</a>
+                            </form>
+                            <form id="new-tel">
+                                <div class="input-box">
+                                    <input type="text" name="newPhone" maxlength="11" id="newPhone" class="new-tel-number wth279" placeholder="输入新手机号">
+                                </div>
+                                <div class="input-box" id="changeTelNewImgCodeBox">
+                                    <input type="text" maxlength="4" name="pictureCode" id="pictureCode" class="img-code wth160" placeholder="图片验证码">
+                                    <span class="img-code-box">
+                                        <img id="changeTelImgCode" class="imgCode" src="" onclick="this.src='/getImg?t='+Math.random()">
+                                    </span>
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" name="smsCheckCode" id="smsCheckCode" maxlength="6" class="message-code wth160" placeholder="短信验证码">
+                                    <a href="javascript:;" class="get-message-code" id="newTelGetCode">获取验证码</a>
+                                </div>
+                                <input type="submit" class="submit-btn" value="确定提交">
+                            </form>
+                        </div>
+                    </li>
+                    <!--修改登录密码-->
+                    <li>
+                        <div class="top attestated">
+                            <span class="attestation-status">已设置</span>
+                            <span class="attestation-kind">登录密码</span>
+                            <span class="attestation-explain">登录账户需要输入的密码</span>
+                            <a href="javascript:;" class="edit-btn">修改</a>
+                        </div>
+                        <div class="edit-box">
+                            <form action="" id="login-password">
+                                <div class="input-box">
+                                    <input type="password" id="password" name="password" class="old-password wth300" placeholder="原登录密码">
+                                </div>
+                                <div class="input-box">
+                                    <input type="password" id="newPassword" name="newPassword" class="new-password wth300" placeholder="新登录密码">
+                                </div>
+                                <div class="input-box">
+                                    <input type="password" name="confimPwd" id="confimPwd" class="confirm-password wth300" placeholder="确认新密码">
+                                </div>
+                                <input type="submit" class="submit-btn" value="确定提交">
+                                <a href="javascript:;" class="cancel-btn">取消</a>
+                            </form>
+                            <p class="remind-text">如有疑问，请点击联系在线客服，或致电客服热线：400-757-8888</p>
+                        </div>
+                    </li>
+                    <!--修改交易密码-->
+                    <li>
+                        <% if(userBaseInfo.bindPayPassword == 0){ %>
+                            <div class="top attestate">
+                                <span class="attestation-status">未设置</span>
+                                <span class="attestation-kind">交易密码</span>
+                                <span class="attestation-explain">保障资金安全，充值、取现、投资等资金相关操作时使用</span>
+                                <a href="javascript:;" class="edit-btn setPayPwd" id="setPayPassword">设置</a>
+                            </div>
+                            <div class="edit-box">
+                                <form id="setPayPasswordStep1">
+                                    <p class="progress step1">
+                                        <span class="identity select-step">短信验证</span>
+                                        <span class="set-question">设置交易密码</span>
+                                        <i></i>
+                                    </p>
+                                    <p class="old-tel">原预留手机：<span><%= userBaseInfo.mobile.substr(0,3) %>****<%= userBaseInfo.mobile.substr(7,4) %></span></p>
+                                    <div class="input-box">
+                                        <input type="text" name="msgCode" id="msgCode" maxlength="6" class="message-code wth160" placeholder="短信验证码">
+                                        <a href="javascript:;" class="get-message-code" id="payGetCodeBtn">获取验证码</a>
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="text" name="identity" id="identity" maxlength="8" class="new-tel-number wth279" placeholder="身份证末8位">
+                                    </div>
+                                    <input type="submit" class="submit-btn" value="确定">
+                                </form>
+                                <form id="setPayPasswordStep2">
+                                    <p class="progress step2">
+                                        <span class="identity select-step">短信验证</span>
+                                        <span class="set-question">设置交易密码</span>
+                                        <i></i>
+                                    </p>
+                                    <div class="input-box">
+                                        <input type="password" name="payPassword" id="payPassword" class="new-tel-number wth279" placeholder="设置交易密码">
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="password" name="cofirmPayPassword" id="cofirmPayPassword" class="new-tel-number wth279" placeholder="确认交易密码">
+                                    </div>
+                                    <input type="submit" class="submit-btn" value="确定">
+                                    <a href="javascript:;" class="cancel-btn">取消</a>
+                                </form>
+                            </div>
+                        <% }else{ %>
+                            <div class="top attestated">
+                                <span class="attestation-status">已设置</span>
+                                <span class="attestation-kind">交易密码</span>
+                                <span class="attestation-explain">保障资金安全，充值、取现、投资等资金相关操作时使用</span>
+                                <% if(userBaseInfo.verify == 1){ %>
+                                    <a href="/findPayPassword" class="forget-password" target="_blank">找回</a>
+                                <% } %>
+                                <a href="javascript:;" class="edit-btn <% if(userBaseInfo.verify==0){ %>setPayPwd changePwd<% } %>">修改</a>
+                            </div>
+                            <div class="edit-box">
+                                <form action="" id="trade-password-m">
+                                    <div class="input-box">
+                                        <input type="password" name="paypwd" id="paypwd" class="old-trade-password wth300" placeholder="原交易密码">
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="password" name="newpaypwd" id="newpaypwd" class="new-trade-password wth300" placeholder="新交易密码">
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="password" name="confimPaypwd" id="confimPaypwd" class="confirm-trade-password wth300" placeholder="确认新密码">
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="text" name="payPwdIdentity" id="payPwdIdentity" class="wth300" maxlength="8" placeholder="身份证后8位">
+                                    </div>
+                                    <input type="submit" class="submit-btn" value="确定提交"> <a href="javascript:;" class="cancel-btn">取消</a>
+                                </form>
+                                <p class="remind-text">如有疑问，请点击联系在线客服，或致电客服热线：400-757-8888</p>
+                            </div>
+                        <% } %>
+                    </li>
+                </ul>
+            </div>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member/security">刷新页面</a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<div class="modal-box" id="correctSuccess">
+    <div class="modal">修改完成</div>
+</div>
+<div class="modal-box" id="verifyWarmTip">
+    <div class="modal">设置交易密码前请先开通银行存管账户。</div>
+</div>
+<div class="modal-box" id="changePayPwdWarmTip">
+    <div class="modal">修改交易密码前请先开通银行存管账户。</div>
+</div>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/s_security.js"></script>
+<% include ../common/memberFooter.html %>

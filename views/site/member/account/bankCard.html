@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="/public/css/s_bankCard.min.css">
+<link rel="stylesheet" href="https://r.mzmoney.com/public/css/jquery-ui.min.css">
+<script src="/public/js/common/jquery.citySelect.js"></script>
+<% include ../../common/nav.html %>
+<div class="containt-box">
+    <% include ../../common/memberLeftNav.html %>
+    <div class="containt-right">
+        <% if(!error){ %>
+        <div class="bank-title">
+            <h3>已绑定银行卡(<% if(bankList.list){ %><%= bankList.list.length %><% }else{ %>0<% } %>)</h3>
+        </div>
+        <ul class="bind-card clearfix">
+            <% if(bankList.list){ %>
+                <% bankList.list.forEach(function (item,index){ %>
+                    <li data-id="<%= item.bankCardId %>">
+                        <div class="bank-info">
+                            <% var length = item['bankCardNo'].toString().length-4 %>
+                            <p class="bank"><img src="<%= item.bankLogo %>" alt=""><span><%= item.bankName %>(尾号<%= item.bankCardNo.substr(item.bankCardNo.length-4,4) %>)</span></p>
+                            <p class="name">开户姓名：<%= userBaseInfo.realname.substr(0,1) %>**</p>
+                            <p class="tel">银行预留手机： <%= item.phone.toString().substr(0,3) %>****<%= item.phone.toString().substr(7,4) %></p>
+                        </div>
+                        <div class="btn-box"></div>
+                    </li>
+                <% }) %>
+            <% } %>
+            <li>
+                <div class="add-card">
+                    <a href="javascript:;" class="add-card-btn">添加银行卡</a>
+                </div>
+            </li>
+        </ul>
+        <p class="remind-text">添加银行卡号的开户人姓名必须与您实名认证信息相一致</p>
+        <% }else{ %>
+        <div class="networkErrorBox">
+            <p>网络开小差啦，请刷新页面试试吧~</p>
+            <a href="/member/account/bankCard">刷新页面</a>
+        </div>
+        <% } %>
+        <% include ../../common/cooperationBank.html %>
+    </div>
+    <% if(!error){ %>
+    <!--添加银行卡弹框-->
+    <div class="modal-box add-card" id="add-card">
+        <div class="modal">
+            <% if(userBaseInfo.verify){ %>
+            <h3>绑卡<a href="javascript:;" class="close"></a></h3>
+            <% }else{ %>
+            <h3>妙资金融-恒丰银行存管账户<a href="javascript:;" class="close"></a></h3>
+            <% } %>
+            <div class="content-box">
+                <form action="" id="account">
+                    <input type="hidden" id="isVerity" value="<%= userBaseInfo.verify %>">
+                    <input type="hidden" id="isSetPayPwd" value="<%= userBaseInfo.bindPayPassword %>">
+                    <div class="input-box">
+                        <input type="text" name="userName" id="userName" class="card-holder wth325" <% if(userBaseInfo.verify){ %>disabled value='<%= userBaseInfo.realname.substr(0,1) %>**'<% }else{ %>placeholder='开户人真实姓名'<% } %>>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="identity" id="identity" class="identity-number wth325" <% if(userBaseInfo.verify) { %>disabled value='**************<%= userBaseInfo.identitycard.substr(14,4) %>'<% }else{ %>placeholder="身份证号码"<% } %>>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="bankCard" id="bankCard" class="card-number wth325" placeholder="银行卡号">
+                    </div>
+                    <p class="belong-bank belongBankBox">
+                        <span>所属银行</span>
+                        <img id="belongBankLogo" class="bank-logo" src="" alt="">
+                    </p>
+                    <div class="input-box">
+                        <input type="text" name="telNumber" id="telNumber" maxlength="11" class="tel-number wth325" placeholder="银行预留号码">
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="messageCode" id="messageCode" maxlength="6" class="message-code wth200" placeholder="短信验证码">
+                        <a href="javascript:;" class="get-message-code messageCodeBtn">获取验证码</a>
+                    </div>
+                    <div class="form_input agreeBox">
+                        <input type="checkbox" id="agree" checked>
+                        <span id="agreement" class="agreed"></span>
+                        <span class="textBox">已同意协议<% if(!userBaseInfo.verify){ %><a href="/agree/openAccount" target="_blank">《开户协议》、</a><% } %><a href="/agree/pay" target="_blank">《支付服务协议》</a></span>
+                    </div>
+                    <input type="submit" class="submit-btn submitBtn" value="同意协议并签约">
+                </form>
+                <div class="waitBox">
+                    <i></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--设置交易密码弹框 未设置交易密码-->
+    <% if(!userBaseInfo.bindPayPassword){ %>
+    <div class="modal-box trade-password" id="setTradePassword">
+        <div class="modal">
+            <h3>设置交易密码<a href="javascript:;" class="close"></a></h3>
+            <div class="content-box">
+                <form action="" id="tradePasswordForm" novalidate="novalidate">
+                    <div class="input-box">
+                        <input type="password" class="wth325" name="tradePassword" id="tradePassword" placeholder="请输入交易密码">
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="wth325" name="confirmTradePassword" id="confirmTradePassword" placeholder="确认交易密码">
+                    </div>
+                    <input type="submit" class="submit-btn" value="确定提交">
+                </form>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <!--绑卡成功-->
+    <div class="modal-box bindCardSuccess" id="bindCardSuccess">
+        <div class="modal">
+            <i></i>
+            <span>
+                <% if(userBaseInfo.verify){ %>
+                    绑卡成功
+                <% }else{ %>
+                    开通存管账户成功！
+                <% } %>
+            </span>
+        </div>
+    </div>
+    <% } %>
+</div>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/s_bankCard.js"></script>
+<% include ../../common/memberFooter.html %>

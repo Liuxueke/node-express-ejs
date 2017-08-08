@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/public/css/s_openAccount.min.css">
+<% include ../../common/nav.html %>
+<div class="containt-box">
+    <% include ../../common/memberLeftNav.html %>
+    <div class="containtRight">
+        <div class="bank-title">
+            <h3>开通存管账户</h3>
+        </div>
+        <div class="containt">
+            <% if(userBaseInfo){ %>
+            <% if(userBaseInfo.verify){ %>
+                <h3>请先绑定银行卡</h3>
+            <% }else{ %>
+                <h3>为了您的资金安全，请先开通妙资金融-恒丰银行存管账户</h3>
+            <% } %>
+            <form action="" id="account">
+                <input type="hidden" id="isVerity" value="<%= userBaseInfo.verify %>">
+                <div class="form_input">
+                    <label for="userName">姓名</label>
+                    <input type="text" name="userName" id="userName" <% if(userBaseInfo.verify){ %>disabled value="<%= userBaseInfo['realname'].substr(0,1)%>**"<% }else{ %>placeholder="真实姓名"<% } %>>
+                </div>
+                <div class="form_input">
+                    <label for="identity">身份证</label>
+                    <input type="text" name="identity" maxlength="18" id="identity" <% if(userBaseInfo.verify){ %>disabled value="**************<%= userBaseInfo['identitycard'].substr(14,4) %>"<% }else{ %>placeholder="身份证号码"<% } %>>
+                </div>
+                <div class="form_input">
+                    <label for="bankCard">银行卡</label>
+                    <input type="text" name="bankCard" id="bankCard" placeholder="银行卡号码">
+                </div>
+                <div class="form_input belongBankBox">
+                    <label class="belong">所属银行</label>
+                    <span class="belong belongBank">
+                        <img id="belongBankLogo" src="">
+                    </span>
+                </div>
+                <div class="form_input">
+                    <label for="telNumber">预留手机号</label>
+                    <input type="text" maxlength="11" name="telNumber" id="telNumber" placeholder="预留手机号">
+                </div>
+                <div class="form_input">
+                    <label for="messageCode">短信验证码</label>
+                    <input class="wth180" maxlength="6" type="text" name="messageCode" id="messageCode" placeholder="短信验证码">
+                    <a href="javascript:;" class="messageCodeBtn">获取验证码</a>
+                </div>
+                <div class="form_input agreeBox">
+                    <input type="checkbox" id="agree" checked>
+                    <span id="agreement" class="agreed"></span>
+                    <span class="textBox">已同意协议<a target="_blank" href="/agree/openAccount">《开户协议》</a>、<a href="/agree/pay" target="_blank">《支付服务协议》</a></span>
+                </div>
+                <input type="submit" class="submitBtn" value="立即开通">
+            </form>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member/account/recharge/openAccount">刷新页面</a>
+            </div>
+            <% } %>
+        </div>
+        <% include ../../common/cooperationBank.html %>
+    </div>
+</div>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/common/s_bindCard.js"></script>
+<% include ../../common/memberFooter.html %>

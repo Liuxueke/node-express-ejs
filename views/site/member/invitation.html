@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="/public/css/s_invitation.min.css">
+<% include ../common/nav.html %>
+<div class="containt-box">
+    <% include ../common/memberLeftNav.html %>
+    <div class="containt-right">
+        <div class="title"></div>
+        <div class="invite-containt">
+            <h3>邀请方式<span>您已成功邀请<i class="people">0</i>位好友，赚取<i class="money">0</i>元奖励</span></h3>
+            <div class="invite-way clearfix">
+                <div class="invite-link invite">
+                    <p class="link-title">邀请链接</p>
+                    <p class="explain">复制邀请链接发给好友</p>
+                    <p class="link-box" id="copy-link">
+                        我注册了妙资金融进行投资理财，新手注册即送10000元金包，免费拿收益，还能专享12.8%新手标，强烈推荐你也来喔！<span class="link">https://www.mzmoney.com/register?<%= telNumber %></span>
+                    </p>
+                    <a href="javascript:;" class="copy-btn" data-clipboard-target="#copy-link">复制链接</a>
+                    <input type="hidden" value="13123953626" class="userId">
+                </div>
+                <div class="invite-share invite">
+                    <p class="link-title">邀请分享</p>
+                    <p class="explain">分享链接给微信，微博等社交软件上的好友。</p>
+                    <a href="javascript:;" class="weixin-share">
+                        <i></i>
+                        <p>微信分享</p>
+                        <div class="two-dimension">
+                            <div id="codeBox"></div>
+                            <p>扫码分享：妙资</p>
+                            <i></i>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="weibo-share" target="_blank">
+                        <i></i>
+                        <p>微博分享</p>
+                    </a>
+                    <a href="javascript:;" class="qq-share" target="_blank">
+                        <i></i>
+                        <p>QQ空间分享</p>
+                    </a>
+                </div>
+            </div>
+            <div class="rulebox">
+                <h3>邀请规则</h3>
+                <h4>活动时间:</h4>
+                <p>2017年5月15日-2017年6月30日。</p>
+                <h4>如何获奖:</h4>
+                <ul>
+                    <li><span>1.</span>将邀请链接分享至您的社交圈（微信、QQ、微博）。</li>
+                    <li><span>2.</span>好友通过您的邀请链接注册并成功首次投资单笔6800元以上，您可获得58元现金红包；好友再次投资单笔5000元以上，您可获得30元现金红包（金包赢产品暂不参与本
+                        活动）。</li>
+                    <li><span>3.</span>邀请奖励上限人数20人。</li>
+                </ul>
+                <h4>活动规则:</h4>
+                <ul>
+                    <li><span>1.</span>2017年5月15日-2017年6月30日，每邀请一位用户注册并成功首次投资单笔6800元以上，获得58元现金红包；好友再次投资单笔5000元以上，获得30元现金红包（金包赢产品暂不参与本活动）。</li>
+                    <li><span>2.</span>本次活动开始之前邀请的好友将不计入本次活动的奖励中。</li>
+                    <li><span>3.</span>同一身份证号视为同一用户；若发现用户恶意刷奖行为，妙资有权取消其获奖资格。</li>
+                    <li><span>4.</span>现金红包奖励将由系统自动派发至您的妙资账户中（查看方式：APP：“钱包--我的红包”）。</li>
+                    <li><span>5.</span>本活动仅支持安卓和iOS最新版本，如未更新，请尽快更新。</li>
+                    <li><span>6.</span>邀请好友现金红包总奖励为500万，先到先得，送完即止。</li>
+                    <li><span>7.</span>活动内容如有更改，将于官网公告，不再另行通知。</li>
+                    <li><span>8.</span>如有疑问，请拨打客服热线：400-757-8888，或联系在线客服。</li>
+                    <li><span>9.</span>在法律范围内，本活动最终解释权归妙资金融所有。</li>
+                </ul>
+                <h3>邀请明细</h3>
+                <div class="invite-detail clearfix">
+                    <div class="fl borderr">已获得现金红包:<i class="money">0</i>元</div>
+                    <div class="fr">已邀请:<i class="people">0</i>人</div>
+                </div>
+                <input type="hidden" id="userId" value="<%= page.loginInfo.userId %>">
+                <div class="invite-step" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-box">
+    <div class="modal">
+        <h3>复制成功</h3>
+        <p>邀请链接已复制成功</p>
+        <a href="javascript:;" class="close-btn">我知道了</a>
+    </div>
+</div>
+<% include ../common/memberFooter.html %>
+<script src="/public/js/common/share.js"></script>
+<script src="/public/js/common/clipboard.min.js"></script>
+<script src="/public/js/common/jquery.qrcode.min.js"></script>
+<script src="/public/js/s_invitation.js"></script>

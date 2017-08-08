@@ -1,0 +1,111 @@
+<% include common/header.html %>
+<% include common/position.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <div class="rechargeCenter">
+        <div class="rechargeTit">
+            <ul>
+                <li>快捷充值</li>
+                <li>网银充值</li>
+            </ul>
+        </div>
+        <div class="rechargeMain">
+            <!--快捷充值 start-->
+            <div class="rechargeBox">
+                <% if(bankCard == null){ %>
+                    <div class="changeTips add">如需添加银行卡，请联系对接业务员进行添加</div>
+                    <div class="addBankCard">添加银行卡</div>
+                <% }else{ %>
+                    <div class="changeTips">如需更换银行卡，请联系对接业务员进行更换</div>
+                    <input type="hidden" value="<%= rechargeOrderNo %>" id="rechargeOrderNo">
+                    <% bankCard.forEach(function(item){ %>
+                        <div class="bankCard">
+                            <div class="bankCardInfor">
+                                <span><i></i><%= item.bankName %>(尾号<font class="bankCardId" data-id="<%= item.bankCardId %>"><%= item.bankCardNo %></font>）</span>
+                                <p>银行预留手机：<font class="userTel"><%= item.phone.substr(0, 3) +'****' +item.phone.substr(7, 11) %></font></p>
+                                <p>限额：<%= item.paymentLimit %></p>
+                            </div>
+                            <div class="useThis"><i></i>使用该卡支付</div>
+                        </div>
+                    <% }) %>
+                <% } %>
+                <form id="quickRechargeForm">
+                    <div class="rechargeAmount">
+                        <label class="fl">充值金额</label>
+                        <input type="text" id="quickRechargeAmount" name="quickRechargeAmount" class="fl"><span class="fl">元</span>
+                    </div>
+                    <div class="sureRecharge"><input type="submit" value="确认充值" id="quickRecharge"></div>
+                </form>
+                <div class="rechargeTip">
+                    <span>温馨提示：</span>
+                    <ul>
+                        <li>1、为保障账户及资金安全，请在充值前完成安全认证以及提现密码设置。</li>
+                        <li>2、您的账户资金将通过第三方平台连连支付进行充值。</li>
+                        <li>3、由于大多数银行的网银系统只支持IE浏览器，请您进行充值时使用IE浏览器。同时请注意您银行卡充值的支付金额限制，具体请参阅: 各银 行的网上银行支付限额总表。</li>
+                        <li>4、推荐使用大额快捷支付，第二次支付无需再次输入银行卡信息，且自动绑定支付卡，项目到期后无需另外绑定银行卡，直接提现至支付时 的银行卡。</li>
+                        <li>5、大额快捷支付中若无您想要支付的银行卡，请办理以上银行卡或使用网银支付。具体请参阅: 目前支持的网上银行列表。</li>
+                        <li>6、选择网银支付，大额网银支付请准备好Ukey等银行安全工具，使用动态口令卡等网银支付可能额度较低。</li>
+                        <li>7、本平台禁止充值不投资，马上提现等行为，一经发现并确认，将终止该账户的使用。</li>
+                        <li>8、如果充值金额没有及时到账，请拨打客服电话: 400-757-8888。</li>
+                    </ul>
+                </div>
+            </div>
+            <!--快捷充值 end-->
+            <!--网银充值 start-->
+            <div class="rechargeBox">
+                <div class="OnlineBanking">充值银行</div>
+                <div class="OnlineBankingList clearFixed">
+                    <ul>
+                        <% bankList.forEach(function(item,index){ %>
+                            <li data-bankId="<%= item.bankId %>">
+                                <img src="<%= item.netBankLogo %>" alt="<%= item.name %>">
+                                <i></i>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </div>
+                <form id="onlineRechargeForm">
+                    <div class="rechargeAmount">
+                        <label class="fl">充值金额</label>
+                        <input type="text" id="onlineRechargeAmount" name="onlineRechargeAmount" class="fl"> <span class="fl">元</span>
+                    </div>
+                    <div class="sureRecharge"><input type="submit" value="确认充值" id="onlineRecharge"></div>
+                </form>
+                <div class="rechargeTip">
+                    <span>温馨提示：</span>
+                    <ul>
+                        <li>1、为保障账户及资金安全，请在充值前完成安全认证以及提现密码设置。</li>
+                        <li>2、您的账户资金将通过第三方平台连连支付进行充值。</li>
+                        <li>3、由于大多数银行的网银系统只支持IE浏览器，请您进行充值时使用IE浏览器。同时请注意您银行卡充值的支付金额限制，具体请参阅: 各银 行的网上银行支付限额总表。</li>
+                        <li>4、推荐使用大额快捷支付，第二次支付无需再次输入银行卡信息，且自动绑定支付卡，项目到期后无需另外绑定银行卡，直接提现至支付时 的银行卡。</li>
+                        <li>5、大额快捷支付中若无您想要支付的银行卡，请办理以上银行卡或使用网银支付。具体请参阅: 目前支持的网上银行列表。</li>
+                        <li>6、选择网银支付，大额网银支付请准备好Ukey等银行安全工具，使用动态口令卡等网银支付可能额度较低。</li>
+                        <li>7、本平台禁止充值不投资，马上提现等行为，一经发现并确认，将终止该账户的使用。</li>
+                        <li>8、如果充值金额没有及时到账，请拨打客服电话: 400-757-8888。</li>
+                    </ul>
+                </div>
+            </div>
+            <!--网银充值 end-->
+        </div>
+    </div>
+</div>
+<% include common/footer.html %>
+<!--发送短信验证码-->
+<div class="mask">
+    <div class="maskBg"></div>
+    <div class="maskMain">
+        <div class="dxTips">短信验证已发送到银行预留手机号码（<span class="dxTel"></span>），请输入验证码</div>
+        <form id="dxForm">
+            <div class="dxSend">
+                <label class="fl">验证码：</label>
+                <input type="text" id="getDX" name="getDX">
+                <a href="javascript:void(0);" class="theTime"></a>
+            </div>
+            <div class="dxSure"><input type="submit" value="确定"></div>
+        </form>
+
+        <div class="dxClose">×</div>
+    </div>
+</div>
+<script src="../../public/js/common/jquery.validate.js"></script>
+<script src="../../public/js/common/common.utils.js"></script>
+<script src="../../public/js/borrower/recharge.js"></script>

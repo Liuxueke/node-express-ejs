@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/public/css/s_message.min.css">
+<% include ../../common/nav.html %>
+<div class="containt-box">
+<% include ../../common/memberLeftNav.html %>
+    <div class="user-wrapper">
+        <div class="bread_crumbs">
+            <div class="title title_hp2">
+                <span class="borderNone">我的消息</span>
+            </div>
+        </div>
+        <% if(!error){ %>
+        <div id="list_tabs" class="paper_manager_tabs mt30">
+            <ul class="listTabBox">
+                <li class="cur"><a href="javascript:void(0)">系统公告</a></li>
+                <li class=""><a href="javascript:void(0)">交易消息</a></li>
+                <li class=""><a href="javascript:void(0)">活动消息</a></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+        <div class="p20"></div>
+        <div class="clear"></div>
+        <div id="messageListBox">
+            <div class="data_list noticeList">
+                <div class="p20 pt0 table_default">
+                    <input type="hidden" id="totalPage" value="<%= noticeList.totalPage %>">
+                    <table width="100%" border="1" bordercolor="#e5e5e5">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>消息标题</th>
+                            <th>消息描述</th>
+                            <th>发送时间</th>
+                        </tr>
+                        </thead>
+                        <tbody id="messageList">
+                            <% if(noticeList.list.length>0){ %>
+                                <% noticeList.list.forEach(function (item,index){ %>
+                                    <tr>
+                                        <td><%= index+1 %></td>
+                                        <td><a class="color_base" href='/member/message/notice/detail?messageId=<%= item.messageId %>'><%= item.messageTitle %></a></td>
+                                        <td><span><%= item.messageContent %></span></td>
+                                        <td><%= item.time %></td>
+                                    </tr>
+                                <% }) %>
+                            <% }else{ %>
+                                <tr>
+                                    <td colspan="5">暂无消息</td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <% include ../../common/pagination.html %>
+        <% }else{ %>
+        <div class="networkErrorBox">
+            <p>网络开小差啦，请刷新页面试试吧~</p>
+            <a href="/member/message">刷新页面</a>
+        </div>
+        <% } %>
+    </div>
+</div>
+<% if(!error && !noticeList['error_code']){ %>
+<script src="/public/js/s_message.js"></script>
+<% } %>
+<% include ../../common/memberFooter.html %>

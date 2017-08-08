@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="/public/css/s_register.min.css">
+<% include common/nav.html %>
+<div class="contain" style="margin-top: 20px;">
+    <div class="section">
+        <div class="reg-contain">
+            <h3>注册妙资帐号</h3>
+            <div class="reg-left">
+                <form id="reg_form" action="" method="post" class="mt40" autocomplete="off">
+                    <div class="login-form">
+                        <div class="input-box">
+                            <label class="title">*</label>
+                            <input type="text" name="username" id="username" maxlength="11" class="inp username" placeholder="注册手机号码">
+                        </div>
+                        <div class="input-box">
+                            <label class="title">*</label>
+                            <input type="password" name="password" id="password" class="inp password" maxlength="16" placeholder="请设置6~16位密码，字母区分大小写">
+                        </div>
+                        <div class="input-box imgCodeBox">
+                            <label class="title">*</label>
+                            <input type="text" name="graphCode" id="graphCode" class="inp piccheckcode" placeholder="图片验证码" maxlength="4">
+                            <img src="/getImg" onclick="this.src='/getImg?t='+Math.random()" width="100px" height="40px" class="fl img-code">
+                        </div>
+                        <div class="input-box">
+                            <label class="title">*</label>
+                            <input type="text" name="captcha" id="captcha" class="inp checkcode" placeholder="短信验证码" maxlength="6">
+                            <input type="button" name="timer" id="timer" value="获取验证码" class="btn btn-default btn-disabled pcode">
+                        </div>
+                        <div class="input-box recommend-box">
+                            <div class="recommend">
+                                <i class="hideRecommend"></i>推荐人手机号(选填)
+                            </div>
+                        </div>
+                        <div class="input-box recommend-tel">
+                            <label class="title"></label>
+                            <input type="text" name="recommondPersonTel" maxlength="11" id="pseudo-username1" class="inp username1" placeholder="请输入推荐人手机号码（选填）">
+                        </div>
+                        <div class="input-box" style="margin-bottom:0;">
+                            <label class="title"></label>
+                            <span class="checkbox checked"></span>
+                            <input type="checkbox" name="agree" id="agree" value="1" checked="checked">&nbsp; <label for="agree">我已同意并已阅读  </label>
+                            《<a href="/agree" target="_blank" title="妙资金融服务协议" class="ftColor">妙资金融服务协议 </a>》
+                        </div>
+                        <input type="submit" name="submit" id="submit" value="立即注册" class="btn-reg">
+                    </div>
+                </form>
+            </div>
+            <div class="reg-right">
+                <img src="https://r.mzmoney.com/mz/img/hpimg/register.jpg" alt="">
+                <p class="t-c f16">
+                    我已有账号?<a href="/login" class="color_blue mt20">立即登录</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/s_register.js"></script>
+<% include common/footer.html %>

@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/public/css/s_login.min.css">
+<% include common/nav.html %>
+<div class="contain">
+    <div class="section">
+        <div class="login-contain">
+            <div class="login-left">
+                <img src="https://r.mzmoney.com/mzuploads/p_a_dadvertising/201703/ed12267cf8e748cebe6b4d9e90c0c50e.jpg">
+            </div>
+            <div class="login-right">
+                <p class="f22 t-c mt40">登 录</p>
+                <form id="login" class="" autocomplete="off" novalidate="novalidate">
+                    <div class="login-form">
+                        <div class="input-box">
+                            <label class="title"></label>
+                            <label id="error_msg" class="error" style="display: none;"></label>
+                        </div>
+                        <div class="input-box">
+                            <label class="title">账号</label>
+                            <input type="text" name="username" id="username" value="" class="inp username" autocomplete="off" placeholder="用户名/手机" iscookie="true">
+                        </div>
+                        <div class="input-box">
+                            <label class="title">密码</label>
+                            <input type="password" name="password" id="password" class="inp password" value="" autocomplete="off" onfocus="this.type='password'" placeholder="请输入密码">
+                        </div>
+                        <div class="input-box hidden">
+                            <label class="title">验证码</label>
+                            <input type="text" name="graphCode" id="graphCode" class="inp checkcode" maxlength="4" placeholder="请输入验证码">
+                            <img src="/getImg" onclick="this.src='/getImg?t='+Math.random()" width="100px" height="40px" class="fl img-code">
+                        </div>
+                        <div class="input-box">
+                            <span class="ml130">没有账号？<a href="/register" class="color_blue ft16">免费注册</a></span>
+                            <a href="/findLoginPassword" class="color_blue ml110">忘记密码?</a>
+                        </div>
+                        <input type="submit" name="submit" id="submit" value="立即登录" class="btn btn-default btn-login ml130">
+                    </div>
+                </form>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/s_login.js"></script>
+<% include common/footer.html %>

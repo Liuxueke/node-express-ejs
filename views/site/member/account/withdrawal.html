@@ -1,0 +1,169 @@
+<% include ../../common/nav.html %>
+<link rel="stylesheet" href="/public/css/common/s_base.min.css">
+<link rel="stylesheet" href="/public/css/s_withdrawal.min.css">
+<link rel="stylesheet" href="/public/js/common/skin/layer.css">
+<div class="sectionBox">
+    <div class="containt-box">
+        <% include ../../common/memberLeftNav.html %>
+        <div class="user-wrapper">
+            <div class="bread_crumbs">
+                <div class="title">
+                    <span>账户提现</span>
+                </div>
+            </div>
+            <% if(!error){ %>
+            <div class="p20">
+                <div>
+                    <p class="f14 fb cGray5 lh40">选择提现银行卡</p>
+                </div>
+                <div class="mt10 mb10" style="background:#f4f4f4;">
+                    <p class="pt15 pb15 pl40 f16">
+                        可提现总金额（元）：<span class="red f18"><%= walletAccount.balance %></span>
+                    </p>
+                </div>
+                <div>
+                    <div class="bank-list pl20 mt10">
+                        <ul id="bankcard_ul">
+                            <% bankCardList.list.forEach(function (item,index){ %>
+                                <li data-id="<%= item.bankCardId %>" <% if(index == 0){ %>class="cur"<% } %>>
+                                    <div class="bank_top">
+                                        <div class="p20">
+                                            <img class="bankLogo" src="<%= item.netBankLogo %>">
+                                            <div class="ml20 f16 fl cGray"><%= item.bankName %>(尾号<span class="bankLastNumber"><%= item.bankCardNo %></span>)</div>
+                                            <div class="ml20 fl pt7">
+                                                <p class="f16">
+                                                    本卡可提现额度（元）：
+                                                  <!--  <input type="hidden" id="cashAmount" value="">-->
+                                                    <span class="red cashAmount">
+                                                       <!-- <% if(item.cashAmount > walletAccount.cashAmount){ %>
+                                                            <%= walletAccount.cashAmount %>
+                                                        <% }else{ %>
+                                                            <%= item.cashAmount %>
+                                                        <% } %>-->
+                                                         <%= item.cashAmount %>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p10 h33"></div>
+                                    <div class="bank-checked"></div>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                    <hr style="border:1px dashed #e1e1e1;" class="mt30">
+                </div>
+            </div>
+            <div id="form_input">
+                <div class="p20">
+                    <div>
+                        <p class="f14 fb cGray5">填写提现金额</p>
+                    </div>
+                    <form action="" class="user_form user_form2 mt50" id="withdrawalForm" novalidate="novalidate">
+                        <div class="form_input">
+                            <label class="text">提现至：</label>
+                            <label id="tail"><img class="inline" style="position:relative; float: left;" src="<%= bankCardList['list'][0].netBankLogo %>" title="<%= bankCardList['list'][0].bankName %>" id="cashBank">尾号<span id="cashBankCardNo"><%=  bankCardList['list'][0].bankCardNo %></span></label>
+                        </div>
+                        <div class="form_input">
+                            <label class="text">本卡可提现金额：</label>
+                            <label id="cashAmount2">
+                                <% if(bankCardList['list'][0].cashAmount > walletAccount.cashAmount){ %>
+                                    <%= parseFloat(walletAccount.cashAmount).toFixed(2) %>
+                                <% }else{ %>
+                                    <%= parseFloat(bankCardList['list'][0].cashAmount).toFixed(2) %>
+                                <% } %>
+                            </label>
+                        </div>
+                        <div class="form_input">
+                            <label class="text">提现金额：</label>
+                            <label>
+                                <input type="text" placeholder="请输入提现金额" name="amount" id="amount" class="inp">
+                            </label>
+                        </div>
+                        <!--提现手续费-->
+                        <div class="form_input cashfee-box">
+                            <label class="text">手续费：</label>
+                            <label class="cashfee">
+                                <input type="hidden" value="<%= withdrawalDetail.cash_count %>" id="withdrawNumber">
+                                <span id="cashfee">
+                                    <% if(withdrawalDetail.cash_count==0){ %>
+                                        <em id="withdrawFees"><%= withdrawalDetail.cash_fees %></em>%
+                                    <% }else{ %>
+                                        0.00
+                                    <% } %>
+                                </span>
+                                <span class="tip"><i><%= config.withdrawTip %></i></span>
+                            </label>
+                        </div>
+                        <div class="form_input">
+                            <label class="text">实际到账金额：</label> <label><span id="actualAmount">0.00</span></label>
+                        </div>
+                        <!--提现手续费-->
+                        <div class="form_input">
+                            <label class="text">预计到账日期：</label>
+                            <label>T+1日到账 如遇法定节假日顺延</label>
+                        </div>
+                        <input type="submit" value="提现" class="btn btn-default">
+                    </form>
+                    <hr style="border:1px dashed #e1e1e1;" class="mt20">
+
+                </div>
+                <div class="p20">
+                    <div>
+                        <p class="f14 fb cGray5">温馨提示：</p>
+                        <p class="pl30 pt10 cGray2">1、当天充值金额，下一个工作日(节假日顺延)才可提现。</p>
+                        <p class="pl30 pt10 cGray2">2、每位投资者每天享有两笔免费提现机会，超出两笔后按提现金额的0.3%（千分之三）收取手续费，最低3元/笔。</p>
+                        <p class="pl30 pt10 cGray2">3、工作日12点前提交提现申请，我们将在T+0个工作日内打款，工作日12点后提交提现申请，我们将在T+1个工作日内打款， 到账时间因各个银行不同，以实际银行到账为准。</p>
+                        <p class="pl30 pt10 cGray2">4、为保障您的账户资金安全，您选择的银行卡开户名必须与您妙资账户实名认证一致，否则提现申请将无法成功。</p>
+                        <p class="pl30 pt10 cGray2">5、如果提现金额没有到账，请联系客服。（客服热线：400-757-8888)</p>
+                    </div>
+                </div>
+            </div>
+            <form action="" class="user_form mt50 pl30" id="withdrawConfirm">
+                <div class="form_input">
+                    <label class="text">提现至：</label>
+                    <label class="bankLogo"><img id="bank_icon" src="" class="inline"></label>
+                </div>
+                <div class="form_input mt10">
+                    <label class="text">提现金额：</label>
+                    <label id="amount2"></label>
+                </div>
+                <div class="form_input mt10">
+                    <label class="text">手续费：</label>
+                    <label id="cashFees"></label>
+                </div>
+                <div class="form_input">
+                    <label class="text">实际到账金额：</label>
+                    <label id="moneyOrder"></label>元
+                </div>
+                <div class="form_input">
+                    <label class="text">预计到账日期：</label>
+                    <label>
+                        T+1日到账 <span class="cGray">如遇法定节假日，顺延</span>
+                    </label>
+                </div>
+                <div class="form_input">
+                    <label class="text">交易密码：</label>
+                    <label>
+                        <input type="password" placeholder="请输入您的交易密码" name="payPassword" id="payPassword" class="inp"><br>
+                        <a href="javascript:;" class="color_blue mt10" style="margin-left:300px;">忘记交易密码？</a>
+                    </label>
+                </div>
+                <input type="submit" value="确认提现" class="btn btn-default">
+            </form>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="/member/account/netRecharge">刷新页面</a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<% include ../../common/memberFooter.html %>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/common/layer.js"></script>
+<script src="/public/js/s_withdrawal.js"></script>

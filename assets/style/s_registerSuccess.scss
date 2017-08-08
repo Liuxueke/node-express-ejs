@@ -1,0 +1,65 @@
+.containt-box{
+    padding-top:164px;
+    padding-bottom:253px;
+    margin: 29px auto;
+    width: 1200px;
+    background: #fff;
+    text-align: center;
+    .successOuterBox{
+        .success-box{
+            display: inline-block;
+            margin: 0 auto 36px auto;
+            padding-left:69px;
+            background: url("https://r.mzmoney.com/mz/img/hpimg/register-success.png") left center no-repeat;
+            h3{
+                padding-bottom:17px;
+                font-size:20px;
+                color: #333333;
+                text-align: left;
+            }
+            p{
+                font-size:12px;
+                color: #999;
+                a{
+                    color: #f76867;
+                }
+            }
+        }
+        .btn-box{
+            a{
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                font-size: 12px;
+            }
+            .enter-account{
+                margin-right:36px;
+                border-radius: 4px;
+                width:132px;
+                text-align: center;
+                color: #fff;
+                background: #f76867;
+            }
+            .to-index{
+                color: #666666;
+            }
+        }
+    }
+    .handleRegister{
+        i{
+            margin:0 auto;
+            display: block;
+            width: 63px;
+            height:63px;
+            background: url('https://r.mzmoney.com/mz/img/loading.gif');
+        }
+        p{
+            font-size:12px;
+            line-height: 50px;
+        }
+    }
+
+}
+.hidden{
+    display: none;
+}

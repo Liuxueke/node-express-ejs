@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="/public/css/common/s_base.min.css">
+<link rel="stylesheet" href="/public/css/s_paymentSuccess.min.css">
+<% include common/paymentTopBar.html %>
+<div class="contain">
+    <div class="section">
+        <div class="box-order pb10 pt50">
+            <input type="hidden" id="state" value="<%= state %>">
+            <input type="hidden" id="orderNo" value="<%= orderNo %>">
+            <div class="paySuccessBox <% if(state !=4 ){ %>hidden<% } %>">
+                <div class="transaction_success pl170">
+                    <div class="success1">
+                        <span class="ml100 step step1 on"></span>
+                        <span class="step step_line on"></span>
+                        <span class="step step_line on"></span>
+                        <span class="step step_line"></span>
+                        <span class="step step_line"></span>
+                        <span class="step step3"></span>
+                    </div>
+                    <div class="success2 mt15">
+                        <ul>
+                            <li>
+                                <p class="f18">付款成功</p>
+                                <p class="cGray1 f14 paySuccessTime"><%= payTime %></p>
+                            </li>
+                            <li class="ml345">
+                                <p class="f18" style="width: 150px;">申购成功</p>
+                                <p class="cGray1 f14 remainDay" style="width: 150px">预计<%= remainDayNum %>个工作日</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="t-c mt50 mb50">
+                    <a href="/list" class="btn btn-default btn-order-again">继续投资</a>
+                </div>
+            </div>
+            <div class="waitBox <% if(state == 4){ %>hidden<% } %>">
+                <i></i>
+                <p class="handle">支付处理中......</p>
+            </div>
+            <div id="main">
+                <div class="download">
+                    <div id="dy_left"><img src="https://r.mzmoney.com/mz/img/order-phone.png" width="250" alt=""></div>
+                    <div id="dy_right">
+                        <div id="barcode">
+                            <p class="t-c f16 pl30 bold">
+                                扫码下载APP
+                            </p>
+                            <img src="https://r.mzmoney.com/mz/img/order-number.png" width="135" height="135" style="padding-top:10px; padding-left:30px;"></div>
+                        <div id="dy_download">
+                            <p class="t-c pl20">
+                                妙资APP 随身理财 轻松挣钱
+                            </p>
+                            <ul>
+                                <li><a href="http://mzapp.b0.upaiyun.com/mzmoney_v2.0.apk"><img src="https://r.mzmoney.com/mz/img/order-anzhuo.png" width="160" style="margin-left:40px;margin-top:25px"></a></li>
+                                <li><a href="https://itunes.apple.com/cn/app/miao-zi-cai-fu/id898155153?mt=8"><img src="https://r.mzmoney.com/mz/img/order-iosh_down.png" width="160" style="margin-left:40px;margin-top:15px;"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="safes">
+            <ul>
+                <li class="bao1">
+                    <i></i>
+                    <div>
+                        <p class="title">100%本息保障</p>
+                        <p class="text">
+                            国有担保机构担保<br>
+                            产品到期100%兑付
+                        </p>
+                    </div>
+                </li>
+                <li class="xian">
+                    <i></i>
+                    <div>
+                        <p class="title">资金安全</p>
+                        <p class="text">
+                            阳光保险全程保障<br>
+                            资金盗刷全额赔付
+                        </p>
+                    </div>
+                </li>
+                <li class="jian">
+                    <i></i>
+                    <div>
+                        <p class="title">投资安全</p>
+                        <p class="text">
+                            资金第三方托管<br>
+                            保障用户资金安全
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="/public/js/s_paymentSuccess.js"></script>

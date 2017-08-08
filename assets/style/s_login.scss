@@ -1,0 +1,142 @@
+@import "./common/s_config";
+.contain{
+    margin:40px 0 70px 0;
+    .section{
+        margin:0 auto;
+        width:1200px;
+        background: #fff;
+        .login-contain{
+            font-size:14px;
+            @extend .clearfix;
+            .login-left {
+                width: 613px;
+                border-right: 1px solid #dcdcdc;
+                float: left;
+            }
+            .login-right {
+                width: 580px;
+                float: left;
+                #login{
+                    text-align: center;
+                    div.input-box{
+                        margin-bottom:15px;
+                        height: 40px;
+                        line-height: 40px;
+                        text-align: left;
+                        .title {
+                            width: 120px;
+                            height: 40px;
+                            line-height: 40px;
+                            text-align: right;
+                            display: block;
+                            float: left;
+                            font-size: 14px;
+                        }
+                        .inp {
+                            margin-left: 10px;
+                            width: 300px;
+                            height: 38px;
+                            line-height: 38px\9;
+                            float: left;
+                            text-indent: 40px;
+                            border: 1px solid #dcdcdc;
+                            border-radius: 3px;
+                            -moz-border-radius: 3px;
+                            -webkit-border-radius: 3px;
+                        }
+                        .username {
+                            background: #fff url(https://r.mzmoney.com/mz/img/ico.png) no-repeat 9px -230px;
+                        }
+                        .password {
+                            background: #fff url(https://r.mzmoney.com/mz/img/ico.png) no-repeat 9px -130px;
+                        }
+                        .checkcode {
+                            background: #fff url(https://r.mzmoney.com/mz/img/ico.png) no-repeat 9px -435px;
+                            width: 180px;
+                            margin-right: 20px;
+                        }
+
+                    }
+                }
+                .btn {
+                    display: block;
+                    border:none;
+                    width: 302px;
+                    background-color: #f04f4b;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 1.42857143;
+                    text-align: center;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    padding: 10px 40px;
+                    color: #fff;
+                    &:hover{
+                        background-color: #fb746b;
+                    }
+                }
+            }
+        }
+    }
+}
+label.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) no-repeat left center;
+    margin-left: 10px;
+    padding-left: 20px;
+    color: #e72210;
+    vertical-align: middle;
+    display: inline-block;
+    width: 100px;
+    line-height: 20px !important;
+    min-height: 20px;
+    font-size: 12px;
+}
+label.valid{
+    background:url(https://r.mzmoney.com/mz/img/ico_03.png) no-repeat left center;
+    margin-left: 10px;
+    padding-left: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 100px;
+    line-height: 20px;
+    height: 20px;
+    font-size:12px;
+    color:#53a03b;
+}
+div.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) no-repeat left center;
+    margin:-15px auto 0 130px;
+    padding-left: 20px;
+    color: #e72210;
+    width: 282px;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: left;
+}
+.hidden{
+    display: none;
+}
+.mb0{
+    margin-bottom:0px !important;
+}
+.mt40{
+    margin-top:40px;
+}
+.ml110{
+    margin-left:110px;
+}
+.ml120{
+    margin-left:120px;
+}
+.ml130{
+    margin-left:130px;
+}
+.t-c{
+    text-align: center;
+}
+.f22{
+    font-size:22px;
+}
+.color_blue {
+    color: #0099ff;
+}

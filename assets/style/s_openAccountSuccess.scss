@@ -1,0 +1,75 @@
+@import "./common/s_config";
+.containt-box {
+    margin: 30px auto 0 auto;
+    width: 1200px;
+    @extend .clearfix;
+    .containtRight {
+        float: right;
+        border: 1px solid #dddddd;
+        width: 988px;
+        background: #fff;
+        min-height: 807px;
+        .bank-title {
+            padding: 20px 40px 0 40px;
+            h3 {
+                margin-bottom: 20px;
+                border-bottom: 1px solid #eee;
+                line-height: 50px;
+                font-size: 16px;
+                color: #333;
+            }
+        }
+        .containtSuccess{
+            margin-top:136px;
+            text-align: center;
+            i{
+                margin:0 auto;
+                display: block;
+                width:60px;
+                height:60px;
+                background: url('https://r.mzmoney.com/mz/img/ico_user_center.png') no-repeat -1120px -481px;
+            }
+            .success{
+                font-size:16px;
+                color: #333;
+                line-height: 57px;
+            }
+            p{
+                font-size:12px;
+                color: #666666;
+            }
+            a{
+                margin:50px auto 0 auto;
+                display: block;
+                border-radius: 4px;
+                width:140px;
+                height:40px;
+                background: #f76867;
+                color: #fff;
+                text-align: center;
+                line-height: 40px;
+                &:hover{
+                    background: #fb746b;
+                }
+            }
+        }
+    }
+}
+.hidden{
+    display: none;
+}
+.waitHandleBox{
+    margin-top:200px;
+    i{
+        margin:0 auto;
+        display: block;
+        width: 63px;
+        height:63px;
+        background: url('https://r.mzmoney.com/mz/img/loading.gif');
+    }
+    p{
+        font-size:12px;
+        line-height: 50px;
+        text-align: center;
+    }
+}

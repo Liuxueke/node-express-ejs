@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/public/css/common/s_findPassword.min.css">
+<% include ../../common/nav.html %>
+<div class="section_w mt15">
+    <div class="p20">
+        <p class="f16">
+            找回登录密码
+        </p>
+        <div class="retrieve_pwd">
+            <div class="retrieve1">
+                <span class="ml150 step step1 on"></span>
+                <span class="step step_line on"></span>
+                <span class="step step_line"></span>
+                <span class="step step2"></span>
+                <span class="step step_line"></span>
+                <span class="step step_line"></span>
+                <span class="step step3"></span>
+            </div>
+            <div class="retrieve2 t-c mt15">
+                <ul>
+                    <li>
+                        <p class="f18">
+                            手机确认账号
+                        </p>
+                    </li>
+                    <li>
+                        <p class="f18">
+                            重置密码
+                        </p>
+                    </li>
+                    <li>
+                        <p class="f18">
+                            重置成功
+                        </p>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <form id="form" class="user_form mt50 ml250">
+            <input type="hidden" id="verify" value="">
+            <div class="form_input">
+                <label class="text">手机号码：</label>
+                <input type="text" name="mobile" id="mobile" placeholder="请输入手机号" class="inp">
+            </div>
+            <div class="form_input" id="imgCodeBox">
+                <label class="text">图形验证码：</label>
+                <input type="text" name="graphCode" id="graphCode" placeholder="请输入验证码" class="inp inp_sms">
+                <img src="/getImg" onclick="this.src='/getImg?t='+Math.random()" class="img_code" width="104px" height="30px">
+            </div>
+            <div class="form_input">
+                <label class="text">短信验证码：</label>
+                <input type="text" name="captcha" id="captcha" placeholder="请输入验证码" class="inp inp_sms" maxlength="6">
+                <input type="button" name="timer" id="timer" value="获取验证码" class="btn btn-default btn-disabled pcode" style="padding: 5px 0;width: 104px">
+            </div>
+            <div class="form_input" id="identityBox">
+                <label class="text">身份证后8位：</label>
+                <input type="text" name="identity" id="identity" placeholder="身份证后8位" class="inp">
+            </div>
+            <input type="submit" name="submit" id="submit" value="下一步" class="btn btn-default">
+        </form>
+
+        <div class="pt20">
+            <hr style="border:1px solid #e1e1e1;" class="mt30">
+        </div>
+        <div class="f14 pl10 lh25 pt10">
+            <p>
+                · 如果您注册绑定的手机未在使用或已挂失，请申请人工处理！
+            </p>
+            <p>
+                · 申请人工审核、解决密码找回、修改手机、修改邮箱问题！
+            </p>
+            <p>
+                · 人工审核需要两个小时（工作时间08:30~21:00，非工作时间提交后48小时），请耐心等待。
+            </p>
+
+        </div>
+    </div>
+</div>
+<% include ../../common/footer.html %>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/s_findPassword.js"></script>

@@ -1,0 +1,566 @@
+.main-cost{ width: 942px;}
+.cost-overage{ border: 1px solid #eee; width: 460px; background: #fff; float: left;}
+.cost-pay{ border: 1px solid #eee; width: 460px; background: #fff; float: left; margin-left: 18px;}
+.cost-box{ width: 100%; height: 140px; position: relative;}
+.cost-box ul{ padding: 38px 0 0 33px;}
+.cost-box li{ height: 24px; line-height: 24px; margin-bottom: 20px;}
+.cost-box li p{ float: left; width: 80px;}
+.cost-box li span{ float: left; font-size: 24px; font-weight: bold;}
+.cost-box i{ display: block; position: absolute; top: 40px; right: 34px;}
+
+.cost-do{ padding: 16px 45px; height: 35px;}
+.cost-do a{ display: block; float: left; margin-right: 20px; border-radius: 5px; font-size: 14px;}
+.cost-do a.recharge{ width: 80px; height: 35px; line-height: 35px; background: #f84c4b; color: #fff; text-align: center;}
+.cost-do a.withdraw{ width: 78px; height: 33px; line-height: 33px; border: 1px solid #4ba0f8; text-align: center; color: #4ba0f8;}
+
+.cost-overage .cost-box{ background: #fffaf7;}
+.cost-pay .cost-box{ background: #f7fafe;}
+
+.cost-overage .cost-box li{ color: #ee9b5a;}
+.cost-overage .cost-box li span{ color: #ff5a00;}
+.cost-pay .cost-box li span{ color: #333;}
+
+.cost-overage .cost-box i{ width: 86px; height: 75px; background: url(/public/images/cost_overage.png) no-repeat;}
+.cost-pay .cost-box i{ width: 74px; height: 67px; background: url(/public/images/cost_pay.jpg) no-repeat; right: 40px;}
+
+.main-management{ width: 940px; min-height: 830px; border: 1px solid #eee; background: #fff; margin-top: 17px;}
+.management-title{ height: 46px; padding-top: 20px; border-bottom: 1px solid #eee; background: #fafafc; font-size: 16px;}
+.management-title li{ float: left; height: 46px; line-height: 46px; color: #999; padding: 0 5px; margin-left: 40px; cursor: pointer;}
+.management-title li:hover{ color: #f84c4b;}
+.management-title li.active{ color: #f84c4b; border-bottom: 4px solid #f84c4b; height: 42px; line-height: 42px;}
+
+.management-box{ padding: 20px 50px;}
+.management-list-box{ width: 100%;}
+.management-column{ width: 100%;}
+.management-column-box{ width: 100%; height: 54px; line-height: 54px; border-bottom: 1px solid #eee; display: none;}
+.management-column-box li{ float: left;}
+.mc1{ width: 110px; padding-left: 10px;}
+.mc2{ width: 96px;}
+.mc3{ width: 124px;}
+.mc4{ width: 122px;}
+.mc5{ width: 122px;}
+.mc6{ width: 166px;}
+.mc7{ width: 90px;}
+
+.management-list{ width: 100%;}
+.management-list li{ height: 54px; line-height: 54px; color: #333; font-size: 14px; border-bottom: 1px solid #eee;}
+.management-list li a{ display: block; float: left; height: 54px; color: #333; width: 750px;}
+.management-list li span{ display: block; float: left;}
+.management-list li span.buttonHide{ display: none;}
+.management-list li span font{ display: none; cursor: pointer;}
+.management-list li:hover{ background: #4ba0f8; border-radius: 5px;}
+.management-list li:hover a{ color: #fff;}
+.management-list li:hover span font{ display: block; color: #fff; text-decoration: underline;}
+
+.sureRepayment{ padding: 0 20px;}
+.sureRepayment li{ margin-bottom: 5px; line-height: 24px; min-height: 24px; color: #333; position: relative; padding-left: 90px;}
+.sureRepayment li span{ color: #666; position: absolute; left: 0; top: 0;}
+.sureRepayment li font{ color: #f84c4b;}
+
+.shortageOverage-icon{ width: 59px; height: 59px; background: url(/public/images/icon.png) no-repeat 0 -34px; margin: 20px auto;}
+.shortageOverage-tips{ width: 100%; text-align: center; font-size: 16px; color: #333; font-weight: bold;}
+
+/* 账户流水 */
+.accountDetail-top{ border: 1px solid #eee; padding: 20px 50px; background: #fafafc; height: 35px; line-height: 35px; position: relative;}
+.accountDetail-top span{ display: block; float: left; width: 80px; font-size: 14px; color: #666; font-weight: bold;}
+.accountDetail-top ul{ float: left;}
+.accountDetail-top li{ float: left; padding: 0 10px; color: #999; font-size: 14px; margin-right: 15px; cursor: pointer;}
+.accountDetail-top li.active{ background: #eee; border-radius: 4px; color: #f76867;}
+
+.accountDetail-main{ border: 1px solid #eee; border-top: 0; background: #fff; padding: 20px 50px 30px 50px; min-height: 930px;}
+.accountDetail-tit{ width: 100%; height: 54px; border-bottom: 1px solid #eee; line-height: 54px;}
+.accountDetail-tit li{ float: left;}
+.ad1{ width: 272px; padding-left: 20px;}
+.ad2{ width: 96px;}
+.ad3{ width: 114px;}
+.ad4{ width: 102px;}
+.ad5{ width: 95px;}
+.ad6{ width: 140px;}
+
+.accountDetail-list{ width: 100%; padding-bottom: 30px;}
+.accountDetail-list li{ height: 54px; line-height: 54px; border-bottom: 1px solid #eee; color: #333; font-size: 14px;}
+.accountDetail-list li span{ display: block; float: left;}
+
+/* 个人资料 */
+.u-information{ width: 100%;}
+.u-information li{ border-bottom: 1px solid #eee; padding: 15px 0 15px 140px; position: relative; min-height: 24px; line-height: 24px;}
+.u-information li>span{ display: block; width: 110px; text-align: right; position: absolute; left: 0; top: 15px; color: #666;}
+.u-information li div{ color: #333; font-size: 14px;}
+.u-information li.bg{ background: #fcfcfc;}
+
+/* 标的详情 */
+.renderMain{ border: 1px solid #eee; background: #fff; padding: 30px 40px;}
+.renderTitle{ width: 100%; border-bottom: 1px solid #ddd; padding-bottom: 20px;}
+.renderTitle h3{ font-weight: bold;}
+.renderTitle h3 font{ background: #f76867; font-size: 12px; color: #fff; font-weight: normal; margin-left: 8px; padding: 0 10px; border-radius: 3px;}
+.renderTitle p{ color: #999; line-height: 30px;}
+.renderTitle ul{ height: 30px; line-height: 30px; margin-top: 10px;}
+.renderTitle li{ float: left; width: 260px;}
+.renderTitle li span{ color: #333;}
+
+.renderProduct{ width: 100%; border-bottom: 1px dotted #ddd; padding: 20px 0;}
+.renderProduct li{ min-height: 30px; line-height: 30px; position: relative;}
+.renderProduct li span{ position: absolute; right: 0; top: 0;}
+.renderProduct li span font{ color: #333; margin-left: 5px;}
+.renderProduct li p strong{ font-size: 16px; color: #333;}
+
+.renderProductDetail{ padding: 20px 0;}
+.renderProductDetail li{ margin-bottom: 10px;}
+.renderProductDetail li span{ color: #333; margin-left: 10px;}
+
+.renderProductInfor{ width: 100%; padding-bottom: 30px; border-bottom: 1px solid #ddd;}
+.renderProductInfor h5{ border-bottom: 1px solid #ddd; padding-bottom: 10px; font-size: 14px; color: #333; font-weight: bold; margin-bottom: 20px;}
+.renderProductInfor li{ width: 506px; height: 40px; line-height: 40px; border: 1px solid #eee; position: relative; padding: 0 20px; float: left; margin-bottom: 6px; border-radius: 5px;}
+.renderProductInfor li span{ position: absolute; right: 20px; top: 0; color: #333;}
+.renderProductInfor li.ml{ margin-left: 22px;}
+
+.backVipCenter{ width: 100%; margin: 30px 0 20px 0;}
+.backVipCenter a{ display: block; width: 140px; height: 45px; margin: 0 auto; line-height: 45px; border-radius: 5px; background: #f84c4b; text-align: center; color: #fff; font-size: 14px; cursor: pointer;}
+.backVipCenter a:hover{ background: #fb705e;}
+
+/* 项目详情 */
+.projectDetailList{ width: 100%; padding: 70px 0;}
+.projectDetailList li{ float: left; border-right: 1px solid #eee; width: 115px; padding: 15px 0 15px 70px; line-height: 20px; position: relative;}
+.projectDetailList li i{ display: block; width: 35px; height: 30px; background: url(/public/images/icon.png) no-repeat; position: absolute; left: 20px; top: 22px;}
+.projectDetailList li i.icon-interest{ background-position: 0 -111px;}
+.projectDetailList li i.icon-account{ background-position: -45px -111px;}
+.projectDetailList li i.icon-time{ background-position: -90px -111px;}
+.projectDetailList li i.icon-refunds{ background-position: -135px -111px;}
+.projectDetailList li i.icon-rate{ background-position: -180px -111px;}
+.projectDetailList li i.icon-serverMoney{ background-position: -225px -111px;}
+.projectDetailList li strong{ font-size: 18px; color: #333;}
+
+.projectInfor{ width: 100%; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 30px 0;}
+.projectOne{ width: 340px; border-right: 1px solid #eee; float: left; padding: 0 15px; margin-bottom: 30px;}
+.projectOne h5{ font-size: 14px; font-weight: bold; color: #333; padding-bottom: 15px;}
+.projectOne ul{ padding: 0 10px;}
+.projectOne li{ border-bottom: 1px solid #eee; position: relative; height: 45px; line-height: 45px;}
+.projectOne li span{ position: absolute; right: 0; top: 0; color: #333;}
+
+.projectTwo{ width: 100%; float: left; border-top: 1px solid #ddd; padding-top: 30px;}
+.projectTwo h5{ font-size: 14px; font-weight: bold; color: #333; padding-bottom: 15px;}
+.projectTwo li{  width: 506px; height: 40px; line-height: 40px; border: 1px solid #eee; position: relative; padding: 0 20px; float: left; margin-bottom: 6px; border-radius: 5px;}
+.projectTwo li span{ position: absolute; right: 20px; top: 0; color: #333;}
+.projectTwo li.ml{ margin-left: 22px;}
+
+/* 还款成功 */
+.successCenter{ background: #fff; padding: 100px 100px 30px 100px;}
+.successTop{ width: 100%;  text-align: center;}
+.successTop i{ display: block;  width: 63px; height: 63px; margin: 0 auto 20px auto;}
+.successTop i.icon-success{ width: 90px; height: 90px; background: url(/public/images/icon.png) no-repeat 0 -165px;}
+.successTop strong{ color: #333; font-size: 24px; font-weight: bold; display: block; padding-bottom: 20px;}
+
+.successTop i.icon-dealing{ background: url(https://r.mzmoney.com/mz/img/loading.gif) no-repeat; margin: 0 auto 20px auto;}
+.successTop span{ text-align: center; display: block; width: 100%; padding-bottom: 20px;}
+
+.successTop i.icon-error{ background: url(https://r.mzmoney.com/mz/img/icon_error.png) no-repeat;}
+
+.successDetail{ width: 100%; border-top: 1px solid #eee; margin: 90px 0 50px 0;}
+.successDetail li{ border-bottom: 1px solid #eee; height: 53px; line-height: 53px; position: relative; padding-left: 90px;}
+.successDetail li p{ position: absolute; left: 0; top: 0; width: 70px; text-align: right;}
+.successDetail li span{ color: #333; font-size: 14px;}
+
+/* 充值 */
+.rechargeCenter{ background: #fff;}
+.rechargeTit{ border: 1px solid #eee; background: #fafafc; height: 35px; padding: 30px 30px 0 30px;}
+.rechargeTit li{ float: left; font-size: 16px; color: #999; padding: 0 20px; margin-right: 15px; cursor: pointer; height: 31px;}
+.rechargeTit li:hover{ color: #f84c4b;}
+.rechargeTit li.active{ color: #f84c4b; border-bottom: 4px solid #f84c4b;}
+.rechargeMain{ padding: 30px 50px;}
+.rechargeBox{ width: 100%; display: none;}
+.addBankCard{
+    width: 164px; height: 159px;
+    border-radius: 4px;
+    border: 1px dashed #ddd;
+    line-height: 159px;
+    font-size: 14px;
+    padding-left: 126px;
+    color: #999;
+    background: url(https://r.mzmoney.com/mz/img/hpimg/member/bankCard/add-card.png) 92px center no-repeat;
+}
+.changeTips{ padding-bottom: 20px;}
+.bankCard{ width: 286px; border-radius: 5px; border: 2px solid #00acea;}
+.bankCardInfor{
+    padding: 20px; color: #fff;
+    background: #e75973;
+    background: -moz-linear-gradient(90deg,#e85380 0,#e65e67 100%);
+    background: -webkit-gradient(linear,left top,right top,color-stop(0%,#e85380),color-stop(100%,#e65e67));
+    background: -webkit-linear-gradient(90deg,#e85380 0,#e65e67 100%);
+    background: -o-linear-gradient(90deg,#e85380 0,#e65e67 100%);
+    background: -ms-linear-gradient(90deg,#e85380 0,#e65e67 100%);
+    background: linear-gradient(90deg,#e85380 0,#e65e67 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e85380', endColorstr='#e65e67', GradientType=0);
+}
+.bankCardInfor span{ display: block; padding-left: 25px; position: relative; font-size: 16px; padding-bottom: 15px;}
+.bankCardInfor span i{ display: block; width: 18px; height: 16px; background: url(https://r.mzmoney.com/mz/img/hpimg/member/bankCard/bank-logo.png) no-repeat; position: absolute; left: 0; top: 3px;}
+.bankCardInfor p{ color: #fff;}
+.useThis{ text-align: center; color: #00acea; padding: 10px 0;}
+.useThis i{ display: inline-block; width: 13px; height: 9px; background: url(/public/images/icon.png) no-repeat -126px 0; margin-right: 5px;}
+
+.rechargeAmount{ margin-top: 40px; border-top: 1px dotted #ddd; padding: 30px 0; height: 33px; line-height: 33px;}
+.rechargeAmount input{ border: 1px solid #ddd; width: 130px; height: 33px; line-height: 33px; margin: 0 5px 0 15px; border-radius: 3px; -webkit-appearance: none; padding: 0 10px;}
+.rechargeAmount input::-webkit-input-placeholder{ color: #ccc;}
+
+.rechargeAmount label.error {
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; padding-left: 20px; margin-left: 15px;
+}
+.rechargeAmount label.valid { background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b  }
+.sureRecharge{ padding-left: 65px; border-bottom: 1px dotted #ddd; padding-bottom: 30px;}
+.sureRecharge input{ width: 140px; cursor: pointer; height: 35px; background: #f76867; text-align: center; line-height: 35px; border: none; color: #fff; border-radius: 5px; font-size: 14px;}
+.sureRecharge .error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; padding-left: 20px; margin-bottom: 10px;
+}
+.rechargeTip{ margin-top: 30px; line-height: 24px; padding-bottom: 30px;}
+.rechargeTip span{ display: block; padding-bottom: 15px;}
+
+.OnlineBanking{ padding-bottom: 20px;}
+.OnlineBankingList li{ float: left; width: 122px; height: 56px; overflow: hidden; position: relative; margin-right: 35px; margin-bottom: 20px;}
+.OnlineBankingList li img{ display: block; width: 120px; height: 54px; border-radius: 5px; border: 1px solid #eee;}
+.OnlineBankingList li i{ display: none; width: 122px; height: 56px; position: absolute; left: 0; top: 0; z-index: 5; background: url(/public/images/icon.png) no-repeat -75px -35px; }
+.OnlineBankingList li.on i{ display: block;}
+
+.eBankCenter{ width: 100%; background: #fff; min-height: 700px;}
+.eBankCenterTitle{ border: 1px solid #eee; background: #fafafc; height: 35px; padding: 30px 30px 0 30px;font-size: 16px;}
+.eBankCenterMain{ margin: 30px; border: 3px solid #fcc27e; padding: 20px; height: 30px; line-height: 30px; font-size: 14px;}
+.eBankCenterMain .fl{ color: #000;}
+.eBankCenterSubmit{ width: 100%; height: 42px;}
+.eBankCenterSubmit input{ display: block; cursor: pointer; margin: 0 auto; width: 170px; height: 42px; line-height: 42px; border: none; background: #f04f4b; font-size: 14px; color: #fff; text-align: center; border-radius: 5px;}
+.eBankCenterBot{ padding: 40px 30px;}
+.eBankCenterBot a{ color: #333;}
+.eBankCenterBot a:hover{ color: #f04f4b;}
+
+/* 提现 */
+.withdrawMain{ background: #fff;}
+.withdrawMoney{ border: 1px solid #eee; background: #fafafc; height: 35px; padding: 30px 30px 0 30px; font-size: 16px;}
+.withdrawMoney span{ color: #f84c4b; font-weight: bold;}
+
+.writeWithdraw{ border-top: 1px dotted #ddd; border-bottom: 1px dotted #ddd; padding: 30px 0; margin-top: 40px;}
+.writeWithdraw h4{ color: #333; font-size: 16px; padding-bottom: 15px;}
+.writeWithdraw li{ margin-bottom: 5px; position: relative; padding-left: 120px; min-height: 35px; line-height: 35px; color: #333;}
+.writeWithdraw li p{ display: block; position: absolute; left: 0; top: 0; width: 110px; text-align: right; color: #666;}
+.writeWithdraw li span{ display: inline-block; float: left;}
+.writeWithdraw li input[type="text"]{ height: 33px; line-height: 33px; border: 1px solid #ddd; width: 120px; padding: 0 10px; border-radius: 5px; margin-right: 10px; float: left;}
+.writeWithdraw li input[type="text"]::-webkit-input-placeholder{ color: #ccc;}
+
+.writeWithdraw li .withdrawTips{ border: 1px solid #ddd; background: #f8f8f8; padding: 5px 10px; width: 550px; border-radius: 5px; line-height: 24px;}
+.writeWithdraw li .feeTips{ float: left; margin-top: 11px; margin-left: 20px; width: 16px; height: 16px; background: url(https://r.mzmoney.com/mz/img/hpimg/member/cashfee.jpg) no-repeat center center; position: relative;}
+.writeWithdraw li .feeTips font{ display: none; width: 320px; border: 1px solid #ddd; background: #f8f8f8; border-radius: 5px; position: absolute; bottom: 22px; left: -161px; line-height: 24px; padding: 5px 10px;}
+.writeWithdraw li .feeTips font:after{
+    content: '';
+    width: 6px; height: 5px; background: url(https://r.mzmoney.com/mz/img/hpimg/member/bg.jpg) no-repeat;
+    position: absolute; left: 50%; bottom: -5px; margin-left: -5px;
+}
+.writeWithdraw li .feeTips:hover{ background: url(https://r.mzmoney.com/mz/img/hpimg/member/cashfee-hover.jpg) no-repeat;}
+.writeWithdraw li .feeTips:hover font{ display: block;}
+.writeWithdraw li input[type="submit"]{ cursor: pointer; width: 140px; height: 37px; line-height: 37px; background: #f76867; color: #fff; font-size: 14px; text-align: center; border-radius: 5px; border: none;}
+.writeWithdraw li label.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; padding-left: 20px; margin-left: 15px;
+}
+.writeWithdraw li label.valid { background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b }
+.writeWithdraw div.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; line-height: 20px; padding-left: 20px; margin-bottom: 10px;
+}
+.withdrawMask{ width: 650px; height: 500px; position: absolute; left: 50%; top: 50%; margin: -250px 0 0 -325px; background: #fff; border-radius: 5px; z-index: 3000;}
+.withdrawMaskTit{ height: 50px; line-height: 50px; font-size: 16px; padding: 0 20px; border-bottom: 1px solid #eee; color: #333;}
+.withdrawMaskMain{ padding: 20px 0;}
+.withdrawMaskMain .form_input{ position: relative; min-height: 30px; line-height: 30px; margin-bottom: 10px; padding-left: 200px;}
+.withdrawMaskMain .form_input span.text{ display: block; width: 190px; text-align: right; position: absolute; left: 0; top: 0;}
+.withdrawMaskMain .form_input input[type='password']{ height: 28px; line-height: 28px; border: 1px solid #dcdcdc; width: 200px; padding: 0 10px; border-radius: 3px;}
+.withdrawMaskMain .form_input input[type='password']::-webkit-input-placeholder{ color: #999;}
+.withdrawMaskMain .form_input a{ color: #0099ff; margin-left: 140px;}
+.withdrawMaskMain input[type="submit"]{ width: 140px; text-align: center; height: 42px; border: none; background: #f04f4b; color: #fff; font-size: 15px; border-radius: 5px; margin-left: 200px;}
+.withdrawMaskMain li label.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; padding-left: 20px; margin-left: 15px;
+}
+.withdrawMaskMain li label.valid { background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat;  color: #53a03b  }
+.withdrawMaskMain div.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; line-height: 20px; padding-left: 20px; margin-bottom: 10px; margin-left: 200px;
+}
+
+/* 修改密码 */
+.changePasswordMain{ background: #fff; border: 1px solid #eee; min-height: 1058px;}
+.changePasswordTit{ height: 30px; line-height: 30px; padding: 15px 30px; background: #fafafc; border-bottom: 1px solid #eee; position: relative;}
+.changePasswordTit span{ font-size: 16px; color: #333; margin-right: 15px;}
+.changePasswordTit a{ position: absolute; right: 30px; top: 15px; color: #f84c4b;}
+
+.changePasswordBox{ padding: 50px;}
+.changePasswordBox li{ min-height: 42px; position: relative; padding-left: 90px; margin-bottom: 18px;}
+.changePasswordBox li span{ display: block; position: absolute; left: 0; top: 0; line-height: 42px; color: #333; width: 80px; text-align: right;}
+.changePasswordBox li input[type="password"]{ height: 40px; background: #fafafc; border: 1px solid #eee; width: 270px; padding: 0 10px; line-height: 40px;}
+.changePasswordBox li input[type="password"]::-webkit-input-placeholder{ color: #ccc;}
+.changePasswordBox li input[type="submit"]{ cursor: pointer; width: 132px; height: 40px; line-height: 42px; font-size: 15px; border: none; background: #f84c4b; color: #fff; text-align: center; border-radius: 5px; float: left;}
+.changePasswordBox li input[type="reset"]{ cursor: pointer; width: 130px; border: 1px solid #eee; height: 40px; line-height: 42px; background: none; border-radius: 5px; font-size: 15px; color: #666; margin-left: 27px; float: left;}
+.changePasswordBox li label.error {
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; padding-left: 20px; margin-left: 15px;
+}
+.changePasswordBox li label.valid { background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b  }
+.changePasswordBox div.error {
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; padding-left: 20px; margin-bottom: 5px;
+}
+.changeSuccess{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url(https://r.mzmoney.com/mz/img/hpimg/quick-loginbg.png) repeat; z-index: 1001;}
+.changeSuccessMain{
+    position: absolute; left: 50%; top: 50%; margin: -30px 0 0 -76px; padding-left: 56px;
+    border-radius: 4px; width: 96px; height: 60px; text-align: left;
+    background: url(https://r.mzmoney.com/mz/img/hpimg/member/safeCenter/edit-success.png) 25px center no-repeat #fff;
+    background-size: 21px 21px; line-height: 60px; font-size: 18px; color: #666;
+}
+
+/* 登录 */
+.loginCenter{ background: #fff; padding: 80px 0;}
+.login-left{ width: 613px; border-right: 1px solid #dcdcdc;}
+.login-right{ width: 580px;}
+.loginTitle{ text-align: center; font-size: 22px; padding: 40px 0; color: #333;}
+.loginBox{ width: 100%; color: #333; font-size: 14px;}
+.loginBox li{ height: 40px; position: relative; padding-left: 130px; margin-bottom: 15px;}
+.loginBox li p{ width: 120px; text-align: right; position: absolute; left: 0; top: 0; line-height: 40px; color: #333; font-size: 14px;}
+.loginBox li input{ width: 245px; height: 38px; line-height: 38px; border: 1px solid #dcdcdc; border-radius: 3px; padding: 0 10px 0 45px; float: left;}
+.loginBox li input::-webkit-input-placeholder{ color: #999;}
+.loginBox li input.tel{ background: url(https://r.mzmoney.com/mz/img/ico.png) no-repeat 9px -228px;}
+.loginBox li input.password{ background: url(https://r.mzmoney.com/mz/img/ico.png) no-repeat 9px -128px;}
+.loginBox li a{ color: #0099ff;}
+.loginBox li a.ml{ margin-left: 237px;}
+
+.loginBox li input.imgCode{ width: 140px; background: url(https://r.mzmoney.com/mz/img/ico.png) no-repeat 9px -433px;}
+.loginBox li img{ display: block; height: 40px; float: left; margin-left: 5px; width: 100px;}
+.loginBox li.code{ display: none;}
+
+.loginBox li label.error{
+    margin-left: 10px;
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) no-repeat left center;
+    color: #e72210;
+    padding-left: 20px;
+    height: 29px;
+    padding-top: 11px;
+    width: 100px;
+    line-height: 18px;
+    display: inline-block;
+}
+.loginBox li label.valid{
+    background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat;
+    color: #53a03b
+}
+.loginNow{ padding-left: 130px;}
+.loginNow input{ cursor: pointer; width: 300px; background: #f04f4b; border: none; height: 42px; text-align: center; color: #fff; font-size: 14px; border-radius: 5px;}
+.loginNow .error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210;
+    width: 100%;
+    padding-left: 20px;
+}
+
+/* 找回登录密码 */
+.findPasswordCenter{ padding: 50px 30px; background: #fff;}
+.findPasswordTit{ font-size: 16px; padding-bottom: 30px;}
+.findPasswordStep{ width: 810px; margin: 0 auto; position: relative; height: 100px;}
+.findPasswordStep span{ display: block; width: 540px; height: 2px; background: #c4c4c4; position: absolute; left: 135px; top: 44px;}
+.findPasswordStep span i{ display: block; height: 2px; background: #fc756c;}
+.findPasswordStep ul{ position: relative; z-index: 10;}
+.findPasswordStep li{ float: left; width: 270px; padding-top: 18px; text-align: center; font-size: 18px;}
+
+.findPasswordStep li i{ display: block; width: 50px; height: 50px; background: url(https://r.mzmoney.com/mz/img/ico_user_center.png) no-repeat; margin: 0 auto 10px auto;}
+.findPasswordStep li.fd1 i{ background-position: -10px -358px;}
+.findPasswordStep li.fd2 i{ background-position: -82px -358px;}
+.findPasswordStep li.fd3 i{ background-position: -160px -358px;}
+.findPasswordStep li.active.fd1 i{ background-position: -10px -428px;}
+.findPasswordStep li.active.fd2 i{ background-position: -82px -428px;}
+.findPasswordStep li.active.fd3 i{ background-position: -160px -428px;}
+
+.writePhoneNum{ margin: 70px auto 0 auto; width: 750px;}
+.writePhoneNum li{ height: 40px; position: relative; padding-left: 180px; margin-bottom: 15px; overflow: hidden;}
+.writePhoneNum li.sbm{ height: auto;}
+.writePhoneNum li span{ display: block; width: 170px; text-align: right; line-height: 40px; position: absolute; left: 0; top: 0;}
+.writePhoneNum li input[type="text"]{ height: 38px; line-height: 38px; border: 1px solid #ddd; border-radius: 3px; padding: 0 10px; float: left;}
+.writePhoneNum li input[type="text"]::-webkit-input-placeholder{ color: #aaa;}
+.writePhoneNum li input.phone{ width: 200px;}
+.writePhoneNum li input.imgCode{ width: 90px;}
+.writePhoneNum li input.mesCode{ width: 90px;}
+.writePhoneNum li img{ display: block; float: left; margin-left: 20px; height: 40px;}
+.writePhoneNum li a{ display: block; height: 38px; border: 1px solid #c8c8c8; background: #dcdcdc; color: #4a4a4a; width: 94px; float: left; border-radius: 5px; margin-left: 10px; line-height: 38px; text-align: center;}
+.writePhoneNum li label.error{
+    color: #e72210; padding-left: 20px; line-height: 38px; margin-left: 15px;
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) no-repeat left center;
+}
+.writePhoneNum li label.valid{
+    background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b;
+}
+.writePhoneNum li.idCode{ display: none;}
+.writePhoneNum li div.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; margin-bottom: 10px; padding-left: 20px;
+}
+
+.writePhoneNum li input[type="submit"]{ width: 124px; height: 40px; line-height: 40px; border: none; background: #fb746b; text-align: center; color: #fff; font-size: 14px; border-radius: 5px; cursor: pointer;}
+.findPasswordTis{ border-top: 1px solid #e1e1e1; margin-top: 40px; padding: 30px 0; font-size: 14px; line-height: 28px;}
+
+.newPassword{ width: 600px; margin: 50px auto 0 auto;}
+.newPassword li{ min-height: 40px; position: relative; padding-left: 180px; margin-bottom: 20px;}
+.newPassword li span{ display: block; width: 170px; text-align: right; line-height: 40px; position: absolute; left: 0; top: 0;}
+.newPassword li input{ width: 200px; height: 38px; line-height: 38px; border: 1px solid #ddd; border-radius: 3px; padding: 0 10px; float: left;}
+.newPassword li input::-webkit-input-placeholder{ color: #aaa;}
+.newPassword li input[type="submit"]{ width: 124px; height: 42px; line-height: 42px; border: none; background: #fb746b; text-align: center; color: #fff; font-size: 14px; border-radius: 5px; cursor: pointer;}
+.newPassword li label.error{
+    color: #e72210; padding-left: 20px; line-height: 38px; margin-left: 15px;
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) no-repeat left center;
+}
+.newPassword li label.valid{
+    background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b;
+}
+.newPassword li div.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; margin-bottom: 10px; padding-left: 20px;
+}
+
+.findSuccess{ width: 100%; margin: 80px auto 0 auto; text-align: center; padding-bottom: 30px;}
+.findSuccess span{ color: #2bbe00; font-size: 24px;}
+.findSuccess span i{ display: block; width: 90px; height: 90px; margin: 0 auto 20px auto; background: url(/public/images/icon.png) no-repeat 0 -165px;}
+.findSuccess p{ padding-top: 40px; font-size: 14px;}
+.findSuccess p a{ color: #0099ff;}
+
+/* 找回交易密码 */
+.sureIdentify{ width: 650px; border: 1px solid #dbdbdb; margin: 50px auto 0 auto;}
+.sureIdentifyTit{ height: 48px; line-height: 48px; border-bottom: 1px solid #dbdbdb;}
+.sureIdentifyTit i{ height: 22px; width: 22px; background: url(https://r.mzmoney.com/mz/img/icon_i.png) no-repeat; float: left; margin: 13px 8px 0 15px;}
+.sureIdentifyTit font{ color: #f04f4b;}
+.sureIdentifyBox{ padding: 20px;}
+.sureIdentifyBox li{ height: 40px; margin-bottom: 15px; position: relative; padding-left: 120px; overflow: hidden;}
+.sureIdentifyBox li.sbm{ height: auto;}
+.sureIdentifyBox li span{ display: block; width: 110px; text-align: right; position: absolute; left: 0; top: 0; line-height: 40px;}
+.sureIdentifyBox li input[type="text"]{ float: left; padding: 0 10px; height: 38px; line-height: 38px; border: 1px solid #ddd; border-radius: 3px;}
+.sureIdentifyBox li input.tel{ width: 200px;}
+.sureIdentifyBox li input.imgCode{ width: 90px;}
+.sureIdentifyBox li input.mesCode{ width: 90px;}
+.sureIdentifyBox li input.identify{ width: 200px;}
+.sureIdentifyBox li img{ display: block; height: 40px; float: left; margin-left: 20px;}
+.sureIdentifyBox li a{ display: block; height: 38px; border: 1px solid #c8c8c8; background: #dcdcdc; color: #4a4a4a; width: 94px; float: left; border-radius: 5px; margin-left: 10px; text-align: center; line-height: 38px;}
+.sureIdentifyBox li label.error{
+    color: #e72210; padding-left: 20px; line-height: 38px; margin-left: 15px;
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) no-repeat left center;
+}
+.sureIdentifyBox li label.valid{
+    background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b;
+}
+.sureIdentifyBox li div.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; margin-bottom: 10px; padding-left: 20px;
+}
+
+.sureIdentifyBox li input[type="submit"]{ width: 124px; height: 42px; line-height: 42px; border: none; background: #fb746b; text-align: center; color: #fff; font-size: 14px; border-radius: 5px; cursor: pointer;}
+
+.newPayPassword{ padding: 30px 20px 20px 20px;}
+.newPayPassword li{ min-height: 40px; margin-bottom: 15px; position: relative; padding-left: 120px;}
+.newPayPassword li span{ display: block; width: 110px; text-align: right; position: absolute; left: 0; top: 0; line-height: 40px;}
+.newPayPassword li input{ width: 200px; padding: 0 10px; height: 38px; line-height: 38px; border: 1px solid #ddd; border-radius: 3px;}
+.newPayPassword li input[type="submit"]{ width: 160px; height: 42px; line-height: 42px; border: none; background: #fb746b; text-align: center; color: #fff; font-size: 14px; border-radius: 5px; cursor: pointer;}
+.newPayPassword li label.error{
+    color: #e72210; padding-left: 20px; line-height: 38px; margin-left: 15px;
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) no-repeat left center;
+}
+.newPayPassword li label.valid{
+    background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b;
+}
+.newPayPassword li div.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; margin-bottom: 10px; padding-left: 20px;
+}
+
+.newPayPasswordTips{ padding: 0 0 30px 140px; font-size: 14px;}
+
+.dxTips{ width: 100%; padding: 30px 50px 15px 50px; line-height:30px;}
+.dxSend{ padding: 0 50px; height: 32px; margin-bottom: 20px;}
+.dxSend label.fl{ display: block; width: 50px; line-height: 32px;}
+.dxSend input{ border-radius: 3px; width: 70px; padding: 0 10px; float: left; border: 1px solid #dcdcdc; height: 30px; line-height: 30px; margin: 0 10px;}
+.dxSend a{ color: #000; display: block; float: left; width: 80px; text-align: center; height: 32px; line-height: 32px; border-radius: 3px; background: #ddd;}
+.dxSend label.error {
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210;
+    min-height: 20px;
+    padding-left: 20px;
+    margin-left: 15px;
+    line-height: 20px;
+    display: inline-block;
+    width: 100px;
+    margin-top: 5px;
+}
+.dxSend label.valid { background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b;}
+.dxSure{ padding-left: 100px;}
+.dxSure input{
+    width: 110px; height: 36px; line-height: 36px; background: #f04f4b; text-align: center; color: #fff; font-size: 14px;
+    border-radius: 5px; border: none; cursor: pointer;
+}
+.dxSure .error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.dx_error{ float: left; color: #e72210; padding-left: 10px; line-height: 32px;}
+.dxClose{ width: 30px; height: 30px; border-radius: 100%; position: absolute; right: -10px; top: -10px; background: #fff; box-shadow: 0 0 2px rgba(0,0,0,.3); text-align: center; line-height: 28px; font-size: 24px; cursor: pointer;}
+
+.changePay_step{ width: 305px; height: 30px; line-height: 30px; padding-bottom: 30px; margin: 50px auto 0 auto; background: url(https://r.mzmoney.com/mz/img/hpimg/member/safeCenter/s_step1.png) no-repeat left bottom;}
+.changePay_step li{ width: 50%; float: left; text-align: center; font-size: 14px;}
+.changePay_step li.on{ color: #f76867;}
+
+.setPay_dx{ padding: 50px 0 0 140px;}
+.uTel{ padding-bottom: 10px; font-size: 14px; line-height: 30px;}
+.setPay_dxMain li{ margin-bottom: 15px; min-height: 34px;}
+
+.setPay_dxMain li input[type="text"]{
+    height: 32px;
+    background: #fafafc;
+    border: 1px solid #eee;
+    width: 270px;
+    padding: 0 10px;
+    line-height: 32px;
+    float: left;
+}
+.setPay_dxMain li input[type="text"]::-webkit-input-placeholder{ color: #999}
+.setPay_dxMain li input#dxCode{ width: 129px;}
+.setPay_dxMain li a{ display: block; float: left; width: 130px; text-align: center; height: 32px; line-height: 32px; border: 1px solid #eee; margin-left: 10px;}
+.setPay_dxMain li a:hover{ color: #f84c4b;}
+.setPay_dxMain li input[type="submit"]{ cursor: pointer; width: 120px; height: 34px; line-height: 34px; font-size: 15px; border: none; background: #f84c4b; color: #fff; text-align: center; border-radius: 5px;}
+.setPay_dxMain li label.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210;
+    padding-left: 20px;
+    margin-left: 15px;
+    line-height: 32px;
+}
+.setPay_dxMain li label.valid { background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b;}
+.setPay_dxMain li div.error{
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.setPay_main{ padding: 50px 0 0 50px; display: none;}
+.setPay_main li{ min-height: 42px; position: relative; padding-left: 105px; margin-bottom: 18px;}
+.setPay_main li span{ display: block; position: absolute; left: 0; top: 0; line-height: 42px; color: #333; width: 90px; text-align: right;}
+.setPay_main li input[type="password"]{ height: 40px; background: #fafafc; border: 1px solid #eee; width: 270px; padding: 0 10px; line-height: 40px;}
+.setPay_main li input[type="password"]::-webkit-input-placeholder{ color: #ccc;}
+.setPay_main li input[type="submit"]{ cursor: pointer; width: 132px; height: 40px; line-height: 40px; font-size: 15px; border: none; background: #f84c4b; color: #fff; text-align: center; border-radius: 5px; float: left;}
+.setPay_main li input[type="reset"]{ cursor: pointer; width: 130px; border: 1px solid #eee; height: 40px; line-height: 42px; background: none; border-radius: 5px; font-size: 15px; color: #666; margin-left: 27px; float: left;}
+.setPay_main li label.error {
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; padding-left: 20px; margin-left: 15px;
+}
+.setPay_main li label.valid { background: url(https://r.mzmoney.com/mz/img/ico_03.png) left center no-repeat; color: #53a03b  }
+.setPay_main div.error {
+    background: url(https://r.mzmoney.com/mz/img/ico_01.png) left center no-repeat;
+    color: #e72210; min-height: 20px; padding-left: 20px; margin-bottom: 5px;
+}
+
+.payContent{ width: 620px; height: 350px; background: #fff; border-radius: 5px; position: absolute; left: 50%; top: 50%; z-index: 3000; margin: -175px 0 0 -310px;}
+.payContent-title{ border-bottom: 1px solid #eee; height: 56px; line-height: 56px; font-size: 22px; color: #333; padding: 0 20px;}
+
+
+

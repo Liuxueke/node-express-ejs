@@ -1,0 +1,198 @@
+@import "./common/s_config";
+.contain{
+    margin:20px 0 70px 0;
+    .section{
+        margin:0 auto;
+        width:1200px;
+        background: #fff;
+        .reg-contain{
+            width: 100%;
+            background: #fff;
+            font-size: 14px;
+            padding: 20px 20px 50px 20px;
+            @extend .clearfix;
+            h3{
+                padding-top: 40px;
+                padding-left: 40px;
+                text-align: left;
+                font-size: 24px;
+                color: #666666;
+            }
+            .reg-left {
+                width: 678px;
+                float: left;
+                div.input-box{
+                    margin-bottom: 15px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 14px;
+                    .title {
+                        width: 85px;
+                        height: 40px;
+                        line-height: 40px;
+                        text-align: right;
+                        display: block;
+                        float: left;
+                        font-size: 14px;
+                        color: #f76867;
+                    }
+                    .inp {
+                        margin-left: 10px;
+                        width: 300px;
+                        height: 38px;
+                        line-height: 38px\9;
+                        float: left;
+                        text-indent: 46px;
+                        border: 1px solid #dcdcdc;
+                        border-radius: 3px;
+                        -moz-border-radius: 3px;
+                        -webkit-border-radius: 3px;
+                    }
+                    .username {
+                        background: #fff url(https://r.mzmoney.com/mz/img/hpimg/register-tel.jpg) no-repeat left center;
+                    }
+                    .password {
+                        background: #fff url(https://r.mzmoney.com/mz/img/hpimg/login-password.jpg) no-repeat left center;
+                    }
+                    .piccheckcode {
+                        background: #fff url(https://r.mzmoney.com/mz/img/hpimg/img-code.jpg) no-repeat left center;
+                        width: 180px;
+                        margin-right: 20px;
+                    }
+                    .checkcode {
+                        background: #fff url(http://r.mzmoney.com/mz/img/hpimg/register-message.jpg) no-repeat left center;
+                        width: 180px;
+                        margin-right: 20px;
+                    }
+                    .pcode {
+                        border-radius: 4px;
+                        border: 1px solid #f76867;
+                        width: 100px;
+                        height: 40px;
+                        float: left;
+                        padding: 0;
+                        background: #fff;
+                        color: #f76867;
+                        font-size: 14px;
+                        &:hover{
+                            color: #fff;
+                            background: #f76867;
+                        }
+                    }
+                    span.checkbox {
+                        display: inline-block;
+                        margin-left:10px;
+                        border-radius: 4px;
+                        border: 1px solid #dddddd;
+                        width: 14px;
+                        height: 14px;
+                        background: #f4f4f4;
+                        vertical-align: middle;
+                    }
+                    .checked {
+                        width: 16px !important;
+                        height: 16px !important;
+                        border: none !important;
+                        background: url(https://r.mzmoney.com/mz/img/hpimg/checked.png) !important;
+                        -webkit-background-size: 100% 100% !important;
+                        background-size: 100% 100% !important;
+                    }
+                    #agree {
+                        display: none;
+                    }
+                    .username1 {
+                        background-color: #eeeeee;
+                        color: #333;
+                    }
+                }
+                .btn-reg {
+                    display: block;
+                    border:none;
+                    margin-left:95px;
+                    border-radius: 4px;
+                    width: 300px;
+                    height: 40px;
+                    line-height: 40px;
+                    background: #f76867;
+                    font-size: 18px;
+                    color: #fff;
+                }
+                div.error{
+                    display: inline-block;
+                    margin:0 auto 10px 95px;
+                    padding: 0 5px;
+                    border-radius: 4px;
+                    height: 20px;
+                    line-height: 20px;
+                    background: #f76867 !important;
+                    color: #fff !important;
+                }
+                .recommend-box {
+                    margin-bottom: 0px;
+                    height: 55px;
+                    line-height: 55px;
+                    color: #f76867;
+                    .recommend {
+                        cursor: pointer;
+                        text-indent: 95px;
+                        color: #f76867;
+                        i {
+                            margin-right: 8px;
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                        .showRecommend {
+                            border-top: 4px solid #f76867;
+                            border-left: 4px solid transparent;
+                            border-right: 4px solid transparent;
+                        }
+                        .hideRecommend{
+                            border-bottom: 4px solid #f76867;
+                            border-left: 4px solid transparent;
+                            border-right: 4px solid transparent;
+                        }
+                    }
+                }
+                .recommend-tel{
+                    display: none;
+                }
+            }
+            .reg-right {
+                width: 420px;
+                float: left;
+                img{
+                    margin: 5px 0 26px 0;
+                }
+                p{
+                    a {
+                        padding-left: 12px;
+                        color: #f76867;
+                    }
+                }
+            }
+        }
+    }
+}
+label.error{
+    margin-left:10px;
+    padding: 0 5px;
+    border-radius: 4px;
+    width: auto !important;
+    height: 20px;
+    line-height: 20px;
+    background: #f76867 !important;
+    color: #fff !important;
+    font-size: 12px;
+}
+.mt40{
+    margin-top:40px;
+}
+.ftColor {
+    color: #f76867;
+}
+.t-c{
+    text-align: center;
+}
+.f16{
+    font-size:16px;
+}

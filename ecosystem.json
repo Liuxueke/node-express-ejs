@@ -1,0 +1,30 @@
+{
+  "apps" : [{
+    // Application #1
+    "name"        : "mzsite",
+    "script"      : "app.js",
+    "watch"       : false,
+    "merge_logs"  : true,
+    "node_args"   : ["--harmony"],
+    "exec_mode"   : "cluster",
+    "instances"   : 4,
+    "cwd"         : "./",
+    "pid_file"    :"./pid_text.pid",
+    "autorestart" :false,
+    "max_memory_restart" : "2G",
+    "error_file":"./logs/err.log",
+    "out_file":"./logs/out.log",
+    "log_date_format" : "YYYY-MM-DD HH:mm:ss SSS",
+    "env": {
+      "NODE_ENV": "dev",
+      "AWESOME_SERVICE_API_TOKEN": "xxx"
+    },
+    "env_production" : {
+      "NODE_ENV": "production"
+    },
+    "env_staging" : {
+      "NODE_ENV" : "staging",
+      "TEST"     : true
+    }
+  }]
+}

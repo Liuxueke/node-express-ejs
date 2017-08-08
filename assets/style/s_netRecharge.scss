@@ -1,0 +1,97 @@
+.containtBox{
+    margin:20px auto 0 auto;
+    width: 1200px;
+    background: #fff;
+    .title{
+        border-bottom:1px solid #e1e1e1;
+        height:30px;
+        font-size:14px;
+        span{
+            display: inline-block;
+            padding:0 15px;
+            border-bottom:2px solid #ea544a;
+            height:30px;
+            line-height: 30px;
+            color: #ea544a;
+        }
+    }
+    .containt{
+        padding:20px;
+        .payBox{
+            border:2px solid #fcc27e;
+            height:58px;
+            p{
+                display: inline-block;
+                padding:0 20px;
+                font-size:12px;
+                line-height: 58px;
+                font-weight: bold;
+                color: #444;
+            }
+            span{
+                margin-right: 20px;
+                float: right;
+                font-size:12px;
+                line-height: 58px;
+                em{
+                    font-weight: bold;
+                }
+            }
+        }
+        form{
+            margin-top:20px;
+            text-align: center;
+            .submitBtn{
+                margin:0 auto;
+                border-radius: 4px;
+                border:none;
+                width:166px;
+                height:42px;
+                color: #fff;
+                background: #ea544a;
+                &:hover{
+                    background: #fb746b !important;
+                }
+            }
+        }
+        a{
+            &:hover{
+                color: #ea544a;
+            }
+        }
+    }
+}
+#modalBox{
+    display: none;
+    padding-top:50px;
+    text-align: center;
+    p{
+        font-size:14px;
+        line-height: 20px;
+    }
+    .btnBox{
+        a{
+            margin-top:30px;
+            margin-bottom:30px;
+            display: inline-block;
+            border-radius: 4px;
+            border:1px solid #c9c9c9;
+            width:150px;
+            height:44px;
+            text-align: center;
+            line-height: 44px;
+            color: #000;
+            font-size: 16px;
+            &:hover{
+                color: #f04f4b;
+            }
+        }
+        .finished{
+            margin-left:40px;
+        }
+    }
+    .goBackBtn{
+        font-size:14px;
+        color: #0099ff;
+    }
+}

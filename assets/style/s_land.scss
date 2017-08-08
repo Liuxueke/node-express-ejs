@@ -1,0 +1,940 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+body,html {
+    width: 100%;
+    font-family: "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+a,button,input {
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
+    -webkit-appearance: none;
+    text-decoration: none
+}
+
+em,i {
+    font-style: normal
+}
+
+blockquote,body,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,li,ol,p,pre,td,textarea,th,ul {
+    padding: 0;
+    margin: 0
+}
+
+li {
+    list-style: none
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.clearFix:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0
+}
+
+.clearFix {
+    zoom: 1
+}
+
+img {
+    border: none
+}
+
+.w100 {
+    display: block;
+    width: 100%
+}
+
+.w1160 {
+    display: block;
+    width: 1160px;
+    margin: 0 auto
+}
+
+.container {
+    position: relative;
+}
+
+.header {
+    padding: 22px 0 19px 0;
+}
+
+.header a {
+    font-size: 16px;
+    color: #666666;
+    line-height: 49px;
+    font-weight: bold;
+}
+
+.step1 {
+    background: url(https://r.mzmoney.com/topic/landing/bg_top1.png) no-repeat center center;
+    height: 637px
+}
+
+.stepbox1 {
+    padding: 82px 0;
+}
+
+.registarbox {
+    width: 258px;
+    height: 377px;
+    padding: 24px 20px 0;
+    background: rgba(123,56,50,.8);
+    background: #7b3832;
+    /*IE*/
+    position: relative;
+    z-index: 10;
+}
+
+.registarbox h3 {
+    text-align: center;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.registarbox h3 i {
+    color: #fff15b
+}
+
+.registarbox form input {
+    height: 42px;
+    border: 1px solid #a3817e;
+    background: none;
+    font-size: 14px;
+    color: #fff;
+    line-height: 42px;
+    text-indent: 12px;
+}
+
+.input-box {
+    position: relative;
+    margin-top: 12px;
+}
+
+.registarbox .input-box input {
+    width: 100%;
+}
+
+.verification-code input {
+    width: 138px;
+}
+
+.verify {
+    margin-top: 12px
+}
+
+.wrap-placeholder {
+    left: 0
+}
+
+.verification-code .verify div {
+    width: 100px;
+    height: 44px;
+}
+
+.verification-code .verify div img {
+    display: block;
+    width: 100%;
+    height: 100%
+}
+
+.verification-code input[type=button] {
+    float: right;
+    width: 100px;
+    height: 44px;
+    border: none;
+    text-indent: 0;
+    border-radius: 4px;
+    background: #ef4949;
+    text-align: center;
+    line-height: 44px;
+    font-size: 14px;
+    color: #fffefe;
+}
+
+.registarbox form .btns {
+    display: block;
+    width: 100%;
+    background: #ffd941;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ef4949;
+    margin: 20px 0 0;
+    border: none;
+    text-indent: 0
+}
+
+.radio {
+    display: inline-block;
+    vertical-align: middle;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    background: #fff;
+    text-indent: 0;
+    margin-top: 0;
+    border: 1px solid #a3817e;
+    position: relative;
+}
+
+.radio input[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    /*使input按钮在span的上一层，不加点击区域会出现不灵敏*/
+}
+
+.radio span.icon {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #782827;
+    z-index: 10
+}
+
+.agreement {
+    font-size: 12px;
+    color: #ffffff;
+    margin-left: 4px;
+}
+
+.agreement a {
+    color: #fff
+}
+
+.input-box em {
+    display: block;
+    position: absolute;
+    right: 16px;
+    top: -6px;
+    font-size: 12px;
+    color: #fff;
+    background: #eb4946;
+    height: 20px;
+    line-height: 20px;
+}
+.total-error{
+    font-size: 12px;
+    color: #fff;
+    background: #eb4946;
+    height: 20px;
+    line-height: 20px;
+}
+.verify {
+    position: relative
+}
+
+.verify em {
+    display: block;
+    position: absolute;
+    right: 130px;
+    top: -6px;
+    font-size: 12px;
+    color: #fff;
+    background: #eb4946;
+    height: 20px;
+    line-height: 20px;
+}
+#modalForm{
+    div.submit{
+        padding-top:66px;
+        .total-error{
+            position: absolute;
+            left:0;
+            top:0;
+        }
+    }
+}
+
+.mzinfo {
+    padding: 17px 0 25px
+}
+
+.mzinfo ul li {
+    width: 25%;
+    float: left;
+}
+
+.mzinfo ul li img {
+    display: block;
+    margin: 0 auto;
+}
+
+.mzinfo ul li h3 {
+    text-align: center;
+    font-size: 16px;
+    color: #555555;
+    margin-top: 22px;
+}
+
+.mzinfo ul li p {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #888888;
+    line-height: 30px;
+}
+
+.mzinfo ul li div.J_num,.mzinfo ul li div.J_num2,.mzinfo ul li div.J_num3 {
+    line-height: 30px;
+    text-align: center;
+}
+
+.mzinfo ul li div.J_num span.number-box,.mzinfo ul li div.J_num2 span.number-box,.mzinfo ul li div.J_num3 span.number-box {
+    display: inline-block;
+    color: #f76867;
+    vertical-align: middle;
+}
+
+.step2_main {
+    font-size: 32px;
+    color: #ffab37;
+    font-weight: bold;
+    text-align: center;
+    padding: 62px 0 70px 0
+}
+
+.bg-reward {
+    background: url("https://r.mzmoney.com/topic/landing/bg_reward.png") no-repeat;
+}
+
+.stepbox>ul li {
+    float: left;
+    width: 352px;
+    padding: 80px 0 0;
+    text-align: center;
+}
+
+.stepbox>ul li p {
+    font-size: 20px;
+    color: #fff;
+    line-height: 48px;
+}
+
+.stepbox>ul li h3 {
+    color: #fff32d;
+    font-size: 60px;
+    margin-top: 96px;
+}
+
+.stepbox>ul li span {
+    display: block;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.getreward {
+    width: 285px;
+    height: 60px;
+    margin: 70px auto 12px auto;
+    background: #fff;
+    font-size: 26px;
+    color: #f45b5a;
+    line-height: 60px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.stepbox>ul li h5 {
+    font-size: 18px;
+    color: #9d4700;
+    font-weight: 400;
+}
+
+.stepbox>ul li h4 {
+    font-size: 36px;
+    color: #fff32d;
+}
+
+.stepbox>img {
+    display: block;
+    margin: 0 auto;
+}
+
+.step2 {
+    background: url(https://r.mzmoney.com/topic/landing/bg_step.jpg) no-repeat center center;
+    height: 694px;
+}
+
+.step3,.rule {
+    background: #feebd0;
+}
+
+.step3_top {
+    background: url(https://r.mzmoney.com/topic/landing/bg_top2.jpg) no-repeat center center;
+    height: 143px;
+}
+
+.step3_top p {
+    font-size: 32px;
+    color: #ffab37;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 55px;
+}
+
+.probox .pro-f {
+    background: #fff;
+    border-radius: 5px;
+    width: 360px;
+    padding: 74px 0 30px;
+    position: relative;
+}
+
+.pro-f em {
+    background: url(https://r.mzmoney.com/topic/landing/bg_info.png) no-repeat center center;
+    width: 57px;
+    height: 67px;
+    position: absolute;
+    top: -12px;
+    left: 12px;
+}
+
+.pro-f em p {
+    font-size: 14px;
+    color: #ffffff;
+    margin-left: 8px;
+}
+
+.mark-new {
+    width: 198px;
+    height: 178px;
+    padding: 20px 0 0;
+    background: #ffefe5;
+    border-radius: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mark-new h4 {
+    font-size: 20px;
+    color: #555555;
+}
+
+.mark-new h3 {
+    font-size: 60px;
+    color: #fd6001;
+}
+
+.mark-new h3 i {
+    font-size: 24px;
+}
+
+.mark-new p {
+    font-size: 14px;
+    color: #888888;
+}
+
+.invest {
+    width: 263px;
+    margin: 36px auto 26px auto;
+}
+
+.invest div p {
+    font-size: 14px;
+    color: #888888;
+}
+
+.invest div p span {
+    font-size: 20px;
+    color: #555555;
+    margin-left: 4px;
+}
+
+.invest div p span i {
+    font-size: 14px;
+}
+
+.invest-time {
+    padding-left: 30px;
+    text-align: right;
+}
+
+.invest-amount {
+    padding-right: 30px;
+    text-align: left;
+    border-right: 1px solid #e1e1e1;
+}
+
+.invest-now {
+    width: 263px;
+    height: 56px;
+    margin: 0 auto;
+    border-radius: 3px;
+    background: #ffc029;
+    text-align: center;
+    line-height: 56px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: -5px 0 5px #ffecc0, 5px 0 5px #ffecc0, 0 -5px 5px #ffecc0, 0 5px 5px #ffecc0;
+    -webkit-box-shadow: -5px 0 5px #ffecc0, 5px 0 5px #ffecc0, 0 -5px 5px #ffecc0, 0 5px 5px #ffecc0;
+    -moz-box-shadow: -5px 0 5px #ffecc0, 5px 0 5px #ffecc0, 0 -5px 5px #ffecc0, 0 5px 5px #ffecc0;
+    -o-box-shadow: -5px 0 5px #ffecc0, 5px 0 5px #ffecc0, 0 -5px 5px #ffecc0, 0 5px 5px #ffecc0;
+    cursor: pointer;
+}
+
+.mark1 {
+    background: #fff;
+    border-radius: 5px;
+    padding: 36px 26px 40px 30px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.mark1 h3 {
+    font-size: 20px;
+    color: #555555;
+    line-height: 56px;
+    margin-right: 90px;
+}
+
+.mark1 div {
+    float: left;
+    margin-right: 80px
+}
+
+.mark1 div h4 {
+    text-align: center;
+    font-size: 24px;
+    color: #fd6001;
+}
+
+.mark1 div h4 i {
+    font-size: 14px;
+}
+
+.mark1 div p {
+    font-size: 14px;
+    color: #888888;
+}
+
+.mark1 div span {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    color: #555555;
+    padding-top: 5px;
+}
+
+.mark1 div span i {
+    font-size: 14px;
+}
+
+.mark1 div.right-now {
+    margin-right: 0;
+    width: 162px;
+    height: 56px;
+    text-align: center;
+    line-height: 56px;
+    font-size: 18px;
+    color: #fff;
+    background: #ffc029;
+    border-radius: 3px;
+    box-shadow: -5px 0 5px #ffecc0, 5px 0 5px #ffecc0, 0 -5px 5px #ffecc0, 0 5px 5px #ffecc0;
+    -webkit-box-shadow: -5px 0 5px #ffecc0, 5px 0 5px #ffecc0, 0 -5px 5px #ffecc0, 0 5px 5px #ffecc0;
+    -moz-box-shadow: -5px 0 5px #ffecc0, 5px 0 5px #ffecc0, 0 -5px 5px #ffecc0, 0 5px 5px #ffecc0;
+    -o-box-shadow: -5px 0 5px #ffecc0, 5px 0 5px #ffecc0, 0 -5px 5px #ffecc0, 0 5px 5px #ffecc0;
+    cursor: pointer;
+}
+
+.mark1 a {
+    position: absolute;
+    top: 77px;
+    left: 26px;
+}
+
+.mark1 a img {
+    width: 13px;
+    height: 20px;
+    display: block;
+    float: left
+}
+
+.mark1 a p {
+    font-size: 12px;
+    color: #edbc6b;
+    line-height: 20px;
+    float: left;
+    margin-left: 5px;
+}
+
+.rule {
+    padding: 60px 0;
+}
+
+.rule_main p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #9d4700;
+    padding-top: 17px;
+}
+
+.rule_main ul {
+    padding-top: 18px;
+}
+
+.rule_main li {
+    position: relative;
+    font-size: 18px;
+    color: #9d4700;
+    margin-left: 18px;
+    line-height: 30px;
+}
+
+.rule_main span {
+    position: absolute;
+    top: -1px;
+    left: -18px;
+}
+
+.aboutUs-box {
+    padding: 40px 0 40px 0;
+    width: 100%;
+    background-color: #1f2b3c;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li {
+    width: 120px;
+    text-align: right;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li .top-title {
+    padding-bottom: 8px;
+    /*width:208px;*/
+    text-align: center;
+    color: #fff;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li a {
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size:14px;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li a:hover {
+    color: #f76867;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li.connect-us {
+    padding-left: 74px;
+    width: 335px;
+    text-align: right;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li.connect-us p {
+    padding: 15px 0px 0px 0px;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li.connect-us p.tel {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li.connect-us p.people-work-time {
+    padding-top: 0px !important;
+    font-size: 14px;
+    color: #fff;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li.connect-us p.address {
+    font-size: 12px;
+    color: #fff;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li.download-app {
+    margin-left: 40px;
+    margin-right: 0px !important;
+    width: 120px;
+}
+
+.aboutUs-box .aboutUs-innerBox ul li.download-app p {
+    margin-top: 2px;
+    width: 120px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    line-height: 24px;
+}
+
+.footer {
+    border-top: 1px solid #364861;
+    width: 100%;
+    min-width: 1200px;
+    height: 119px;
+    background-color: #1f2b3c;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer .footer-inner-box {
+    text-align: center;
+    height: 100%;
+}
+
+.footer .footer-inner-box span {
+    display: block;
+    width: 100%;
+    min-width: 1200px;
+    height: 64px;
+    line-height: 64px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.footer .footer-inner-box p {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.footer .footer-inner-box p a {
+    margin-right: 25px;
+    display: inline-block;
+    width: 65px;
+    height: 24px;
+}
+
+.footer .footer-inner-box p a.middle-logo {
+    width: 45px !important;
+    height: 45px !important;
+    margin-top: -5px !important;
+}
+
+.footer .footer-inner-box p a.footer-img-last {
+    margin-right: 0 !important;
+}
+
+.footer .footer-inner-box p a img {
+    margin-top: 0px !important;
+    width: 100%;
+    height: 100% !important;
+}
+
+.dialog {
+    position: absolute;
+    top: 0
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    background: rgba(0,0,0,.6);
+    background: #000\9;
+    /*IE*/
+    filter: alpha(opacity=50);
+    /*IE*/
+}
+
+.dialogbox {
+    width: 626px;
+    height: 554px;
+    background: url("https://r.mzmoney.com/topic/landing5/bg_dialog.png") no-repeat;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.dialogbox h3 {
+    text-align: center;
+    font-size: 30px;
+    color: #444444;
+    line-height: 75px;
+}
+
+.dialogbox h3 i {
+    color: #ef4949;
+}
+
+.close {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    cursor: pointer;
+}
+
+.dialogbox form {
+    padding-top: 20px
+}
+
+.dialogbox form>div {
+    width: 400px;
+    height: 42px;
+    margin: 0 auto 10px auto;
+}
+
+.dialog-input input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    text-indent: 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 42px
+}
+
+.dialog-verify input {
+    width: 248px;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    text-indent: 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 42px
+}
+
+.dialog-verify div {
+    width: 138px;
+    height: 42px;
+}
+
+.dialog-verify div img {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.dialog-verify input[type=button] {
+    width: 138px;
+    height: 42px;
+    background: #ef4949;
+    text-align: center;
+    line-height: 42px;
+    font-size: 14px;
+    color: #fffefe;
+    border-radius: 5px;
+}
+
+.btn-registar {
+    display: block;
+    width: 400px;
+    height: 76px;
+    background: #ffc029;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 76px;
+    font-size: 30px;
+    color: #ef4949;
+    font-weight: bold;
+    border: none
+}
+
+.dialogbox form>div.radio {
+    width: 14px;
+    height: 14px;
+}
+
+.dialog-verify em {
+    right: 160px;
+}
+
+.hide {
+    display: none
+}
+
+.hidden {
+    display: none!important;
+}
+
+.dialogbox form>div.submit {
+    position: relative;
+    height: auto
+}
+
+#ifagree2,#ifagree {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    line-height: 20px
+}
+
+.radio {
+    border: none
+}
+
+#foragree,#foragree1 {
+    width: 14px;
+    height: 14px
+}
+
+.input-box input:focus,.verify input[type=text]:focus {
+    border: 1px solid #eb4946
+}
+
+.dialogbox .input-box span.wrap-placeholder {
+    width: 400px !important;
+}
+input[type=checkbox]{
+    display: none;
+}
+.checkbox{
+    display: inline-block;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 14px;
+    height: 14px;
+    background: #f4f4f4;
+    vertical-align: middle;
+}
+.checked{
+    display: inline-block;
+    background: #f4f4f4;
+    vertical-align: middle;
+    width: 16px!important;
+    height: 16px!important;
+    border: none!important;
+    background: url(https://r.mzmoney.com/mz/img/hpimg/checked.png)!important;
+    background-size: 100% 100%!important;
+}
+.mask_Tips{ width: 100%; height: 100%; position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 9999;}
+.mask_Tips_bg{ width: 100%; height: 100%; background: #000; filter: alpha(opacity=70); background: rgba(0,0,0,0.7); position: absolute; left: 0; top: 0; bottom: 0;}
+.mask_Tips_center{ width: 700px; height: 30px; line-height: 30px; border-radius: 5px; background: #fff; text-align: center; padding: 40px 0; font-size: 16px; color: #000; position: absolute; left: 50%; top: 50%; z-index: 10000; margin: -55px 0 0 -350px;display: none;}

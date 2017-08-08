@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/public/css/common/s_nav.min.css">
+<div class="topBar-box">
+
+</div>
+<div class="two-dimension-code-box">
+    <div class="two-dimension-code">
+        <span class="two-dimension-code-img">
+            <img src="https://r.mzmoney.com/mz/img/right-fixed_er.png" alt="">
+        </span>
+    </div>
+</div>
+<div class="nav-box">
+    <div class="nav-innerBox">
+        <a href="/">
+            <span class="logo"></span>
+        </a>
+        <div class="nav fr">
+            <ul class="clearfix fs16">
+                <% config['nav'].forEach(function (item,index) {%>
+                    <li <% if(index == activeIndex){ %>class="navActive"<% } %>>
+                        <a  href=<%= item.src %> ><%= item.content %></a>
+                    </li>
+                <%})%>
+            </ul>
+            <em class="border-btm"></em>
+        </div>
+    </div>
+</div>
+<script src="/public/js/common/s_nav.js"></script>

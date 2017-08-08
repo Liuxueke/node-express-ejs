@@ -1,0 +1,164 @@
+<link rel="stylesheet" href="/public/css/common/s_productList.min.css">
+<div class="productBox">
+    <ul>
+        <% if(activeIndex==1){ %>
+        <li class="onlyNew">
+            <img src="https://r.mzmoney.com/mz/img/hpimg/productList/newOnly.jpg" alt="">
+        </li>
+        <% } %>
+        <% newProductList.forEach(function (item){ %>
+        <li class="productBox <% if(item.sell == -1){ %>not-begin<% }else if(item.sell == 1){ %>sellWell<% } %>">
+            <input type="hidden" class="surplusInvestAmount" value="<%= item.surplusInvestAmount %>">
+            <input type="hidden" class="cut-time" value=<%= item.countDown %>>
+            <div class="product-box fl">
+                <h3 class="product-name fl" <% if(!item.activitys){ %>style="margin-top: 12px;" <% } %> ><%= item.productName %></h3>
+                <% if(item.activitys){ %>
+                <a href="<%= item.activitys.activityUrl %>" class="activity" target="_blank"><%= item.activityTitle.activityTitle %></a>
+                <% } %>
+            </div>
+            <div class="fl">
+                <p class="colred firstLine fs24">
+                    <font class="fs20"><%= item.minYearIncome %>%</font>
+                    <% if(item.incomePlus){ %>
+                    +<font class="fs16"><%= item.incomePlus %>%</font>
+                    <% } %>
+                </p>
+                <p class="fs14 secondLine">预期年化收益</p>
+            </div>
+            <div class="fl">
+                <p class="firstLine fs20"><%= item.partInvestAmount %>元</p>
+                <p class="fs14 secondLine">起投金额</p>
+            </div>
+            <div class="fl">
+                <p class="firstLine fs20"><%= item.interestLimitDes %><%= item.interestLimitType %></p>
+                <p class="fs14 secondLine">投资期限</p>
+            </div>
+            <% if(item.tip == 2){ %>
+            <div class="progress fl">
+                <p class="experience fs14">体验虚拟投资<br>本金我出，利息归您</p>
+            </div>
+            <% }else{ %>
+            <% if(item.sell == -1){ %>
+            <div class="progress fl">
+                <div class="progress-line-box">
+                    <p class="progress-line fl">
+                    </p>
+                    <span class="fr fs14"></span>
+                </div>
+                <p class="progress-text fs14 cut-down">距离开始00:00:00</p>
+            </div>
+            <% }else{ %>
+            <div class="progress fl">
+                <div class="progress-line-box">
+                    <p class="progress-line fl">
+                        <% if(item.sell != 1){ %>
+                        <em><i></i></em>
+                        <% } %>
+                    </p>
+                    <span class="fr fs14"><%= item.progress %>%</span>
+                </div>
+                <p class="progress-text fs14 secondLine">剩余投资<%= item.surplusInvestAmount %>元</p>
+            </div>
+            <% } %>
+            <% } %>
+            <div class="btn fr">
+                <% if(item.sell == 0 ){ %>
+                <a href="/detail/<%= item.productId %>" target="_blank" class="fs20">立即抢购</a>
+                <% }else if(item.sell == 1){ %>
+                <a class="disabled" href="/detail/<%= item.productId %>" target="_blank" class="fs20">已售罄</a>
+                <% }else{ %>
+                <a class="disabled" href="/detail/<%= item.productId %>" target="_blank" class="fs20">了解详情</a>
+                <% } %>
+            </div>
+            <!--新手标icon-->
+            <% if(item.tip == 1){ %>
+            <span class="icon fs14 news">新手专享</span>
+            <% } %>
+            <% if(item.tip == 2){ %>
+            <span class="icon fs14 taste">体验金</span>
+            <% } %>
+        </li>
+        <% })%>
+        <li class="nothing"></li>
+        <% if(activeIndex==1){ %>
+        <li class="onlyNew">
+            <img src="https://r.mzmoney.com/mz/img/hpimg/productList/hotSale.jpg" alt="">
+        </li>
+        <% } %>
+        <% productList.forEach(function (item){ %>
+        <li class="productBox <% if(item.sell == -1){ %>not-begin<% }else if(item.sell == 1){ %>sellWell<% } %>">
+            <input type="hidden" class="surplusInvestAmount" value="<%= item.surplusInvestAmount %>">
+            <input type="hidden" class="cut-time" value=<%= item.countDown %>>
+            <div class="product-box fl">
+                <h3 class="product-name fl" <% if(!item.activitys){ %>style="margin-top: 12px;" <% } %> ><%= item.productName %></h3>
+                <% if(item.activitys){ %>
+                <a href="<%= item.activitys.activityUrl %>" class="activity" target="_blank"><%= item.activityTitle.activityTitle %></a>
+                <% } %>
+            </div>
+            <div class="fl">
+                <p class="colred firstLine fs24">
+                    <font class="fs20"><%= item.minYearIncome %>%</font>
+                    <% if(item.incomePlus){ %>
+                    +<font class="fs16"><%= item.incomePlus %>%</font>
+                    <% } %>
+                </p>
+                <p class="fs14 secondLine">预期年化收益</p>
+            </div>
+            <div class="fl">
+                <p class="firstLine fs20"><%= item.partInvestAmount %>元</p>
+                <p class="fs14 secondLine">起投金额</p>
+            </div>
+            <div class="fl">
+                <p class="firstLine fs20"><%= item.interestLimitDes %><%= item.interestLimitType %></p>
+                <p class="fs14 secondLine">投资期限</p>
+            </div>
+            <% if(item.sell == -1){ %>
+            <div class="progress fl">
+                <div class="progress-line-box">
+                    <p class="progress-line fl">
+                    </p>
+                    <span class="fr fs14"></span>
+                </div>
+                <p class="progress-text fs14 cut-down">距离开始00:00:00</p>
+            </div>
+            <% }else{ %>
+            <div class="progress fl">
+                <div class="progress-line-box">
+                    <p class="progress-line fl">
+                        <% if(item.sell != 1){ %>
+                        <em><i></i></em>
+                        <% } %>
+                    </p>
+                    <span class="fr fs14"><%= item.progress %>%</span>
+                </div>
+                <p class="progress-text fs14 secondLine">剩余投资<%= item.surplusInvestAmount %>元</p>
+            </div>
+            <% } %>
+            <div class="btn fr">
+                <% if(item.sell == 0 ){ %>
+                <a href="/detail/<%= item.productId %>" target="_blank" class="fs20">立即抢购</a>
+                <% }else if(item.sell == 1){ %>
+                <a class="disabled" href="/detail/<%= item.productId %>" target="_blank" class="fs20">已售罄</a>
+                <% }else{ %>
+                <a class="disabled" href="/detail/<%= item.productId %>" target="_blank" class="fs20">了解详情</a>
+                <% } %>
+            </div>
+            <% if(item.tip == 3){ %>
+            <span class="icon fs14 news">本月畅销</span>
+            <% } %>
+            <% if(item.tip == 4){ %>
+            <span class="icon fs14 taste">会员专享</span>
+            <% } %>
+        </li>
+        <% }) %>
+        <li>
+            <a href='<% if(activeIndex==0){ %>/list<% }else{ %>javascript:;<% } %>' class="lookmore fs16">查看更多理财产品 ＞</a>
+        </li>
+    </ul>
+</div>
+<% if(activeIndex==1){ %>
+    <div id="paginationBox">
+        <% include pagination.html %>
+    </div>
+<% } %>
+<script src="/public/js/common/s_productList.js"></script>

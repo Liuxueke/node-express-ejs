@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="/public/css/common/s_findPassword.min.css">
+<% include ../../common/nav.html %>
+<div class="section_w">
+    <div class="p20">
+        <p class="f16">
+            您正在为账户 <span class="fb"><%= page.loginInfo.mobile.substr(0,3) %>****<%= page.loginInfo.mobile.substr(7,4) %></span>，找回交易密码
+        </p>
+        <div class="trans_pwd">
+            <div class="trans_pwd1">
+                <span class="ml100 step step1 on"></span>
+                <span class="step step_line on"></span>
+                <span class="step step_line on"></span>
+                <span class="step step2 on"></span>
+                <span class="step step_line on"></span>
+                <span class="step step_line on"></span>
+                <span class="step step3 on"></span>
+            </div>
+            <div class="trans_pwd2 t-c mt15">
+                <ul>
+                    <li>
+                        <p class="f14">手机验证</p>
+                    </li>
+                    <li>
+                        <p class="f14">重置密码</p>
+                    </li>
+                    <li>
+                        <p class="f14">重置成功</p>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="trans_pwd_form mt30">
+            <div class="title">
+                <img src="https://r.mzmoney.com/mz/img/icon_i.png" class="inline mr5 ml15">您正在使用<span class="red">“短信验证码+身份验证”</span>进行找回交易密码
+            </div>
+            <div class="user-center-form w500 m-c f14 mt60">
+                <img src="https://r.mzmoney.com/mz/img/userCenter/success.png" class="fl ml100"> <span class="f26 ml15 color_green" style="position:relative;top:20px;">交易密码重置成功！</span>
+            </div>
+            <div class="t-c pb50 mt30">
+                <a href="/member" class="btn btn-default m-c">返回个人中心（<span id="time">6</span>秒后自动返回）</a>
+            </div>
+        </div>
+
+
+        <div class="pt20">
+            <hr style="border:1px solid #e1e1e1;" class="mt30">
+        </div>
+        <div class="f14 pl10 lh25 pt10">
+            <p>· 如果您注册绑定的手机未在使用或已挂失，请申请人工处理！</p>
+            <p>· 申请人工审核、解决密码找回、修改手机、修改邮箱问题！</p>
+            <p>· 人工审核需要两个小时（工作时间8:30 - 21:00，非工作时间提交后48小时），请耐心等待。</p>
+
+        </div>
+    </div>
+</div>
+<% include ../../common/footer.html %>
+<script src="/public/js/s_findPayPasswordSuccess.js"></script>

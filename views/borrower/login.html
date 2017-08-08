@@ -1,0 +1,39 @@
+<% include common/header.html %>
+<div class="container w1200 clearFixed margin_top_bottom40">
+    <div class="loginCenter clearFixed">
+        <div class="login-left fl"><img src="https://r.mzmoney.com/mzuploads/p_a_dadvertising/201703/ed12267cf8e748cebe6b4d9e90c0c50e.jpg" /></div>
+        <div class="login-right fr">
+            <div class="loginTitle">登录</div>
+            <div class="loginBox">
+                <form id="login" autocomplete="off" novalidate="novalidate">
+                    <div class="login-form">
+                        <ul>
+                            <li class="input-box">
+                                <p>账号</p>
+                                <input type="text" placeholder="用户名/手机" class="tel inp username" name="username" id="username">
+                            </li>
+                            <li class="input-box">
+                                <p>密码</p>
+                                <input type="password" placeholder="请输入密码" class="inp password" name="password" id="password">
+                            </li>
+                            <li class="code input-box">
+                                <p>验证码</p>
+                                <input type="text" placeholder="请输入验证码" class="imgCode inp checkcode" name="graphCode" id="graphCode">
+                                <img src="/getImg" onclick="this.src='/getImg?t='+Math.random()" width="100px" height="40px" class="fl img-code">
+                            </li>
+                            <li class="input-box no-margin">
+                                <a href="/borrower/findLoginPassword/index" class="ml">忘记密码？</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="loginNow"><input type="submit" value="立即登录" name="submit" id="submit"></div>
+                </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<% include common/footer.html %>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="/public/js/common/common.utils.js"></script>
+<script src="../../public/js/borrower/login.js"></script>

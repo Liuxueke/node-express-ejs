@@ -1,0 +1,23 @@
+<h3 class="mj_h3"><span class="fr f14">显示前<%= investRecord.investCount %>条</span>投资记录</h3>
+<div class="pt10">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_jl">
+        <tbody>
+        <tr class="table_head">
+            <td width="14%">投资用户 </td>
+            <td width="17%">投资金额</td>
+            <td width="29%">投资时间</td>
+            <td width="25%">状态</td>
+        </tr>
+        <% investRecord.list.forEach(function (item,index){ %>
+        <tr class="<% if(index%2==0){ %>even<% }else{ %>odd<% } %>">
+            <td>
+                <%- item.userName?item.userName:'***' %>
+            </td>
+            <td><%= item.amount %>元</td>
+            <td><%= item.createTime %></td>
+            <td><img src="https://r.mzmoney.com/mz/img/hpimg/productDetail/yes.png" class="img_j" width="15" height="12">投资成功</td>
+        </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</div>

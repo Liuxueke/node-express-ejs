@@ -1,0 +1,258 @@
+<link rel="stylesheet" href="/public/css/s_investmentDetail.min.css">
+<% include ../../common/nav.html %>
+<div class="containt-box">
+    <% include ../../common/memberLeftNav.html %>
+    <div class="user-right wth988 border">
+        <div class="user-wrapper">
+            <div class="bread_crumbs">
+                <div class="title title_hp2">
+                    <span class="borderNone">
+                        <% if(type==0){ %>
+                            未成标详情
+                        <% }else if(type==1){ %>
+                            投标中详情
+                        <% }else if(type==2){ %>
+                            待回款详情
+                        <% }else if(type==3){ %>
+                            已回款详情
+                        <% } %>
+                    </span>
+                </div>
+            </div>
+            <% if(!error){ %>
+            <div class="p20">
+                <div class="table_default table_style2">
+                    <table width="100%" border="1" bordercolor="#e5e5e5" class="mt20">
+                        <tbody>
+                            <tr>
+                                <td class="left">订单号 </td>
+                                <td>
+                                    <% if(type==0 || type==1){ %>
+                                        <%= investDetail.partId %>
+                                    <% }else{ %>
+                                        <%= investDetail.noOrder %>
+                                    <% } %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="left">产品名称</td>
+                                <td><%= investDetail.productName %></td>
+                            </tr>
+                            <tr>
+                                <td class="left">年化收益率</td>
+                                <td>
+                                    <span class="color_base"><%= investDetail.yearIncome %>%</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="left">投资期限</td>
+                                <td><%= investDetail.interestLimit %>天</td>
+                            </tr>
+                            <tr>
+                                <td class="left">投资金额</td>
+                                <td class="color_base">
+                                    <%= investDetail.mergePrincipal+investDetail.discountAmount+investDetail.virtualPrincipal %>
+                                    <% if(investDetail.discountAmount!=0 || investDetail.virtualPrincipal!=0){ %>
+                                    (
+                                    <% if(investDetail.passbookId){ %>
+                                    <% if(investDetail.passbookType==2){ %>
+                                    抵价券
+                                    <% }else if(investDetail.passbookType==3){ %>
+                                    优惠券
+                                    <% }else if(investDetail.passbookType==4){ %>
+                                    现金红包
+                                    <% }else if(investDetail.passbookType==5){ %>
+                                    提现券
+                                    <% }else if(investDetail.passbookType==6){ %>
+                                    加息券
+                                    <% } %>
+                                    优惠:<%= investDetail.discountAmount %>
+                                    <% } %>
+                                    <% if(investDetail.discountAmount!=0 && investDetail.virtualPrincipal!=0){ %>、<% } %>
+                                    <% if(investDetail.virtualPrincipal!=0){ %>
+                                    虚拟本金：<%= investDetail.virtualPrincipal %>
+                                    <% } %>
+                                    )
+                                    <% } %>
+                                    元
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="left">实付金额</td>
+                                <td><%= investDetail.mergePrincipal %>元</td>
+                            </tr>
+                            <% if(type==1 || type==2 || type==3){ %>
+                                <tr>
+                                    <td class="left">
+                                        <% if(type==1 || type==2){ %>
+                                        预估总收益
+                                        <% } %>
+                                        <% if(type==3){ %>
+                                        总收益
+                                        <% } %>
+                                    </td>
+                                    <td class="color_base"><%= investDetail.mergeTotalInterest %>元</td>
+                                </tr>
+                                <tr>
+                                    <td class="left">产品收益</td>
+                                    <td><%= investDetail.productIncome %>元</td>
+                                </tr>
+                                <tr>
+                                    <td class="left">优惠券收益</td>
+                                    <td><%= investDetail.addInterest %>元</td>
+                                </tr>
+                                <tr>
+                                    <td class="left">会员加息收益</td>
+                                    <td><%= investDetail.interestPlus %>元</td>
+                                </tr>
+                                <tr>
+                                    <td class="left">还款方式</td>
+                                    <td><%= investDetail.incomeWayName %></td>
+                                </tr>
+                                <% if(type==2){ %>
+                                    <tr>
+                                        <td class="left">预计回款日</td>
+                                        <td><%= new Date(investDetail.endPartInterestCycle).getFullYear() %>-<%= new Date(investDetail.endPartInterestCycle).getMonth()+1 %>-<%= new Date(investDetail.endPartInterestCycle).getDate()+1 %></td>
+                                    </tr>
+                                <% } %>
+                                <% if(type==3){ %>
+                                <tr>
+                                    <td class="left">回款日</td>
+                                    <td><%= new Date(investDetail.endPartInterestCycle).getFullYear() %>-<%= new Date(investDetail.endPartInterestCycle).getMonth()+1 %>-<%= new Date(investDetail.endPartInterestCycle).getDate()+1 %></td>
+                                </tr>
+                                <% } %>
+                                <tr>
+                                    <td class="left">
+                                        <% if(type==1 || type==2){ %>
+                                        预估应收本息
+                                        <% } %>
+                                        <% if(type==3){ %>
+                                        已收本息
+                                        <% } %>
+                                    </td>
+                                    <td><%= investDetail.mergeTotalInterest+investDetail.mergePrincipal %>元</td>
+                                </tr>
+                           <% } %>
+                            <% if(type==0){ %>
+                                <tr>
+                                    <td class="left">投资时间</td>
+                                    <td><%= investDetail.createTime %></td>
+                                </tr>
+                            <% } %>
+                            <tr>
+                                <td class="left">状态</td>
+                                <td class="color_green"><%= investDetail.statusName %></td>
+                            </tr>
+                            <tr>
+                                <td class="left">协议</td>
+                                <td>
+                                    <% if(investDetail.list){ %>
+                                    <% investDetail.list.forEach(function (item,index){ %>
+                                    <span class="color_blue"><a href="/agree/product?productId=<%= investDetail.productId %>&agreeId=<%= item.agreeId %>&partId=<%= investDetail.noOrder %>" target="_blank">《<%= item.agreeName %>》</a></span>
+                                    <% }) %>
+                                    <% } %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="progressBox">
+                        <div class="slineBox sline-1 light">
+                            <span class="top">投资时间</span>
+                            <p class="line">
+                                <i></i>
+                                <em></em>
+                            </p>
+                            <span class="bottom"><%= investDetail.dealTime %></span>
+                        </div>
+                        <div class="slineBox sline-2 <% if(type==2 || type==3){ %>light<% } %>">
+                            <p class="line">
+                                <span class="top <% if(type==0){ %>lightText<% } %>">
+                                    <% if(type==0){ %>
+                                        投资失败
+                                    <% }else{ %>
+                                        投标成功
+                                    <% } %>
+                                </span>
+                                <em <% if(type==0){ %>class="light"<% } %>></em>
+                                <i <% if(type==0){ %>class="light"<% } %>></i>
+                                <em></em>
+                                <% if(type==0){ %>
+                                    <span class="bottom fail lightText">实际金额与优惠券会返回至您的账户</span>
+                                <% }else{ %>
+                                    <span class="bottom">
+                                        <% if(type==1){ %>
+                                            (募集期内)
+                                        <% }else if(type==2){ %>
+                                            <% if(investDetail.updateTime){ %>
+                                                <%= investDetail.updateTime %>
+                                            <% } %>
+                                        <% } %>
+                                    </span>
+                                <% } %>
+                            </p>
+                        </div>
+                        <div class="slineBox sline-3 <% if((new Date(investDetail.startPartInterestCycle).getTime())<(investDetail.nowTime)){ %>light<% } %>">
+                            <span class="top">开始计息</span>
+                            <p class="line">
+                                <em></em>
+                                <i></i>
+                                <em></em>
+                            </p>
+                            <span class="bottom">
+                                <% if(type==1){ %>
+                                    (投标成功的第二天)
+                                <% } %>
+                                <% if(type==2 || type==3){ %>
+                                    <% if((new Date(investDetail.startPartInterestCycle).getTime())>(investDetail.nowTime)){ %>预计<% } %>
+                                    <%= investDetail.startPartInterestCycle %>
+                                <% } %>
+
+                            </span>
+                        </div>
+                        <div class="slineBox sline-4 <% if(type==3){ %>light<% } %>">
+                            <span class="top">项目到期</span>
+                            <p class="line">
+                                <em></em>
+                                <i></i>
+                                <em></em>
+                                <span class="bottom">
+                                    <% if(type==2){ %>
+                                        预计<%= investDetail.endPartInterestCycle %>
+                                    <% } %>
+                                    <% if(type==3){ %>
+                                        <%= investDetail.endPartInterestCycle %>
+                                    <% } %>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="slineBox sline-5 <% if(type==3){ %>light<% } %>">
+                            <span class="top">回款到余额</span>
+                            <p class="line">
+                                <em></em>
+                                <i></i>
+                            </p>
+                            <span class="bottom">
+                                <% if(type==1){ %>
+                                    (项目到期的第二天)
+                                <% } %>
+                                <% if(type==2){ %>
+                                    预计<%= new Date(investDetail.endPartInterestCycle).getFullYear() %>-<%= new Date(investDetail.endPartInterestCycle).getMonth()+1 %>-<%= new Date(investDetail.endPartInterestCycle).getDate()+1 %>
+                                <% } %>
+                                <% if(type==3){ %>
+                                    <%= new Date(investDetail.endPartInterestCycle).getFullYear() %>-<%= new Date(investDetail.endPartInterestCycle).getMonth()+1 %>-<%= new Date(investDetail.endPartInterestCycle).getDate()+1 %>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }else{ %>
+            <div class="networkErrorBox">
+                <p>网络开小差啦，请刷新页面试试吧~</p>
+                <a href="javascript:(window.location.reload());">刷新页面</a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<% include ../../common/memberFooter.html %>

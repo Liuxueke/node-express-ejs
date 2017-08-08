@@ -1,0 +1,110 @@
+.downloadApp-box{
+    padding-left:100px !important;
+    width:328px !important;
+    margin-bottom:0 !important;
+    height: 100% !important;
+    bottom:0px !important;
+    background: url("https://r.mzmoney.com/mz/img/hpimg/data-bg.png") left 1px no-repeat;
+    h3{
+        margin-top: 21px;
+        text-align: left;
+        font-size:20px;
+        color: #666666;
+        font-weight:normal;
+        span{
+            padding-left:10px;
+            font-size:11px;
+        }
+    }
+    p{
+        text-align: left;
+        font-size: 12px;
+        color: #ccc;
+        span{
+            padding-right:5px;
+        }
+    }
+
+}
+.safe-icon{background:url("https://r.mzmoney.com/mz/img/hpimg/b-safe-icon.png") no-repeat center center !important;background-size: 100% 100%;}
+.year-icon{background:url("https://r.mzmoney.com/mz/img/hpimg/b-year-icon.png") no-repeat center center !important;background-size: 100% 100%;}
+.data-icon{background:url("https://r.mzmoney.com/mz/img/hpimg/b-data-icon.png") no-repeat center center !important;background-size: 100% 100%;}
+.news-icon{background:url("https://r.mzmoney.com/mz/img/hpimg/b-news-icon.png") no-repeat center center !important;background-size: 100% 100%;}
+.vip2-icon{ background:url("https://r.mzmoney.com/mz/img/hpimg/b-vip-icon.png") no-repeat center center !important;background-size: 100% 100%;}
+.connect-fixed{
+    position: fixed;
+    right: 10px;
+    bottom: 50px;
+    width: 60px;
+    z-index:1000;
+    .downloadFix-box,.qqFix-box,.topFix-box{
+        position: relative;
+    }
+    a{
+        background: #adadad;
+        position: relative;
+        display: block;
+        margin-bottom:1px;
+        width: 60px;
+        height: 51px;
+        cursor: default;
+        background-size:100% 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+        padding: 9px 0 0 0;
+        i{
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: 0 auto 5px auto;
+        }
+    }
+    a.download-fixed{
+        i{
+            background: url("https://r.mzmoney.com/mz/img/hpimg/download-fixed.png");
+        }
+    }
+    a.qq-fixed{
+        i{
+            background: url("https://r.mzmoney.com/mz/img/hpimg/qq-fixed.png");
+        }
+    }
+    a.toTop-fixed{
+        i{
+            background:url("https://r.mzmoney.com/mz/img/hpimg/toTop-fixed.png");
+        }
+    }
+}
+.hoverbg{
+    background: #f76867 !important;
+}
+.fixed-server-content {
+    display: none;
+    width: 105px;
+    height:auto !important;
+    background: #ea544a;
+    position: absolute;
+    right: 61px;
+    top: 1px;
+    padding: 3px 3px 5px 3px;
+    z-index:1000;
+}
+.fixed-weixin-content {
+    display: none;
+    width: 110px;
+    height: 40px;
+    color: #fff;
+    background: #ea544a;
+    position: absolute;
+    right: 51px;
+    top: 50%;
+    margin-top:-20px;
+    line-height: 20px;
+    padding-left: 10px;
+    font-size:12px;
+}
+.topFix-box{
+    visibility: hidden;
+}
+.fixed-weixin-content.hidden{ display: none!important;}

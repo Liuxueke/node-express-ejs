@@ -1,0 +1,87 @@
+.clearFixed:after{ content: ''; clear: both; display: flex; visibility: hidden; overflow: hidden; height: 0; width: 0;}
+input{ outline: none;}
+.clear{ clear: both;}
+
+.w100{ width: 100%;}
+.w1200{ width: 1200px;}
+
+.minH{ min-height: 930px;}
+
+.pd10{ padding: 10px;}
+.pd20{ padding: 20px;}
+.pd30{ padding: 30px;}
+
+.margin_auto{ margin: 0 auto;}
+.margin_top_bottom10{ margin: 10px auto;}
+.margin_top_bottom20{ margin: 20px auto;}
+.margin_top_bottom30{ margin: 30px auto;}
+.margin_top_bottom40{ margin: 40px auto;}
+.margin_top_bottom50{ margin: 50px auto;}
+
+.no-margin{ margin: 0!important;}
+.no-border{ border: none!important;}
+
+/* 头部 */
+.header{ width: 100%; background: #fff; height: 80px; border-bottom: 1px solid #ddd;}
+.logo{ margin-top: 14px;}
+.logo a{ display: block;}
+.backIndex a{ display: block; width: 98px; height: 28px; border: 1px solid #f76867; border-radius: 4px; line-height:28px; margin-top: 25px; text-align: center; color: #f76867; font-size: 14px;}
+
+/* 底部 */
+.footer{ width: 100%; background: #fff; height: 95px; text-align: center; color: #999; line-height: 24px; padding-top: 25px;}
+
+/* 左边导航栏 */
+.menu{ width: 240px; background: #fff;}
+.menuTop{
+    width: 190px; height: 82px; padding: 28px 24px 0 26px;
+    background: #fa6657;
+    background: -moz-linear-gradient(90deg,#fc8768 0,#f84d4b 100%);
+    background: -webkit-gradient(linear,left bottom,right top,color-stop(0%,#fc8768),color-stop(100%,#f84d4b));
+    background: -webkit-linear-gradient(90deg,#fc8768 0,#f84d4b 100%);
+    background: -o-linear-gradient(90deg,#fc8768 0,#f84d4b 100%);
+    background: -ms-linear-gradient(90deg,#fc8768 0,#f84d4b 100%);
+    background: linear-gradient(90deg,#fc8768 0,#f84d4b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fc8768', endColorstr='#f84d4b', GradientType=0);
+}
+.avatar{ width: 57px; height: 57px; border-radius: 100%; overflow: hidden;}
+.uInfor{ width: 115px; color: #fff; padding-top: 6px;}
+.uInfor span{ display: block; line-height: 24px; font-size: 16px; padding-bottom: 5px;}
+.uInfor p{ color: #fff;}
+
+.menuList{ width: 100%; min-height: 940px;}
+.menuList dl{ margin-top: 8px;}
+.menuList dt{ border-top: 1px solid #eee; height: 60px; line-height: 60px; font-size: 16px;}
+.menuList dt a{ display: block; color: #333; padding-left: 30px;}
+.menuList dt a i{ display: block; float: left; margin: 20px 16px 0 0; width: 19px; height: 20px; background: url(/public/images/icon.png) no-repeat;}
+.menuList dt a i.account_center0{ background-position: 0 0;}
+.menuList dt a i.account_center1{ background-position: -25px 0;}
+.menuList dt a i.account_center2{ width: 20px; height: 21px; background-position: -153px 0;}
+.menuList dt a:hover,
+.menuList dt.active a{ background: #fff5f5; border-left: 4px solid #f84c4b; padding-left: 26px;}
+.menuList dd{ height: 37px; line-height: 37px;}
+.menuList dd a{ display: block; padding-left: 66px; color: #666; font-size: 14px;}
+.menuList dd a:hover,
+.menuList dd.active a{ color: #f76867;}
+
+.main{ width: 942px;}
+
+/* 弹出框 */
+.mask{ width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: 2000; display: none;}
+.maskBg{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #000; filter:Alpha(opacity=30); background: rgba(0,0,0,0.3);}
+.maskBox{ width: 296px; padding: 26px; background: #fff; border-radius: 5px; position: absolute; left: 50%; top: 50%; margin: -10% 0 0 -179px; z-index: 3000;}
+.maskMain{ width: 480px; height:200px; position: absolute; left: 50%; top: 50%; z-index: 3000; margin: -100px 0 0 -240px; background: #fff; border-radius: 5px;}
+.maskTit{ width: 100%; color: #333; font-size: 16px; text-align: center; padding: 20px 0 25px 0;}
+.maskBottom{ width: 100%; padding: 40px 0 15px 0; height: 46px;}
+.maskBottom a{ display: block; width: 140px; float: left; text-align: center; font-size: 16px; border-radius: 5px;}
+.maskBottom a.sure{ height: 46px; line-height: 46px; background: #f84c4b; color: #fff;}
+.maskBottom a.cancel{ height: 44px; line-height: 44px; border: 1px solid #ccc; color: #333; margin-left: 14px;}
+.maskBottom a.sure:hover{ background: #fb705e;}
+.maskBottom a.cancel:hover{ color: #f76867;}
+
+.close{ width: 15px; height: 14px; background: url(/public/images/icon.png) no-repeat -53px 0; position: absolute; right: 20px; top: 20px; cursor: pointer;}
+.close:hover{ background: url(/public/images/icon.png) no-repeat -76px 0;}
+
+/* 所在位置 */
+.position{ color: #999; height: 16px; line-height: 16px; margin: 20px auto 0 auto;}
+.position a{ color: #999;}
+.position-icon{ display: block; float: left; width: 12px; height: 16px; margin-right: 8px; background: url(/public/images/icon.png) no-repeat -102px 0;}

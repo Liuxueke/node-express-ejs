@@ -1,0 +1,54 @@
+<% include ../common/header.html %>
+<div class="container w1200 clearFixed margin_top_bottom20">
+    <div class="findPasswordCenter">
+        <div class="findPasswordTit">您正在为账户 <%= baseInfo.uTel.substr(0, 3) +'****' +baseInfo.uTel.substr(7, 11) %>，找回交易密码</div>
+        <div class="findPasswordStep clearFixed">
+            <span><i style="width: 140px;"></i></span>
+            <ul>
+                <li class="active fd1"><i></i>手机验证</li>
+                <li class="fd2"><i></i>重置密码</li>
+                <li class="fd3"><i></i>重置成功</li>
+            </ul>
+        </div>
+        <div class="sureIdentify">
+            <div class="sureIdentifyTit"><i></i>您正在使用<font>“短信验证码+身份验证”</font>进行找回交易密码</div>
+            <div class="sureIdentifyBox">
+                <form method="get" action="" id="checkIdentify">
+                    <input type="hidden" value="<%= baseInfo.uTel %>" id="userTel">
+                    <ul>
+                        <li>
+                            <span>手机号码：</span>
+                            <input type="text" value="<%= baseInfo.uTel.substr(0, 3) +'****' +baseInfo.uTel.substr(7, 11) %>" class="tel" name="tel" id="tel" readonly="readonly">
+                        </li>
+                        <li>
+                            <span>图形验证码：</span>
+                            <input type="text" placeholder="请输入验证码" class="imgCode" name="imgCode" id="imgCode">
+                            <img src="/getImg" onclick="this.src='/getImg?t='+Math.random()" width="100px" height="40px" class="fl img-code">
+                        </li>
+                        <li>
+                            <span>短信验证码：</span>
+                            <input type="text" placeholder="请输入验证码" class="mesCode" name="mesCode" id="mesCode">
+                            <a href="javascript:void(0);" id="getMessCode">获取验证码</a>
+                        </li>
+                        <li>
+                            <span>身份证后8位：</span>
+                            <input type="text" placeholder="请输入身份证后8位" class="identify" name="identify" id="identify">
+                        </li>
+                        <li class="sbm"><input type="submit" value="下一步"></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="findPasswordTis">
+            <ul>
+                <li>· 如果您注册绑定的手机未在使用或已挂失，请申请人工处理！</li>
+                <li>· 申请人工审核、解决密码找回、修改手机、修改邮箱问题！</li>
+                <li>· 人工审核需要两个小时（工作时间8:30 - 21:00，非工作时间提交后48小时），请耐心等待。</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<% include ../common/footer.html %>
+<script src="/public/js/common/jquery.validate.js"></script>
+<script src="../../public/js/common/common.utils.js"></script>
+<script src="../../public/js/borrower/pay_checkPhone.js"></script>
